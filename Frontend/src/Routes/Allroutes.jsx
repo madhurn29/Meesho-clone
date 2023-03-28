@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 
 function Allroutes() {
   return (
-    <div>Allroutes</div>
-  )
+    <Routes>
+      {/* TODO: add routes here */}
+    </Routes>
+  );
 }
 
-export default Allroutes
+export default Allroutes;
