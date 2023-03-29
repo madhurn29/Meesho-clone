@@ -1,0 +1,12 @@
+.pro-filter-container{
+    display: flex;
+    gap: 20px;
+}
+.filter-component{
+    width: 15%;
+    border-right: 1px solid gray;
+
+}
+.pro-list{
+    width: 80%;
+}

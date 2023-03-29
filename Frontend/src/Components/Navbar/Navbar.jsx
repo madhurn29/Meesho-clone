@@ -5,6 +5,7 @@ import { BsFillMoonFill, BsFillSunFill } from 'react-icons/bs';
 import { AppContext } from '../../Context/Theme';
 
 import meesho from "../Images/meesho.png"
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -44,7 +45,7 @@ const Navbar = () => {
             
             <Flex as={'nav'} display={{ base: 'none', md: 'flex' }} gap='4px' w={{ base: '', md: '60%', lg: '50%' }}
               justifyContent='space-between' alignItems='center' >
-              <Text cursor='pointer'>Women </Text>
+              <Text cursor='pointer'><Link to={"/product"}>Women</Link> </Text>
               <Text cursor='pointer'>Men</Text>
               <Text cursor='pointer'>Kids</Text>
               <Text cursor='pointer'>Kitchen</Text>

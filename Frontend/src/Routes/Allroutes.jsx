@@ -1,10 +1,15 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
+import { Product } from "../Components/ProductPage/Product";
+import SingleProduct from "../Components/ProductPage/SingleProduct";
+
+
 import Address from "../Pages/Address";
 import Cartpage from "../Pages/Cartpage";
 import Payment from "../Pages/Payment";
 import Summary from "../Pages/Summary";
+
 
 import Homepage from "../Pages/Homepage";
 
@@ -19,6 +24,8 @@ function Allroutes() {
       <Route path="/cart/payment" element={<Payment />}></Route>
       <Route path="/cart/summary" element={<Summary />}></Route>
       <Route path="/" element={<Homepage/>}/>
+      <Route path="/product" element={<Product/>}/>
+      <Route path="/product/:id" element={<SingleProduct/>}/>
     </Routes>
   );
 }
