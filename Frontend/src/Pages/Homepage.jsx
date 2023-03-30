@@ -1,6 +1,7 @@
 import React from 'react'
 import { StarIcon } from '@chakra-ui/icons'
-import { Box, Button, Divider, Flex, Grid, Image, Text } from '@chakra-ui/react'
+import { Box, Divider, Flex, Grid, Image, Text } from '@chakra-ui/react'
+import { Show, Hide } from '@chakra-ui/react'
 import Home from "../Components/Images/Home.png"
 import Home2 from "../Components/Images/Home2.png"
 import Home3 from "../Components/Images/Home3.png"
@@ -82,33 +83,42 @@ const Homepage = () => {
                 <Box width={"80%"} m="auto" mt="5%" mb={"50px"}>
                     <Image src={Home3} />
                 </Box>
-
-
+                {/* <Hide breakpoint='(max-width: 400px)'>
+                    <Box>This text appears only on screens 400px and smaller.</Box>
+                </Hide> */}
+                {/* <Show above='base'>
+                    <Box>This text appears at the "sm" value screen width or greater.</Box>
+                </Show> */}
+                {/* <Hide below='md'>
+                    <Box>This text hides at the "md" value screen width and smaller.</Box>
+                </Hide> */}
 
                 <Box width="90%" m="auto" mt="5%">
-                    <Text fontSize={{ base: "10px", lg: "32px" }} fontWeight={700}>Products For You</Text>
+                    <Text fontSize={{ base: "20px", lg: "32px" }} fontWeight={700}>Products For You</Text>
 
                     <Flex justifyContent={"space-between"}>
-                        <Box width="25%" border="1px solid     black">filters</Box>
+                        < Hide breakpoint='(max-width: 450px)'>
+                            <Box width="25%" border="1px solid     black">filters</Box>
+                        </Hide>
+                        <Grid templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(3, 1fr)", lg: 'repeat(4, 1fr)' }} gap={6} width="70%">
+                            {data.map((item) => <Box box-shadow="rgba(149, 157, 165, 0.2) 0px 8px 24px" padding="15px" border="1px solid grey" borderRadius={"10px"} key={item._id}>
 
-                        <Grid templateColumns={{ sm: "repeat(1, 1fr)", md: "repeat(3, 1fr)", lg: 'repeat(5, 1fr)' }} gap={6} width="70%">
-                            {data.map((item) => <Box padding="10px" border="1px solid grey" key={item._id}>
+                                <Image width="200px" height={"200px"} margin={"auto"} src={item.src} />
 
-                                <Image width="200px" margin={"auto"}  src={item.src} />
+                                <Box padding={"5px"}>
 
-                                <Text textAlign={"lef"} color={" rgb(153, 153, 153)"} >{item.name}</Text>
+                                    <Text  color={" rgb(153, 153, 153)"} >{item.name.substring(1,20)}</Text>
+                                    <Flex textAlign={"left"} color={" rgb(153, 153, 153)"} gap="10px" >
+                                        <Text color="black" fontSize={"24px"} fontWeight={600} >₹{item.price}</Text>
+                                        <Text padding={"10px"} fontSize={"12px"}>{item.onwards}</Text>
+                                    </Flex>
+                                    <Text borderRadius={"50px"} bgColor={"rgb(249,249,249)"} color={" rgb(153, 153, 153)"} >{item.delivery}</Text>
+                                    <Flex color={" rgb(153, 153, 153)"} gap="10px" >
+                                        <Text height={"30px"} borderRadius={"50px"} padding="3px 0px 0px 13px" w="70px" bgColor={(item.rating) > 3.6 ? "rgb(35,187,117)" : "orange"} color="white">{item.rating} <span><StarIcon fontSize={"10px"} /> </span> </Text>
+                                        <Text padding={"5px"} fontSize={"15px"}>{item.review}</Text>
+                                    </Flex>
+                                </Box>
 
-                                <Flex textAlign={"left"} color={" rgb(153, 153, 153)"} gap="10px" >
-                                    <Text >₹{item.price}</Text>
-                                    <Text>{item.onwards}</Text>
-                                </Flex>
-
-                                <Text textAlign={"lef"} color={" rgb(153, 153, 153)"} >{item.delivery}</Text>
-
-                                <Flex textAlign={""} color={" rgb(153, 153, 153)"} gap="10px" >
-                                    <Text >{item.rating}{<StarIcon />}</Text>
-                                    <Text>{item.review}</Text>
-                                </Flex>
                             </Box>)}</Grid>
                     </Flex>
                 </Box>
