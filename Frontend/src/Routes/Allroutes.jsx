@@ -7,11 +7,13 @@ import SingleProduct from "../Components/ProductPage/SingleProduct";
 
 import Address from "../Pages/Address";
 import Cartpage from "../Pages/Cartpage";
+import Homepage from "../Pages/Homepage";
+// import Homepage from "../Pages/Homapage/Homepage";
 import Payment from "../Pages/Payment";
 import Summary from "../Pages/Summary";
 
 
-import Homepage from "../Pages/Homepage";
+// import Homepage from "../Pages/Homapage";
 
 
 function Allroutes() {

@@ -1,30 +1,15 @@
 import React from 'react'
-
 import { useContext } from 'react';
-// import { BsCartPlus } from 'react-icons';
-import { Box, Flex, IconButton, useDisclosure, Stack, Text, Image, Input, Button, Divider } from '@chakra-ui/react';
+import { Box, Flex, IconButton, useDisclosure, Stack, Text, Image, Input, Button, Divider, Grid } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon, Search2Icon } from '@chakra-ui/icons';
-import { BsFillMoonFill, BsFillSunFill } from 'react-icons/bs';
-import {
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-  PopoverHeader,
-  PopoverBody,
-  // PopoverFooter,
-  PopoverArrow,
-  PopoverCloseButton,
-  // PopoverAnchor,
-} from '@chakra-ui/react'
+import { Popover, PopoverTrigger, PopoverContent, PopoverHeader, PopoverBody, PopoverArrow, PopoverCloseButton, } from '@chakra-ui/react'
 import { AppContext } from '../../Context/Theme';
-
 import meesho from "../Images/meesho.png"
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-
   const [value, setvalue] = React.useState("")
-  // console.log('value: ', value);
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { Theme, ToggleTheme } = useContext(AppContext)
 
@@ -37,7 +22,6 @@ const Navbar = () => {
     backgroundColor: 'black',
     color: 'white'
   }
-  // https://dummyjson.com/products/search?q=phone
   const handlevalue = (e) => {
     setvalue(e.target.value)
     setTimeout(() => {
@@ -63,10 +47,12 @@ const Navbar = () => {
             <Flex justifyContent={"space-between"} alignItems='center' w='95%' m={'auto'} gap="10px" >
 
               <Flex gap="10px">
-                <Image h={{ base: '20px', md: '40px', lg: "40px" }} width={{ base: '100px', md: '140px', lg: "190px" }} src={meesho} />
+                <Link to="/">   <Image h={{ base: '20px', md: '40px', lg: "40px" }} width={{ base: '100px', md: '140px', lg: "190px" }} src={meesho} /></Link>
+               
 
                 <Flex gap="10px" border={"1px solid grey"}>
                   <Search2Icon color="grey" margin={"5px"} />
+                  {/* Input model */}
                   <Popover>
                     <PopoverTrigger>
                       <Button color={"none"} colorScheme="none">  <Input onChange={handlevalue} variant='unstyled' placeholder={`Try Saree,Kurta or Search by product code`} />
@@ -75,9 +61,29 @@ const Navbar = () => {
                     <PopoverContent>
                       <PopoverArrow />
                       <PopoverCloseButton />
-                      <PopoverHeader>Recent Searches!</PopoverHeader>
+
                       <PopoverHeader>Popular Searches</PopoverHeader>
-                      <PopoverBody>Saree , Tops , Kurtas,</PopoverBody>
+                      <PopoverBody>
+                        <Grid templateColumns={"repeat(3, 1fr)"} gap="10px">
+                           <Text border="1px solid black" borderRadius={"10px"} paddng="3px" padding="5px"  >
+                            smartphones
+                          </Text>
+                           <Text border="1px solid black" borderRadius={"10px"} paddng="3px"  padding="5px"  >
+                            skincare
+                          </Text>
+                           <Text border="1px solid black" borderRadius={"10px"} paddng="3px"  padding="5px" >
+                            groceries
+                          </Text>
+                           <Text  border="1px solid black" borderRadius={"10px"} paddng="3px"  padding="5px">
+                            furniture
+                          </Text>
+                           <Text  border="1px solid black" borderRadius={"10px"} paddng="3px"  padding="5px">
+                            tops
+                          </Text>
+
+
+                        </Grid>
+                      </PopoverBody>
                     </PopoverContent>
                   </Popover>
                   {/* <Input variant='unstyled' placeholder={`Try Saree,Kurta or Search by product code`} /> */}
@@ -87,27 +93,26 @@ const Navbar = () => {
 
               <Flex as={'nav'} display={{ base: 'none', md: 'flex' }} gap='23px' w={{ base: '', md: '30%', lg: '60%' }}
                 justifyContent='space-around' alignItems='center'  >
-
-                <Box >
-                  <Popover >
+                {/* Dowload button */}
+                <Box cursor='pointer'>
+                  <Popover  >
                     <PopoverTrigger>
                       <Text>Download App</Text>
                     </PopoverTrigger>
-                    <PopoverContent>
+                    <PopoverContent  width={"200px"}>
                       <PopoverArrow />
                       <PopoverCloseButton />
                       <PopoverHeader>Download From </PopoverHeader>
                       <PopoverBody>
-                        <Box>
-                          <Text>Get it on</Text>
-                          <Text>Play Store</Text>
+                        <Box  justifyContent={"space-around"}>
+                          <Image width="200px" src="https://images.meesho.com/images/pow/playstore-icon-big.webp"/>
                         </Box>
                       </PopoverBody>
                       <hr />
                       <PopoverBody>
-                        <Box>
-                          <Text>Get it on</Text>
-                          <Text>Apple Store</Text>
+                        <Box justifyContent={"space-around"}>
+                        <Image width="200px" src="https://images.meesho.com/images/pow/appstore-icon-big.webp"/>
+
                         </Box>
                       </PopoverBody>
                     </PopoverContent>
@@ -116,11 +121,11 @@ const Navbar = () => {
 
                 <Text height="50px" border={"1px solid grey"}></Text>
 
-                <Text>Become a Supplier </Text>
+                <Text cursor='pointer'>Become a Supplier </Text>
 
                 <Text height="50px" border={"1px solid grey"}></Text>
-
-                <Box zindex={1}>
+                {/* Profile button */}
+                <Box cursor='pointer' zindex={1}>
                   <Popover position="relative" zIndex={9999}>
                     <PopoverTrigger>
 
@@ -144,20 +149,15 @@ const Navbar = () => {
                   </Popover>
                 </Box>
 
-                <Text cursor='pointer'>Cart</Text>
-
-
-
+                <Link to="/cart" cursor='pointer'>Cart</Link>
               </Flex>
-
             </Flex>
-
           </Flex>
 
           {isOpen ? (
             <Box pb={4} display={{ md: 'none' }} style={Theme === 'light' ? light : dark}>
               <Stack as={'nav'} spacing={4} color='goldenrod' fontWeight='600'>
-                <Text cursor='pointer'>Womens</Text>
+                <Link to="/product" cursor='pointer'>Womens</Link>
                 <Text cursor='pointer'>Mens</Text>
                 <Text cursor='pointer'>Kids</Text>
                 <Text cursor='pointer'>Electronics</Text>
@@ -165,14 +165,14 @@ const Navbar = () => {
               </Stack>
             </Box>
           ) : null}
-          
+
         </Box>
-     
+
         <Flex style={Theme === 'light' ? light : dark} shadow='lg' position={"fixed"} width={"100%"} margin="auto" display={{ base: 'none', md: 'flex', lg: "flex" }} gap='14px' padding={"20px"} marginTop={"70px"}
           justifyContent='space-around' alignItems='center' >
-            
-          <Text cursor='pointer'>Women Ethnic </Text>
-          <Text cursor='pointer'>Women Western</Text>
+
+          <Link to="/product" cursor='pointer'>Women Ethnic </Link>
+          <Link to="/product" cursor='pointer'>Women Western </Link>
           <Text cursor='pointer'>Men</Text>
           <Text cursor='pointer'>Kids</Text>
           <Text cursor='pointer'>Home & Kitchen</Text>
