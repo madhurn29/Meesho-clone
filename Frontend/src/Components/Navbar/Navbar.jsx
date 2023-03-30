@@ -152,10 +152,6 @@ const Navbar = () => {
 
             </Flex>
 
-            <Box width='5%' padding={"2px"} mt={"10px"} justifyContent={'center'} >
-              <Text fontSize={"25px"} onClick={ToggleTheme} cursor='pointer'>{Theme === 'light' ? <BsFillMoonFill /> : <BsFillSunFill />}</Text>
-            </Box>
-
           </Flex>
 
           {isOpen ? (

@@ -19,18 +19,21 @@ export const ProductList = () => {
       let paramObj={
         params:{
           category:searchparams.getAll('category'),
-          _sort: order && "rating.rate",
+          _sort: order && "price",
         _order: order, //acs or desc
         }
       }
     dispatch(getProduct(paramObj))
     }, [location.search])
   return (
+    
     <div className={Styles.container}>
+      
         {pro.length>0 && pro.map((el)=>{
             return <Productcard key={el.id} {...el}/>
         })}
     </div>
+   
   )
 }
 
