@@ -8,16 +8,14 @@ const {
   updateProduct,
   deleteProduct,
 } = require("../Controller/product.controller");
-
-const productRouter = express.Router();
+const { adminAuth } = require("../middleware/adminAuth.middleware");
 
 //*-------all the controllers are defined in "Controller/product.controller.js"
 productRouter.get("/", getProducts);
+productRouter.use(adminAuth);
+
 productRouter.post("/add", addProduct);
 productRouter.patch("/update/:id", updateProduct);
 productRouter.delete("/delete/:id", deleteProduct);
-
-
-
 
 module.exports = { productRouter };

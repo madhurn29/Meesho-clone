@@ -1,9 +1,14 @@
 const { CartModel } = require("../Model/cart.model");
+const jwt = require("jsonwebtoken");
 
 //*--------this is to control the get cartproduct routes----------//
 const getCartProducts = async (req, res) => {
+  const token = req.headers.authorization;
+
+  const decoded = jwt.verify(token, "meesho");
+
   try {
-    const cartProducts = await CartModel.find();
+    const cartProducts = await CartModel.find({ userID: decoded.userID });
     res.status(200).send(cartProducts);
   } catch (error) {
     res.status(400).send({ error: error.message });
@@ -14,9 +19,17 @@ const getCartProducts = async (req, res) => {
 const addCartProduct = async (req, res) => {
   try {
     const data = req.body;
-    const product = new CartModel(data);
-    await product.save();
-    res.status(200).send({ message: "A new Cart product has been added" });
+    const existingProduct = await CartModel.findOne({
+      images: req.body.images,
+    });
+
+    if (existingProduct) {
+      res.status(400).send({ message: "Product already addded" });
+    } else {
+      const product = new CartModel(data);
+      await product.save();
+      res.status(200).send({ message: "A new Cart product has been added" });
+    }
   } catch (error) {
     res.status(400).send({ error: error.message });
   }

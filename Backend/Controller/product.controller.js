@@ -2,11 +2,51 @@ const { ProductModel } = require("../Model/products.model");
 
 //*--------this is to control the get product routes----------//
 const getProducts = async (req, res) => {
-  try {
-    const products = await ProductModel.find();
-    res.status(200).send(products);
-  } catch (error) {
-    res.status(400).send({ error: error.message });
+  const query = req.query;
+  const categoryQuery = {};
+  const sortQuery = {};
+  let limit = query.limit || 12;
+  let skipQuery;
+  if (query.category) {
+    categoryQuery.category = query.category;
+  }
+
+  if (query.sortBy === "price") {
+    if (query.order === "asc") {
+      sortQuery.price = 1;
+    } else if (query.order === "desc") {
+      sortQuery.price = -1;
+    }
+  } else if (query.sortBy === "rating") {
+    if (query.order === "asc") {
+      sortQuery.rating = 1;
+    } else if (query.order === "des") {
+      sortQuery.rating - 1;
+    }
+  }
+
+  if (query.page) {
+    skipQuery = (query.page - 1) * limit;
+    try {
+      const products = await ProductModel.find(categoryQuery)
+        .sort(sortQuery)
+        .skip(skipQuery)
+        .limit(limit);
+
+      const length = await ProductModel.find(categoryQuery).count();
+
+      res.status(200).send({ products, length });
+    } catch (error) {
+      res.status(400).send({ error: error.message });
+    }
+  } else {
+    try {
+      const products = await ProductModel.find(categoryQuery).sort(sortQuery);
+
+      res.status(200).send(products);
+    } catch (error) {
+      res.status(400).send({ error: error.message });
+    }
   }
 };
 
