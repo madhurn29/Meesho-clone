@@ -5,7 +5,7 @@ const productSchema = mongoose.Schema({
   rating: String,
   price: String,
   reviews: String,
-  category: String,
+  category: {type:String,isRequire:true}
 });
 
 const ProductModel = mongoose.model("Product", productSchema);
