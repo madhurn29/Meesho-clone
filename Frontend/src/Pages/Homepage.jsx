@@ -124,8 +124,8 @@ const Homepage = () => {
                     <Flex justifyContent={"space-between"}>
                         < Hide breakpoint='(max-width: 450px)'>
 
-                            <Box width="20%" >
-                                <Accordion border="1px solid     black" padding={"30px"} defaultIndex={[0]} allowMultiple>
+                            <Box  width="20%" >
+                                <Accordion border="1px solid     black" padding={"30px"} allowMultiple>
                                     {/* category */}
                                     <AccordionItem padding={"10px"}>
                                         <h2>

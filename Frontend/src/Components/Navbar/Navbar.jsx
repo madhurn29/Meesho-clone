@@ -2,7 +2,7 @@ import React from 'react'
 
 import { useContext } from 'react';
 // import { BsCartPlus } from 'react-icons';
-import { Box, Flex, IconButton, useDisclosure, Stack, Text, Image, Input, Button } from '@chakra-ui/react';
+import { Box, Flex, IconButton, useDisclosure, Stack, Text, Image, Input, Button, Divider } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon, Search2Icon } from '@chakra-ui/icons';
 import { BsFillMoonFill, BsFillSunFill } from 'react-icons/bs';
 import {
@@ -48,7 +48,7 @@ const Navbar = () => {
     <>
       <Box>
 
-        <Box position='fixed' w='100%' style={Theme === 'light' ? light : dark} shadow='lg' padding={"10px"}>
+        <Box zIndex={9} position='fixed' w='100%' style={Theme === 'light' ? light : dark} padding={"10px"}>
 
           <Flex justifyContent={'space-between'} gap="10px" >
 
@@ -88,8 +88,8 @@ const Navbar = () => {
               <Flex as={'nav'} display={{ base: 'none', md: 'flex' }} gap='23px' w={{ base: '', md: '30%', lg: '60%' }}
                 justifyContent='space-around' alignItems='center'  >
 
-                <Box zindex={9}>
-                  <Popover>
+                <Box >
+                  <Popover >
                     <PopoverTrigger>
                       <Text>Download App</Text>
                     </PopoverTrigger>
@@ -120,8 +120,8 @@ const Navbar = () => {
 
                 <Text height="50px" border={"1px solid grey"}></Text>
 
-                <Box zindex={9}>
-                  <Popover>
+                <Box zindex={1}>
+                  <Popover position="relative" zIndex={9999}>
                     <PopoverTrigger>
 
                       <Text>Profile</Text>
@@ -169,10 +169,12 @@ const Navbar = () => {
               </Stack>
             </Box>
           ) : null}
+          
         </Box>
-
-        <Flex  style={Theme === 'light' ? light : dark} shadow='lg' position={"fixed"} width={"100%"} margin="auto" display={{ base: 'none', md: 'flex', lg: "flex" }} gap='14px' padding={"20px"} marginTop={"70px"}
+     
+        <Flex style={Theme === 'light' ? light : dark} shadow='lg' position={"fixed"} width={"100%"} margin="auto" display={{ base: 'none', md: 'flex', lg: "flex" }} gap='14px' padding={"20px"} marginTop={"70px"}
           justifyContent='space-around' alignItems='center' >
+            
           <Text cursor='pointer'>Women Ethnic </Text>
           <Text cursor='pointer'>Women Western</Text>
           <Text cursor='pointer'>Men</Text>
