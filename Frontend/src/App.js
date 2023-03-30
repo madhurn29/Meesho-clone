@@ -1,6 +1,4 @@
 
-
-
 import AdminNavbar from "./Adminpages/AdminNavbar";
 import Navbar from "./Adminpages/AdminNavbar";
 import StoreNavbar from "./Adminpages/StoreNavbar";
@@ -12,11 +10,10 @@ function App() {
   return (
 
     <>
-  
-     
+
       <Allroutes />
-    
-    
+      <AdminRoutes />
+
     </>
 
   );
