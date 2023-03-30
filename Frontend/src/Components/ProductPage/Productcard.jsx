@@ -30,7 +30,7 @@ export const Productcard = ({id,images,price,rating,reviews,title}) => {
         </Box>
 
         <Box fontSize="xl">
-          {price}
+        ₹{price}
           <Box as="span" color="gray.600" fontSize="sm">
             /onwards
           </Box>
@@ -74,25 +74,34 @@ export const Productcard = ({id,images,price,rating,reviews,title}) => {
 }
 
 /*
-delivery
-: 
-1673985369
-id
-: 
-"2"
-images
-: 
-"https://images.meesho.com/images/products/175747025/5ugld_400.jpg"
-price
-: 
-"₹315"
-rating
-: 
-"3.1"
-reviews
-: 
-"9 Reviews"
-title
-: 
-"Aakarsha Fashionable Sarees"
+Name : Hathi Saree Designer Cotton Silk Hathi Saree
+
+Saree Fabric : Cotton Silk
+
+Blouse : Running Blouse
+
+Blouse Fabric : Cotton Silk
+
+Pattern : Solid
+
+Blouse Pattern : Solid
+
+Net Quantity (N) : Single
+
+Hathi Sarees,Designer Sarees,Silk Sarees,Rich Look Sarees
+
+Sizes : 
+
+Free Size (Saree Length Size : 6.2 m, Blouse Length Size: 0.8 m)
+
+Country of Origin : India
+
+
+"title": "Aakarsha Fabulous Kurtis",
+      "price": "₹565",
+      "images": "https://images.meesho.com/images/products/162582930/d0yc2_400.jpg",
+      "rating": "3.3",
+      "reviews": "4 Reviews",
+      "id": "4",
+      "delivery": 1673985309
 */
