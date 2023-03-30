@@ -1,8 +1,8 @@
 import { Box, Text, Button, Image } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import CartBreadCrumb from "../Components/Cart/Cart.breadCrumb";
 import CartProductItem from "../Components/Cart/Cart.ProductItem";
+import CartNavbar from "../Components/Cart/Cart.Navbar";
 
 const Cartpage = () => {
   const [data, setData] = useState([]);
@@ -17,6 +17,14 @@ const Cartpage = () => {
       })
       .catch((e) => console.log(e));
   };
+  let sum = 0;
+  for (let i = 0; i < data.length; i++) {
+    let p = data[i].price.split("₹")[1];
+    if (p !== undefined) {
+      sum += Number(p);
+    }
+  }
+  localStorage.setItem("cartPrice", JSON.stringify(sum));
 
   useEffect(() => {
     getCartData();
@@ -33,9 +41,7 @@ const Cartpage = () => {
       }}
     >
       <Box>
-        {/* <Box>
-          <CartBreadCrumb />
-        </Box> */}
+        <CartNavbar />
         <Box>
           <Text fontSize={"xl"} fontWeight={"semibold"}>
             Cart |{" "}
@@ -62,7 +68,7 @@ const Cartpage = () => {
           marginBottom={"2%"}
         >
           <Text>Total Products Price</Text>
-          <Text>₹{cartPrice}</Text>
+          <Text>₹{sum}</Text>
         </Box>
         <hr />
         <Box
@@ -72,7 +78,7 @@ const Cartpage = () => {
           marginTop={"2%"}
         >
           <Text>Order Total</Text>
-          <Text>₹{cartPrice}</Text>
+          <Text>₹{sum}</Text>
         </Box>
         <Box marginTop={"5%"}>
           <Text
@@ -87,7 +93,15 @@ const Cartpage = () => {
           >
             Clicking on ‘Continue’ will not deduct any money
           </Text>
-          <Button bg={"#f43297"} color={"white"} w={"100%"}>
+          <Button
+            bg={"#f43297"}
+            color={"white"}
+            w={"100%"}
+            _hover={{
+              transform: "translateY(-2px)",
+              boxShadow: "lg",
+            }}
+          >
             Continue
           </Button>
           <Image src="https://images.meesho.com/images/marketing/1588578650850.webp"></Image>

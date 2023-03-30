@@ -11,8 +11,10 @@ function App() {
 
     <>
 
+
       <Allroutes />
       <AdminRoutes />
+
 
     </>
 

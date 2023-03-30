@@ -24,6 +24,10 @@ const CartProductItem = ({ id, title, images, price, reviews }) => {
           color={"#f43297"}
           variant={"ghost"}
           marginLeft={"20%"}
+          _hover={{
+            transform: "translateY(-2px)",
+            boxShadow: "lg",
+          }}
         >
           <svg
             viewBox="0 0 20 20"
