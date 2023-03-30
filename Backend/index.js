@@ -1,5 +1,6 @@
 const express = require("express");
 const { connection } = require("./config/db");
+
 const { cartRouter } = require("./Routes/cart.route");
 const { productRouter } = require("./Routes/product.route");
 const app = express();
@@ -8,6 +9,7 @@ app.use(express.json());
 
 app.use("/products", productRouter);
 app.use("/cart", cartRouter);
+
 app.listen(process.env.PORT, async () => {
   try {
     await connection;
