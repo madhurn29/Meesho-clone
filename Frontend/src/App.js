@@ -5,11 +5,7 @@ import Allroutes from "./Routes/Allroutes";
 function App() {
   return (
     <>
-  
-      <Navbar />
       <Allroutes />
-      <Footer/>
-    
     </>
   );
 }
