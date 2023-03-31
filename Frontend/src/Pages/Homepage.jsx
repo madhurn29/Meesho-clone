@@ -61,15 +61,15 @@ const Homepage = () => {
                 <Flex p={"2%"} gap="5%" justifyContent={"right"} width={"80%"} m="auto" mb={"50px"} backgroundImage={"	https://images.meesho.com/images/marketing/1678691743015.jpg"}>
                     <Box mt={"6%"}>
                         <Image src={"https://images.meesho.com/images/marketing/1678691846068.webp"} />
-                        <Text bg="black" color="white" p="5%" mt="5%">Home Decor</Text>
+                        <Text fontSize={{base:"10px",lg:"18px"}} bg="black" color="white" p="5%" mt="5%">Home Decor</Text>
                     </Box>
                     <Box mt={"6%"}>
                         <Image src={"https://images.meesho.com/images/marketing/1678691832099.webp"} />
-                        <Text bg="black" color="white" p="5%" mt="5%">Kitchen & Appliances</Text>
+                        <Text fontSize={{base:"10px",lg:"18px"}} bg="black" color="white" p="5%" mt="5%">Kitchen & Appliances</Text>
                     </Box>
                     <Box mt={"6%"}>
                         <Image src={"https://images.meesho.com/images/marketing/1678691796046.webp"} />
-                        <Text bg="black" color="white" p="5%" mt="5%">Health Care</Text>
+                        <Text fontSize={{base:"10px",lg:"18px"}} bg="black" color="white" p="5%" mt="5%">Health Care</Text>
                     </Box>
                 </Flex>
 
@@ -77,15 +77,15 @@ const Homepage = () => {
                 <Flex p={"2%"} gap="5%" justifyContent={"right"} width={"80%"} m="auto" mt="2%" mb={"50px"} backgroundImage={"https://images.meesho.com/images/marketing/1678691892265.jpg"}>
                     <Box mt={"6%"}>
                         <Image src={"https://images.meesho.com/images/marketing/1678691960553.webp"} />
-                        <Text bg="black" color="white" p="5%" mt="5%">Accessories</Text>
+                        <Text fontSize={{base:"10px",lg:"18px"}} bg="black" color="white" p="5%" mt="5%">Accessories</Text>
                     </Box>
                     <Box mt={"6%"}>
                         <Image src={"https://images.meesho.com/images/marketing/1678691936892.webp"} />
-                        <Text bg="black" color="white" p="5%" mt="5%">Footwear</Text>
+                        <Text fontSize={{base:"10px",lg:"18px"}} bg="black" color="white" p="5%" mt="5%">Footwear</Text>
                     </Box>
                     <Box mt={"6%"}>
                         <Image src={"https://images.meesho.com/images/marketing/1678691925419.webp"} />
-                        <Text bg="black" color="white" p="5%" mt="5%">Electronics</Text>
+                        <Text fontSize={{base:"10px",lg:"18px"}} bg="black" color="white" p="5%" mt="5%">Electronics</Text>
                     </Box>
                 </Flex>
 
@@ -99,6 +99,8 @@ const Homepage = () => {
                 <Box width="90%" m="auto" mt="5%">
                     <Text fontSize={{ base: "20px", lg: "32px" }} fontWeight={700}>Products For You</Text>
                     <Flex gap="20px">
+
+                        {/* sidebar */}
                         < Hide breakpoint='(max-width: 480px)'>
 
                             <Box width="23%" >
@@ -415,10 +417,11 @@ const Homepage = () => {
                             </Box>
 
                         </Hide>
+                        {/* sidebar */}
                         <Grid templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(3, 1fr)", lg: 'repeat(4, 1fr)' }} gap={6} width="75%">
                             {filterdata.length > 0 ? filterdata.map((item) => <Box box-shadow="rgba(149, 157, 165, 0.2) 0px 8px 24px" padding="15px" border="1px solid rgb(240,240,240)" borderRadius={"10px"} key={item.id}>
 
-                                <Image width={{ base: "150px", md: "200px", lg: "250px" }} height={{ base: "250px", md: "200px", lg: "300px" }} margin={"auto"} src={item.images[0]} />
+                                <Image width={{ base: "150px", md: "200px", lg: "250px" }} height={{ base: "250px", md: "200px", lg: "250px" }} margin={"auto"} src={item.images[0]} />
 
                                 <Box mt="10px" >
 
