@@ -1,15 +1,24 @@
 import React from 'react'
 import { useContext } from 'react';
-import { Box, Flex, IconButton, useDisclosure, Stack, Text, Image, Input, Button, Divider, Grid } from '@chakra-ui/react';
+import { Box, Flex, IconButton, useDisclosure, Stack, Text, Image, Input, Button, Grid } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon, Search2Icon } from '@chakra-ui/icons';
 import { Popover, PopoverTrigger, PopoverContent, PopoverHeader, PopoverBody, PopoverArrow, PopoverCloseButton, } from '@chakra-ui/react'
-import { AppContext } from '../../Context/Theme';
+import { AppContext } from '../Context/Theme';
 import meesho from "../Images/meesho.png"
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
-  const [value, setvalue] = React.useState("")
+const Navbar = (props) => {
 
+  const inputRef = React.useRef(null);
+
+  const handleInputChange = (event) => {
+    setTimeout(()=>{
+
+      props.handleInputChange(event.target.value);
+    },4000)
+  };
+
+  
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { Theme, ToggleTheme } = useContext(AppContext)
 
@@ -22,12 +31,7 @@ const Navbar = () => {
     backgroundColor: 'black',
     color: 'white'
   }
-  const handlevalue = (e) => {
-    setvalue(e.target.value)
-    setTimeout(() => {
-      localStorage.setItem("value", e.target.value)
-    }, 2000)
-  }
+ 
   return (
     <>
       <Box>
@@ -44,18 +48,17 @@ const Navbar = () => {
               marigin-top="15px"
               boreder="1px solid blue" onClick={isOpen ? onClose : onOpen} />
 
-            <Flex justifyContent={"space-between"} alignItems='center' w='95%' m={'auto'} gap="100px" >
+            <Flex justifyContent={"space-around"} alignItems='center' w='95%' m={'auto'} gap="100px" >
 
-              <Flex gap="40px">
-                <Link to="/">   <Image h={{ base: '20px', md: '40px', lg: "40px" }} width={{ base: '100px', md: '140px', lg: "190px" }} src={meesho} /></Link>
+              <Flex width="70%" gap="40px">
+                <Link to="/"><Image h={{ base: '30px', md: '40px', lg: "40px" }} width={{ base: '150px', md: '140px', lg: "190px" }} src={meesho} /></Link>
                
-
                 <Flex gap="10px" border={"1px solid grey"}>
                   <Search2Icon color="grey" margin={"5px"} />
                   {/* Input model */}
                   <Popover>
                     <PopoverTrigger>
-                      <Button color={"none"} colorScheme="none">  <Input onChange={handlevalue} variant='unstyled' placeholder={`Try Saree,Kurta or Search by product code`} />
+                      <Button color={"none"} colorScheme="none">  <Input onChange={handleInputChange} ref={inputRef} variant='unstyled' placeholder={`Try Saree,Kurta or Search by product code`} />
                       </Button>
                     </PopoverTrigger>
                     <PopoverContent>
@@ -91,7 +94,7 @@ const Navbar = () => {
 
               </Flex>
 
-              <Flex as={'nav'} display={{ base: 'none', md: 'flex' }} gap='23px' w={{ base: '', md: '30%', lg: '60%' }}
+              <Flex as={'nav'} display={{ base: 'none', md: 'flex' }} gap='23px' w={{ base: '', md: '30%', lg: '50%' }}
                 justifyContent='space-around' alignItems='center'  >
                 {/* Dowload button */}
                 <Box cursor='pointer'>
@@ -161,6 +164,7 @@ const Navbar = () => {
                 <Text cursor='pointer'>Mens</Text>
                 <Text cursor='pointer'>Kids</Text>
                 <Text cursor='pointer'>Electronics</Text>
+                <Link to="/cart" cursor='pointer'>Cart</Link>
                 <Text cursor='pointer'>Profile</Text>
               </Stack>
             </Box>
@@ -168,7 +172,7 @@ const Navbar = () => {
 
         </Box>
 
-        <Flex style={Theme === 'light' ? light : dark} shadow='lg' position={"fixed"} width={"100%"} margin="auto" display={{ base: 'none', md: 'flex', lg: "flex" }} gap='14px' padding={"20px"} marginTop={"70px"}
+        <Flex zIndex={1} style={Theme === 'light' ? light : dark} shadow='lg' position={"fixed"} width={"100%"} margin="auto" display={{ base: 'none', md: 'flex', lg: "flex" }} gap='14px' padding={"20px"} marginTop={"70px"}
           justifyContent='space-around' alignItems='center' >
 
           <Link to="/product" cursor='pointer'>Women Ethnic </Link>

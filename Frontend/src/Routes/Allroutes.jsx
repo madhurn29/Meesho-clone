@@ -1,18 +1,18 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-
+import Homepage from "../Components/Homepage/Homepage";
 import { Product } from "../Components/ProductPage/Product";
 import SingleProduct from "../Components/ProductPage/SingleProduct";
 
 import Address from "../Pages/Address";
 import Cartpage from "../Pages/Cartpage";
-import Homepage from "../Pages/Homepage";
-// import Homepage from "../Pages/Homapage/Homepage";
 import Payment from "../Pages/Payment";
 import Summary from "../Pages/Summary";
+
 import Thankyou from "../Pages/Thankyou";
 
 // import Homepage from "../Pages/Homapage";
+
 
 function Allroutes() {
   return (
