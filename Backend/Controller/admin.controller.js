@@ -51,7 +51,7 @@ const validateOtpforAdmin = async (req, res) => {
     if (user.tempOtp === tempOtp) {
       res.status(200).send({
         message: "Login success",
-        token: jwt.sign({ userID: user._id }, "meesho"),
+        token: jwt.sign({ userID: user._id }, "meeshoAdmin"),
       });
     } else {
       res.status(400).send({ message: "Invalid OTP" });
