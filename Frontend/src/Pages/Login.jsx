@@ -100,7 +100,7 @@ function Login() {
                 onChange={(e) => {
                   setMobile(e.target.value);
                   console.log(mobile);
-                  verifyUsers(mobile);
+                  // verifyUsers(mobile);
                 }}
               />
             </InputGroup>
@@ -133,7 +133,7 @@ function Login() {
                             isClosable: true,
                             position: "top",
                           },
-                          manageOTP(otp),
+                          // manageOTP(otp),
                           navigate("/otp-page")
                         )
                       : toast(
@@ -145,7 +145,7 @@ function Login() {
                             isClosable: true,
                             position: "bottom",
                           },
-                          manageOTP(otp)
+                          // manageOTP(otp)
                         );
                   }, 1000);
                 }

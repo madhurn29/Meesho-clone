@@ -1,12 +1,12 @@
 import React, { useRef } from 'react'
 import { Box, Flex, Text } from '@chakra-ui/react'
 import { Hide } from '@chakra-ui/react'
-import Navbar from '../Navbar/Navbar'
-import Footer from '../Navbar/Footer'
+import Navbar from '../../Components/Navbar/Navbar'
+import Footer from '../../Components/Navbar/Footer'
 import Sidebar from './Sidebar'
 import HomeImages from './HomeImages'
 import HomeCard from './HomeCard'
-// import data from "./HomePageProducts.json"
+import data from "./HomePageProducts.json"
 /* smartphones furniture mens-watches sunglasses lighting automotive womens-jewellery womens-bags mens-shoes mens-shirts womens-shoes tops  womens-dresses laptops fragrances skincare home-decoration groceries */
 const Homepage = () => {
 
@@ -26,12 +26,28 @@ const Homepage = () => {
     React.useEffect(() => {
         getData()
     }, [inputValue]);
-    const filterdata = Productsdata.filter((item) => item.category === inputValue)
+    const filterdatabycategory = Productsdata.filter((item) => item.category === inputValue)
+
+
+    const [priceFilter, setPriceFilter] = React.useState([]);
+    const handlePriceFilterChange = (value) => {
+      setPriceFilter(value);
+    };
+  
+
+
+    const filteredData = Productsdata.filter((item) => {
+        if (priceFilter.length === 0) {
+            return true;
+        }
+        return priceFilter.some((price) => price >= item.price);
+    });
+    console.log('filteredData: ', filteredData);
 
     return (
         <>
             <Navbar  handleInputChange={handleInputChange} />
-            <Box height={{ base: '40px', md: '60px' }}></Box>
+           
             <Box mt="50px">
                 {/* HomeImages */}
                 <HomeImages />
@@ -42,10 +58,10 @@ const Homepage = () => {
                     <Flex gap="20px">
                         {/* sidebar */}
                         < Hide breakpoint='(max-width: 480px)'>
-                            <Sidebar />
+                            <Sidebar onPriceFilterChange={handlePriceFilterChange} />
                         </Hide>
                         {/* HomeCards */}
-                        <HomeCard state={Productsdata} filterdata={filterdata} />
+                        <HomeCard state={filteredData} filterdata={filterdatabycategory} />
                     </Flex>
                 </Box>
             </Box>
