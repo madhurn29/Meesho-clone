@@ -6,7 +6,7 @@
     "price": "197",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.8",
+    "rating": 3.68,
     "review": "83643 Reviews"
   },
   {
@@ -16,7 +16,7 @@
     "price": "325",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.8",
+    "rating": 3.68,
     "review": "4 Reviews"
   },
   {
@@ -26,7 +26,7 @@
     "price": "202",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.7",
+    "rating": 3.67,
     "review": "1566 Reviews"
   },
   {
@@ -36,7 +36,7 @@
     "price": "266",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.7",
+    "rating": 3.67,
     "review": "16757 Reviews"
   },
   {
@@ -46,7 +46,7 @@
     "price": "202",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.7",
+    "rating": 3.67,
     "review": "1566 Reviews"
   },
   {
@@ -56,7 +56,7 @@
     "price": "221",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.7",
+    "rating": 3.67,
     "review": "1566 Reviews"
   },
   {
@@ -66,7 +66,7 @@
     "price": "341",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "52728 Reviews"
   },
   {
@@ -76,7 +76,7 @@
     "price": "202",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.7",
+    "rating": 3.67,
     "review": "1566 Reviews"
   },
   {
@@ -86,7 +86,7 @@
     "price": "189",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "20043 Reviews"
   },
   {
@@ -96,7 +96,7 @@
     "price": "272",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.4",
+    "rating": 3.64,
     "review": "156 Reviews"
   },
   {
@@ -106,7 +106,7 @@
     "price": "202",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.7",
+    "rating": 3.67,
     "review": "1566 Reviews"
   },
   {
@@ -116,7 +116,7 @@
     "price": "223",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.1",
+    "rating": 3.61,
     "review": "136413 Reviews"
   },
   {
@@ -126,7 +126,7 @@
     "price": "318",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.1",
+    "rating": 3.61,
     "review": "4005 Reviews"
   },
   {
@@ -136,8 +136,8 @@
     "price": "149",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "2",
-    "review": "7 Reviews"
+    "rating": 3.6,   
+     "review": "7 Reviews"
   },
   {
     "_id": "64234a9701035c173fca02f4",
@@ -146,7 +146,7 @@
     "price": "160",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.8",
+    "rating": 3.68,
     "review": "15273 Reviews"
   },
   {
@@ -156,7 +156,7 @@
     "price": "175",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.0",
+    "rating": 3.60,
     "review": "23151 Reviews"
   },
   {
@@ -166,7 +166,7 @@
     "price": "312",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.8",
+    "rating": 3.68,
     "review": "10604 Reviews"
   },
   {
@@ -176,7 +176,7 @@
     "price": "354",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.5",
+    "rating": 3.65,
     "review": "1569 Reviews"
   },
   {
@@ -186,7 +186,7 @@
     "price": "202",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.7",
+    "rating": 3.67,
     "review": "1566 Reviews"
   },
   {
@@ -196,7 +196,7 @@
     "price": "123",
     "onwards": "143",
     "delivery": "Free Delivery",
-    "rating": "3.8",
+    "rating": 3.68,
     "review": "9737 Reviews"
   },
   {
@@ -206,7 +206,7 @@
     "price": "202",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.7",
+    "rating": 3.67,
     "review": "1566 Reviews"
   },
   {
@@ -216,7 +216,7 @@
     "price": "126",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.8",
+    "rating": 3.68,
     "review": "18513 Reviews"
   },
   {
@@ -226,7 +226,7 @@
     "price": "126",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.8",
+    "rating": 3.68,
     "review": "22436 Reviews"
   },
   {
@@ -236,7 +236,7 @@
     "price": "202",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.7",
+    "rating": 3.67,
     "review": "1566 Reviews"
   },
   {
@@ -246,7 +246,7 @@
     "price": "158",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.0",
+    "rating": 3.60,
     "review": "14733 Reviews"
   },
   {
@@ -256,7 +256,7 @@
     "price": "163",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.1",
+    "rating": 3.61,
     "review": "11949 Reviews"
   },
   {
@@ -266,7 +266,7 @@
     "price": "202",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.7",
+    "rating": 3.67,
     "review": "1566 Reviews"
   },
   {
@@ -276,7 +276,7 @@
     "price": "266",
     "onwards": "273",
     "delivery": "Free Delivery",
-    "rating": "3.8",
+    "rating": 3.68,
     "review": "26479 Reviews"
   },
   {
@@ -286,7 +286,7 @@
     "price": "170",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.6",
+    "rating": 3.66,
     "review": "42918 Reviews"
   },
   {
@@ -296,7 +296,7 @@
     "price": "121",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.7",
+    "rating": 3.67,
     "review": "55282 Reviews"
   },
   {
@@ -306,7 +306,7 @@
     "price": "253",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.0",
+    "rating": 3.60,
     "review": "49373 Reviews"
   },
   {
@@ -316,7 +316,7 @@
     "price": "36",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.2",
+    "rating": 3.62,
     "review": "69 Reviews"
   },
   {
@@ -326,7 +326,7 @@
     "price": "449",
     "onwards": "onwards",
     "delivery": "Delivery 139",
-    "rating": "3.7",
+    "rating": 3.67,
     "review": "23606 Reviews"
   },
   {
@@ -336,7 +336,7 @@
     "price": "115",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.0",
+    "rating": 3.60,
     "review": "23882 Reviews"
   },
   {
@@ -346,7 +346,7 @@
     "price": "202",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.7",
+    "rating": 3.67,
     "review": "1566 Reviews"
   },
   {
@@ -356,7 +356,7 @@
     "price": "319",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.8",
+    "rating": 3.68,
     "review": "3553 Reviews"
   },
   {
@@ -366,7 +366,7 @@
     "price": "202",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.7",
+    "rating": 3.67,
     "review": "1566 Reviews"
   },
   {
@@ -376,7 +376,7 @@
     "price": "564",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.8",
+    "rating": 3.68,
     "review": "21970 Reviews"
   },
   {
@@ -386,7 +386,7 @@
     "price": "180",
     "onwards": "198",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "15247 Reviews"
   },
   {
@@ -396,7 +396,7 @@
     "price": "178",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.2",
+    "rating": 3.62,
     "review": "1566 Reviews"
   },
   {
@@ -406,7 +406,7 @@
     "price": "100",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.5",
+    "rating": 3.65,
     "review": "7212 Reviews"
   },
   {
@@ -416,7 +416,7 @@
     "price": "121",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.0",
+    "rating": 3.60,
     "review": "12453 Reviews"
   },
   {
@@ -426,7 +426,7 @@
     "price": "200",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.2",
+    "rating": 3.62,
     "review": "1566 Reviews"
   },
   {
@@ -436,7 +436,7 @@
     "price": "279",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.6",
+    "rating": 3.66,
     "review": "10627 Reviews"
   },
   {
@@ -446,7 +446,7 @@
     "price": "373",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "16753 Reviews"
   },
   {
@@ -456,7 +456,7 @@
     "price": "546",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.7",
+    "rating": 3.67,
     "review": "1619 Reviews"
   },
   {
@@ -466,7 +466,7 @@
     "price": "275",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.7",
+    "rating": 3.67,
     "review": "13238 Reviews"
   },
   {
@@ -476,7 +476,7 @@
     "price": "238",
     "onwards": "263",
     "delivery": "Free Delivery",
-    "rating": "3.8",
+    "rating": 3.68,
     "review": "193 Reviews"
   },
   {
@@ -486,7 +486,7 @@
     "price": "293",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "31921 Reviews"
   },
   {
@@ -496,7 +496,7 @@
     "price": "116",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.0",
+    "rating": 3.60,
     "review": "27835 Reviews"
   },
   {
@@ -506,7 +506,7 @@
     "price": "132",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.6",
+    "rating": 3.66,
     "review": "1566 Reviews"
   },
   {
@@ -516,7 +516,7 @@
     "price": "317",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.7",
+    "rating": 3.67,
     "review": "641 Reviews"
   },
   {
@@ -526,7 +526,7 @@
     "price": "134",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.0",
+    "rating": 3.60,
     "review": "1566 Reviews"
   },
   {
@@ -536,7 +536,7 @@
     "price": "206",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.7",
+    "rating": 3.67,
     "review": "2217 Reviews"
   },
   {
@@ -546,7 +546,7 @@
     "price": "155",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.0",
+    "rating": 3.60,
     "review": "24730 Reviews"
   },
   {
@@ -556,7 +556,7 @@
     "price": "154",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.2",
+    "rating": 3.62,
     "review": "1566 Reviews"
   },
   {
@@ -566,7 +566,7 @@
     "price": "149",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.7",
+    "rating": 3.67,
     "review": "28024 Reviews"
   },
   {
@@ -576,7 +576,7 @@
     "price": "154",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.0",
+    "rating": 3.60,
     "review": "8909 Reviews"
   },
   {
@@ -586,7 +586,7 @@
     "price": "375",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.2",
+    "rating": 3.62,
     "review": "1566 Reviews"
   },
   {
@@ -596,7 +596,7 @@
     "price": "285",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.1",
+    "rating": 3.61,
     "review": "16619 Reviews"
   },
   {
@@ -606,7 +606,7 @@
     "price": "123",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.0",
+    "rating": 3.60,
     "review": "14557 Reviews"
   },
   {
@@ -616,7 +616,7 @@
     "price": "212",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.8",
+    "rating": 3.68,
     "review": "19155 Reviews"
   },
   {
@@ -626,7 +626,7 @@
     "price": "129",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.8",
+    "rating": 3.68,
     "review": "16797 Reviews"
   },
   {
@@ -636,7 +636,7 @@
     "price": "391",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "7583 Reviews"
   },
   {
@@ -646,7 +646,7 @@
     "price": "306",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.7",
+    "rating": 3.67,
     "review": "10389 Reviews"
   },
   {
@@ -656,7 +656,7 @@
     "price": "159",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.4",
+    "rating": 3.64,
     "review": "1293 Reviews"
   },
   {
@@ -666,7 +666,7 @@
     "price": "144",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.5",
+    "rating": 3.65,
     "review": "1566 Reviews"
   },
   {
@@ -676,7 +676,7 @@
     "price": "333",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.1",
+    "rating": 3.61,
     "review": "5311 Reviews"
   },
   {
@@ -686,7 +686,7 @@
     "price": "149",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.7",
+    "rating": 3.67,
     "review": "1566 Reviews"
   },
   {
@@ -696,7 +696,7 @@
     "price": "162",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.0",
+    "rating": 3.60,
     "review": "30486 Reviews"
   },
   {
@@ -706,7 +706,7 @@
     "price": "131",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.7",
+    "rating": 3.67,
     "review": "7095 Reviews"
   },
   {
@@ -716,7 +716,7 @@
     "price": "457",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.3",
+    "rating": 3.63,
     "review": "1566 Reviews"
   },
   {
@@ -726,7 +726,7 @@
     "price": "131",
     "onwards": "143",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "6991 Reviews"
   },
   {
@@ -736,7 +736,7 @@
     "price": "114",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.1",
+    "rating": 3.61,
     "review": "6219 Reviews"
   },
   {
@@ -746,7 +746,7 @@
     "price": "149",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.7",
+    "rating": 3.67,
     "review": "1566 Reviews"
   },
   {
@@ -756,7 +756,7 @@
     "price": "273",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.7",
+    "rating": 3.67,
     "review": "9763 Reviews"
   },
   {
@@ -766,7 +766,7 @@
     "price": "276",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "49746 Reviews"
   },
   {
@@ -776,7 +776,7 @@
     "price": "115",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.1",
+    "rating": 3.61,
     "review": "11554 Reviews"
   },
   {
@@ -786,7 +786,7 @@
     "price": "255",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.6",
+    "rating": 3.66,
     "review": "7843 Reviews"
   },
   {
@@ -796,7 +796,7 @@
     "price": "318",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.0",
+    "rating": 3.60,
     "review": "67787 Reviews"
   },
   {
@@ -806,7 +806,7 @@
     "price": "278",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.0",
+    "rating": 3.60,
     "review": "13191 Reviews"
   },
   {
@@ -816,7 +816,7 @@
     "price": "119",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.0",
+    "rating": 3.60,
     "review": "15216 Reviews"
   },
   {
@@ -826,7 +826,7 @@
     "price": "327",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.3",
+    "rating": 3.63,
     "review": "1566 Reviews"
   },
   {
@@ -836,7 +836,7 @@
     "price": "258",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.0",
+    "rating": 3.60,
     "review": "8045 Reviews"
   },
   {
@@ -846,7 +846,7 @@
     "price": "297",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.3",
+    "rating": 3.63,
     "review": "1566 Reviews"
   },
   {
@@ -856,7 +856,7 @@
     "price": "559",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.8",
+    "rating": 3.68,
     "review": "34490 Reviews"
   },
   {
@@ -866,7 +866,7 @@
     "price": "370",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "13065 Reviews"
   },
   {
@@ -876,7 +876,7 @@
     "price": "286",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.7",
+    "rating": 3.67,
     "review": "1566 Reviews"
   },
   {
@@ -886,7 +886,7 @@
     "price": "253",
     "onwards": "259",
     "delivery": "Free Delivery",
-    "rating": "3.8",
+    "rating": 3.68,
     "review": "6920 Reviews"
   },
   {
@@ -896,7 +896,7 @@
     "price": "137",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.1",
+    "rating": 3.61,
     "review": "2853 Reviews"
   },
   {
@@ -906,7 +906,7 @@
     "price": "511",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "1566 Reviews"
   },
   {
@@ -916,7 +916,7 @@
     "price": "263",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.0",
+    "rating": 3.60,
     "review": "24549 Reviews"
   },
   {
@@ -926,7 +926,7 @@
     "price": "261",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.2",
+    "rating": 3.62,
     "review": "3902 Reviews"
   },
   {
@@ -936,7 +936,7 @@
     "price": "159",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.1",
+    "rating": 3.61,
     "review": "3707 Reviews"
   },
   {
@@ -946,7 +946,7 @@
     "price": "268",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.8",
+    "rating": 3.68,
     "review": "9374 Reviews"
   },
   {
@@ -956,7 +956,7 @@
     "price": "274",
     "onwards": "281",
     "delivery": "Free Delivery",
-    "rating": "4.1",
+    "rating": 3.61,
     "review": "10694 Reviews"
   },
   {
@@ -966,7 +966,7 @@
     "price": "212",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.1",
+    "rating": 3.61,
     "review": "11113 Reviews"
   },
   {
@@ -976,7 +976,7 @@
     "price": "116",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.0",
+    "rating": 3.60,
     "review": "3136 Reviews"
   },
   {
@@ -986,7 +986,7 @@
     "price": "287",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "1566 Reviews"
   },
   {
@@ -996,7 +996,7 @@
     "price": "196",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.2",
+    "rating": 3.62,
     "review": "37219 Reviews"
   },
   {
@@ -1006,7 +1006,7 @@
     "price": "149",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.6",
+    "rating": 3.66,
     "review": "1566 Reviews"
   },
   {
@@ -1016,7 +1016,7 @@
     "price": "115",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.0",
+    "rating": 3.60,
     "review": "256 Reviews"
   },
   {
@@ -1026,7 +1026,7 @@
     "price": "298",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.0",
+    "rating": 3.60,
     "review": "32999 Reviews"
   },
   {
@@ -1036,7 +1036,7 @@
     "price": "149",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.6",
+    "rating": 3.66,
     "review": "1566 Reviews"
   },
   {
@@ -1046,7 +1046,7 @@
     "price": "270",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.7",
+    "rating": 3.67,
     "review": "28736 Reviews"
   },
   {
@@ -1056,7 +1056,7 @@
     "price": "130",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "52058 Reviews"
   },
   {
@@ -1066,7 +1066,7 @@
     "price": "221",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "1566 Reviews"
   },
   {
@@ -1076,7 +1076,7 @@
     "price": "195",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.0",
+    "rating": 3.60,
     "review": "20442 Reviews"
   },
   {
@@ -1086,7 +1086,7 @@
     "price": "296",
     "onwards": "311",
     "delivery": "Free Delivery",
-    "rating": "3.8",
+    "rating": 3.68,
     "review": "94132 Reviews"
   },
   {
@@ -1096,7 +1096,7 @@
     "price": "124",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.2",
+    "rating": 3.62,
     "review": "1933 Reviews"
   },
   {
@@ -1106,7 +1106,7 @@
     "price": "272",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "3.8",
+    "rating": 3.68,
     "review": "2365 Reviews"
   },
   {
@@ -1116,7 +1116,7 @@
     "price": "205",
     "onwards": "onwards",
     "delivery": "Free Delivery",
-    "rating": "4.0",
+    "rating": 3.60,
     "review": "10253 Reviews"
   },
   {
@@ -1126,7 +1126,7 @@
     "price": "180",
     "onwards": "198",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "15247 Reviews"
   },
   {
@@ -1136,7 +1136,7 @@
     "price": "238",
     "onwards": "263",
     "delivery": "Free Delivery",
-    "rating": "3.8",
+    "rating": 3.68,
     "review": "193 Reviews"
   },
   {
@@ -1146,7 +1146,7 @@
     "price": "131",
     "onwards": "143",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "6991 Reviews"
   },
   {
@@ -1156,7 +1156,7 @@
     "price": "180",
     "onwards": "198",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "15247 Reviews"
   },
   {
@@ -1166,7 +1166,7 @@
     "price": "238",
     "onwards": "263",
     "delivery": "Free Delivery",
-    "rating": "3.8",
+    "rating": 3.68,
     "review": "193 Reviews"
   },
   {
@@ -1176,7 +1176,7 @@
     "price": "131",
     "onwards": "143",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "6991 Reviews"
   },
   {
@@ -1186,7 +1186,7 @@
     "price": "180",
     "onwards": "198",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "15247 Reviews"
   },
   {
@@ -1196,7 +1196,7 @@
     "price": "238",
     "onwards": "263",
     "delivery": "Free Delivery",
-    "rating": "3.8",
+    "rating": 3.68,
     "review": "193 Reviews"
   },
   {
@@ -1206,7 +1206,7 @@
     "price": "131",
     "onwards": "143",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "6991 Reviews"
   },
   {
@@ -1216,7 +1216,7 @@
     "price": "180",
     "onwards": "198",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "15247 Reviews"
   },
   {
@@ -1226,7 +1226,7 @@
     "price": "238",
     "onwards": "263",
     "delivery": "Free Delivery",
-    "rating": "3.8",
+    "rating": 3.68,
     "review": "193 Reviews"
   },
   {
@@ -1236,7 +1236,7 @@
     "price": "131",
     "onwards": "143",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "6991 Reviews"
   },
   {
@@ -1246,7 +1246,7 @@
     "price": "180",
     "onwards": "198",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "15247 Reviews"
   },
   {
@@ -1256,7 +1256,7 @@
     "price": "238",
     "onwards": "263",
     "delivery": "Free Delivery",
-    "rating": "3.8",
+    "rating": 3.68,
     "review": "193 Reviews"
   },
   {
@@ -1266,7 +1266,7 @@
     "price": "131",
     "onwards": "143",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "6991 Reviews"
   },
   {
@@ -1276,7 +1276,7 @@
     "price": "180",
     "onwards": "198",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "15247 Reviews"
   },
   {
@@ -1286,7 +1286,7 @@
     "price": "238",
     "onwards": "263",
     "delivery": "Free Delivery",
-    "rating": "3.8",
+    "rating": 3.68,
     "review": "193 Reviews"
   },
   {
@@ -1296,7 +1296,7 @@
     "price": "131",
     "onwards": "143",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "6991 Reviews"
   },
   {
@@ -1306,7 +1306,7 @@
     "price": "180",
     "onwards": "198",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "15247 Reviews"
   },
   {
@@ -1316,7 +1316,7 @@
     "price": "238",
     "onwards": "263",
     "delivery": "Free Delivery",
-    "rating": "3.8",
+    "rating": 3.68,
     "review": "193 Reviews"
   },
   {
@@ -1326,7 +1326,7 @@
     "price": "131",
     "onwards": "143",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "6991 Reviews"
   },
   {
@@ -1336,7 +1336,7 @@
     "price": "180",
     "onwards": "198",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "15247 Reviews"
   },
   {
@@ -1346,7 +1346,7 @@
     "price": "238",
     "onwards": "263",
     "delivery": "Free Delivery",
-    "rating": "3.8",
+    "rating": 3.68,
     "review": "193 Reviews"
   },
   {
@@ -1356,7 +1356,7 @@
     "price": "131",
     "onwards": "143",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "6991 Reviews"
   },
   {
@@ -1366,7 +1366,7 @@
     "price": "180",
     "onwards": "198",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "15247 Reviews"
   },
   {
@@ -1376,7 +1376,7 @@
     "price": "238",
     "onwards": "263",
     "delivery": "Free Delivery",
-    "rating": "3.8",
+    "rating": 3.68,
     "review": "193 Reviews"
   },
   {
@@ -1386,7 +1386,7 @@
     "price": "131",
     "onwards": "143",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "6991 Reviews"
   },
   {
@@ -1396,7 +1396,7 @@
     "price": "180",
     "onwards": "198",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "15247 Reviews"
   },
   {
@@ -1406,7 +1406,7 @@
     "price": "238",
     "onwards": "263",
     "delivery": "Free Delivery",
-    "rating": "3.8",
+    "rating": 3.68,
     "review": "193 Reviews"
   },
   {
@@ -1416,7 +1416,7 @@
     "price": "131",
     "onwards": "143",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "6991 Reviews"
   },
   {
@@ -1426,7 +1426,7 @@
     "price": "180",
     "onwards": "198",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "15247 Reviews"
   },
   {
@@ -1436,7 +1436,7 @@
     "price": "238",
     "onwards": "263",
     "delivery": "Free Delivery",
-    "rating": "3.8",
+    "rating": 3.68,
     "review": "193 Reviews"
   },
   {
@@ -1446,7 +1446,7 @@
     "price": "131",
     "onwards": "143",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "6991 Reviews"
   },
   {
@@ -1456,7 +1456,7 @@
     "price": "180",
     "onwards": "198",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "15247 Reviews"
   },
   {
@@ -1466,7 +1466,7 @@
     "price": "238",
     "onwards": "263",
     "delivery": "Free Delivery",
-    "rating": "3.8",
+    "rating": 3.68,
     "review": "193 Reviews"
   },
   {
@@ -1476,7 +1476,7 @@
     "price": "131",
     "onwards": "143",
     "delivery": "Free Delivery",
-    "rating": "3.9",
+    "rating": 3.69,
     "review": "6991 Reviews"
   }
 ]

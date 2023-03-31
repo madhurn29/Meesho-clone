@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
-
-const productSchema = mongoose.Schema(
+const cartSchema = mongoose.Schema(
   {
     title: String,
     images: String,
@@ -9,14 +8,15 @@ const productSchema = mongoose.Schema(
     reviews: String,
     category: String,
     delivery: String,
-    totalQuantity: Number,
+    quantity: Number,
+    userID: String,
+    productID: String,
   },
   {
     versionKey: false,
   }
 );
 
+const CartModel = mongoose.model("CartProduct", cartSchema);
 
-const ProductModel = mongoose.model("Product", productSchema);
-
-module.exports = { ProductModel };
+module.exports = { CartModel };
