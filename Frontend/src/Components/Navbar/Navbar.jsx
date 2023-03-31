@@ -10,7 +10,6 @@ import {
   Image,
   Input,
   Button,
-  Divider,
   Grid,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon, Search2Icon } from "@chakra-ui/icons";
@@ -23,12 +22,18 @@ import {
   PopoverArrow,
   PopoverCloseButton,
 } from "@chakra-ui/react";
-import { AppContext } from "../../Context/Theme";
+import { AppContext } from "../Context/Theme";
 import meesho from "../Images/meesho.png";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
-  const [value, setvalue] = React.useState("");
+const Navbar = (props) => {
+  const inputRef = React.useRef(null);
+
+  const handleInputChange = (event) => {
+    setTimeout(() => {
+      props.handleInputChange(event.target.value);
+    }, 4000);
+  };
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { Theme, ToggleTheme } = useContext(AppContext);
@@ -42,12 +47,7 @@ const Navbar = () => {
     backgroundColor: "black",
     color: "white",
   };
-  const handlevalue = (e) => {
-    setvalue(e.target.value);
-    setTimeout(() => {
-      localStorage.setItem("value", e.target.value);
-    }, 2000);
-  };
+
   return (
     <>
       <Box borderBottom={"1px solid grey"} position={"sticky"} top={0}>
@@ -57,6 +57,7 @@ const Navbar = () => {
           zIndex={9}
           w="100%"
           style={Theme === "light" ? light : dark}
+          padding={"10px"}
         >
           <Flex justifyContent={"space-between"} gap="10px">
             <IconButton
@@ -66,23 +67,22 @@ const Navbar = () => {
               aria-label="Open Menu"
               display={{ md: "none" }}
               marigin-top="15px"
-              boreder="1px solid blue"
+             
               onClick={isOpen ? onClose : onOpen}
             />
 
             <Flex
-              justifyContent={"space-between"}
+              justifyContent={"space-around"}
               alignItems="center"
               w="95%"
               m={"auto"}
               gap="100px"
             >
-              <Flex gap="40px">
+              <Flex width="70%" gap="40px">
                 <Link to="/">
-                  {" "}
                   <Image
-                    h={{ base: "20px", md: "40px", lg: "40px" }}
-                    width={{ base: "100px", md: "140px", lg: "190px" }}
+                    h={{ base: "30px", md: "40px", lg: "40px" }}
+                    width={{ base: "150px", md: "140px", lg: "190px" }}
                     src={meesho}
                   />
                 </Link>
@@ -95,7 +95,8 @@ const Navbar = () => {
                       <Button color={"none"} colorScheme="none">
                         {" "}
                         <Input
-                          onChange={handlevalue}
+                          onChange={handleInputChange}
+                          ref={inputRef}
                           variant="unstyled"
                           placeholder={`Try Saree,Kurta or Search by product code`}
                         />
@@ -160,7 +161,7 @@ const Navbar = () => {
                 as={"nav"}
                 display={{ base: "none", md: "flex" }}
                 gap="23px"
-                w={{ base: "", md: "30%", lg: "60%" }}
+                w={{ base: "", md: "30%", lg: "50%" }}
                 justifyContent="space-around"
                 alignItems="center"
               >
@@ -244,6 +245,9 @@ const Navbar = () => {
                 <Text cursor="pointer">Mens</Text>
                 <Text cursor="pointer">Kids</Text>
                 <Text cursor="pointer">Electronics</Text>
+                <Link to="/cart" cursor="pointer">
+                  Cart
+                </Link>
                 <Text cursor="pointer">Profile</Text>
               </Stack>
             </Box>
@@ -251,7 +255,7 @@ const Navbar = () => {
         </Box>
 
         <Flex
-          border={"1px solid re"}
+          zIndex={1}
           style={Theme === "light" ? light : dark}
           width={"100%"}
           margin="auto"

@@ -112,7 +112,7 @@ function OTP() {
               width={"100%"}
               _hover={{ bg: "rgb(199, 60, 157)" }}
               onClick={() => {
-                if (otpNumber.join("") === otp) {
+                if (otpNumber.join("") === "") {
                   toast({
                     title: "Account Created Successfully",
                     description: `Welcome to shoperz`,

@@ -3,10 +3,10 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import CartProductItem from "../Components/Cart/Cart.ProductItem";
 import CartNavbar from "../Components/Cart/Cart.Navbar";
+import { Link } from "react-router-dom";
 
 const Cartpage = () => {
   const [data, setData] = useState([]);
-  const [cartPrice, setCartPrice] = useState(0);
 
   const getCartData = () => {
     axios
@@ -31,83 +31,91 @@ const Cartpage = () => {
   }, []);
 
   return (
-    <div
-      style={{
-        margin: "3% 20% 0 20%",
-        display: "grid",
-        gridTemplateColumns: "repeat(2,1fr)",
-        gap: "5%",
-        fontFamily: "-apple-system, Helvetica Neue, sans-serif, Mier Book",
-      }}
-    >
-      <Box>
+    <Box>
+      <Box margin="3% 20% 0 20%">
         <CartNavbar />
-        <Box>
-          <Text fontSize={"xl"} fontWeight={"semibold"}>
-            Cart |{" "}
-            <span style={{ color: "grey", fontWeight: "normal" }}>
-              {data.length > 0 ? data.length : 0} Item
-            </span>
-          </Text>
-        </Box>
-        <Box>
-          {data?.map((e) => {
-            return <CartProductItem {...e} key={e.id} />;
-          })}
-        </Box>
       </Box>
+      <hr />
+      <Box
+        margin="3% 20% 0 20%"
+        display="grid"
+        gridTemplateColumns={{
+          base: "repeat(1,1fr)",
+          lg: "repeat(2,1fr)",
+        }}
+        gap={{ base: "2%", lg: "5%" }}
+        fontFamily="-apple-system, Helvetica Neue, sans-serif, Mier Book"
+      >
+        <Box>
+          <Box>
+            <Text fontSize={"xl"} fontWeight={"semibold"}>
+              Cart |{" "}
+              <span style={{ color: "grey", fontWeight: "normal" }}>
+                {data.length > 0 ? data.length : 0} Item
+              </span>
+            </Text>
+          </Box>
+          <Box>
+            {data?.map((e) => {
+              return <CartProductItem {...e} key={e.id} />;
+            })}
+          </Box>
+        </Box>
 
-      <Box w={"80%"}>
-        <Text fontWeight={"semibold"} fontSize={"xl"}>
-          Product Details
-        </Text>
-        <br />
-        <Box
-          display={"flex"}
-          justifyContent={"space-between"}
-          marginBottom={"2%"}
-        >
-          <Text>Total Products Price</Text>
-          <Text>₹{sum}</Text>
-        </Box>
-        <hr />
-        <Box
-          display={"flex"}
-          justifyContent={"space-between"}
-          fontWeight={"semibold"}
-          marginTop={"2%"}
-        >
-          <Text>Order Total</Text>
-          <Text>₹{sum}</Text>
-        </Box>
-        <Box marginTop={"5%"}>
-          <Text
-            fontSize={"12px"}
-            fontWeight={"demi"}
-            color={"greyBase"}
-            textAlign={"center"}
-            bg={"whiteSmoke"}
-            p={"2"}
-            marginBottom={"3%"}
-            borderRadius={"2%"}
-          >
-            Clicking on ‘Continue’ will not deduct any money
+        <Box w={"80%"}>
+          <Text fontWeight={"semibold"} fontSize={"xl"}>
+            Product Details
           </Text>
-          <Button
-            bg={"#f43297"}
-            color={"white"}
-            w={"100%"}
-            _hover={{
-              transform: "translateY(-2px)",
-              boxShadow: "lg",
-            }}
+          <br />
+          <Box
+            display={"flex"}
+            justifyContent={"space-between"}
+            marginBottom={"2%"}
           >
-            Continue
-          </Button>
-          <Image src="https://images.meesho.com/images/marketing/1588578650850.webp"></Image>
+            <Text>Total Products Price</Text>
+            <Text>₹{sum}</Text>
+          </Box>
+          <hr />
+          <Box
+            display={"flex"}
+            justifyContent={"space-between"}
+            fontWeight={"semibold"}
+            marginTop={"2%"}
+          >
+            <Text>Order Total</Text>
+            <Text>₹{sum}</Text>
+          </Box>
+          <Box marginTop={"5%"}>
+            <Text
+              fontSize={"12px"}
+              fontWeight={"demi"}
+              color={"greyBase"}
+              textAlign={"center"}
+              bg={"whiteSmoke"}
+              p={"2"}
+              marginBottom={"3%"}
+              borderRadius={"2%"}
+            >
+              Clicking on ‘Continue’ will not deduct any money
+            </Text>
+            <Link to="/cart/address">
+              <Button
+                bg={"#f43297"}
+                color={"white"}
+                w={"100%"}
+                _hover={{
+                  transform: "translateY(-2px)",
+                  boxShadow: "lg",
+                }}
+              >
+                Continue
+              </Button>
+            </Link>
+            <Image src="https://images.meesho.com/images/marketing/1588578650850.webp"></Image>
+          </Box>
         </Box>
       </Box>
-    </div>
+    </Box>
   );
 };
 

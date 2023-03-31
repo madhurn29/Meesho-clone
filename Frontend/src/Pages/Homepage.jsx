@@ -49,7 +49,7 @@ const Homepage = () => {
   return (
     <>
       <Navbar />
-      {/* <Box height={{ base: '40px', md: '60px' }}></Box> */}
+      
       <Box>
         <Image width="80%" margin={"auto"} mt="2%" src={Home} />
 
