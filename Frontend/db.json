@@ -1,5 +1,5 @@
 {
-  "women":[
+  "women": [
     {
       "title": "Trendy Retro Women Tops &amp; Tunics",
       "delivery": 1673986174,
@@ -370,7 +370,6 @@
       "rating": "3.8",
       "id": "37"
     },
-    
     {
       "title": "Classic Ravishing Women Tops &amp; Tunics",
       "delivery": 1673983955,
@@ -550,6 +549,32 @@
       "reviews": "172 Reviews",
       "rating": "3.5",
       "id": "55"
+    }
+  ],
+  "cart": [
+    {
+      "title": "Classic Glamorous Women Tops &amp; Tunics",
+      "images": "https://images.meesho.com/images/products/162474576/e3uvn_400.jpg",
+      "price": "230",
+      "reviews": "43 Reviews",
+      "rating": "3.6",
+      "id": 1
+    },
+    {
+      "title": "Urbane Retro Women Tops &amp; Tunics",
+      "images": "https://images.meesho.com/images/products/123850475/5psk3_400.jpg",
+      "price": "240",
+      "reviews": "81 Reviews",
+      "rating": "3.8",
+      "id": 2
+    },
+    {
+      "title": "Urbane Retro Women Tops &amp; Tunics",
+      "images": "https://images.meesho.com/images/products/123850475/5psk3_400.jpg",
+      "price": "240",
+      "reviews": "81 Reviews",
+      "rating": "3.8",
+      "id": 3
     }
   ]
 }
