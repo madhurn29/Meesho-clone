@@ -6,12 +6,22 @@ import SingleProduct from "../Components/ProductPage/SingleProduct";
 
 import Address from "../Pages/Address";
 import Cartpage from "../Pages/Cartpage";
+
+
+
+
+import Signup from "../Pages/Signup";
+import Login from "../Pages/Login";
+import OTP from "../Pages/OTP";
+import AdminLogin from "../Pages/AdminLogin";
+
 import Payment from "../Pages/Payment";
 import Summary from "../Pages/Summary";
 
 import Thankyou from "../Pages/Thankyou";
 
 // import Homepage from "../Pages/Homapage";
+
 
 
 function Allroutes() {
@@ -23,10 +33,17 @@ function Allroutes() {
       <Route path="/cart/address" element={<Address />}></Route>
       <Route path="/cart/payment" element={<Payment />}></Route>
       <Route path="/cart/summary" element={<Summary />}></Route>
-      <Route path="/cart/thankyou" element={<Thankyou />}></Route>
+
       <Route path="/" element={<Homepage />} />
       <Route path="/product" element={<Product />} />
       <Route path="/product/:id" element={<SingleProduct />} />
+      <Route path="/signup" element={<Signup />}></Route>
+      <Route path="/login" element={<Login />}></Route>
+      <Route path="/otp" element={<OTP />}></Route>
+      <Route path="/adminlogin" element={<AdminLogin />}></Route>
+
+
+
     </Routes>
   );
 }
