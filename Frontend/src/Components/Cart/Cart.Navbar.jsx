@@ -6,8 +6,12 @@ import CartBreadCrumb from "./Cart.breadCrumb";
 const CartNavbar = () => {
   return (
     <Box display={"flex"}>
-      <Image src={meesho}></Image>
-      {/* <CartBreadCrumb /> */}
+      <Box marginLeft={"-20%"}>
+        <Image w={"70%"} src={meesho}></Image>
+      </Box>
+      <Box marginLeft={"20%"}>
+        <CartBreadCrumb />
+      </Box>
     </Box>
   );
 };

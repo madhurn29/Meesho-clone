@@ -49,6 +49,16 @@ const getProducts = async (req, res) => {
     }
   }
 };
+//*--------this is to control the get product by ID routes----------//
+const getProductsbyID = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const products = await ProductModel.findById({ _id: id });
+    res.status(200).send({ products });
+  } catch (error) {
+    res.status(400).send({ error: error.message });
+  }
+};
 
 //*--------this is to control the add product routes----------//
 const addProduct = async (req, res) => {
@@ -85,4 +95,10 @@ const deleteProduct = async (req, res) => {
   }
 };
 
-module.exports = { getProducts, addProduct, updateProduct, deleteProduct };
+module.exports = {
+  getProducts,
+  addProduct,
+  updateProduct,
+  deleteProduct,
+  getProductsbyID,
+};
