@@ -1,5 +1,12 @@
 import React from "react";
+import AdminNavbar from "./AdminNavbar";
 
-export const Dashboard = () => {
-  return <div>Dashboard</div>;
+const Dashboard = () => {
+  return (
+    <>
+      <AdminNavbar />
+      <h1> Dashboard</h1>
+    </>
+  );
 };
+export default Dashboard;
