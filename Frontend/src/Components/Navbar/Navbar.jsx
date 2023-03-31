@@ -44,9 +44,9 @@ const Navbar = () => {
               marigin-top="15px"
               boreder="1px solid blue" onClick={isOpen ? onClose : onOpen} />
 
-            <Flex justifyContent={"space-between"} alignItems='center' w='95%' m={'auto'} gap="10px" >
+            <Flex justifyContent={"space-between"} alignItems='center' w='95%' m={'auto'} gap="100px" >
 
-              <Flex gap="10px">
+              <Flex gap="40px">
                 <Link to="/">   <Image h={{ base: '20px', md: '40px', lg: "40px" }} width={{ base: '100px', md: '140px', lg: "190px" }} src={meesho} /></Link>
                
 
