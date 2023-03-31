@@ -1,27 +1,5 @@
-import {
-    Box,
-    Container,
-    Text,
-    SimpleGrid,
-    Stack,
+import {Box,Container,Text,SimpleGrid,Stack,Flex,useColorModeValue,Image} from '@chakra-ui/react';
 
-    Flex,
-
-    useColorModeValue,
-    Image,
-    Button,
-} from '@chakra-ui/react';
-// import {
-//     Popover,
-//     PopoverTrigger,
-//     PopoverContent,
-//     PopoverHeader,
-//     PopoverBody,
-//     PopoverFooter,
-//     PopoverArrow,
-//     PopoverCloseButton,
-//     PopoverAnchor,
-// } from '@chakra-ui/react'
 const ListHeader = ({ children }) => {
     return (
         <Text fontWeight={'500'} fontSize={'lg'} mb={2}>
@@ -89,23 +67,7 @@ export default function Footer() {
                 </Container>
 
             </Box>
-            {/* <Box width="80%">
-
-                <Popover isLazy>
-                    <PopoverTrigger>
-                        <Button width="100%">Click me</Button>
-                    </PopoverTrigger>
-                    <PopoverContent>
-                        <PopoverHeader fontWeight='semibold'>Popover placement</PopoverHeader>
-                        <PopoverArrow />
-                        <PopoverCloseButton />
-                        <PopoverBody>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore.
-                        </PopoverBody>
-                    </PopoverContent>
-                </Popover>
-            </Box> */}
+            
         </>
     );
 }
