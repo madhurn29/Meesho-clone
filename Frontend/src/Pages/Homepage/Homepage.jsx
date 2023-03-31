@@ -1,8 +1,8 @@
 import React, { useRef } from 'react'
 import { Box, Flex, Text } from '@chakra-ui/react'
 import { Hide } from '@chakra-ui/react'
-import Navbar from '../Navbar/Navbar'
-import Footer from '../Navbar/Footer'
+import Navbar from '../../Components/Navbar/Navbar'
+import Footer from '../../Components/Navbar/Footer'
 import Sidebar from './Sidebar'
 import HomeImages from './HomeImages'
 import HomeCard from './HomeCard'
@@ -26,14 +26,17 @@ const Homepage = () => {
     React.useEffect(() => {
         getData()
     }, [inputValue]);
-    const filterdata = Productsdata.filter((item) => item.category === inputValue)
-    const [priceFilter, setPriceFilter] = React.useState([]);
+    const filterdatabycategory = Productsdata.filter((item) => item.category === inputValue)
 
+
+    const [priceFilter, setPriceFilter] = React.useState([]);
     const handlePriceFilterChange = (value) => {
       setPriceFilter(value);
     };
   
-    const filteredData = data.filter((item) => {
+
+
+    const filteredData = Productsdata.filter((item) => {
         if (priceFilter.length === 0) {
             return true;
         }
@@ -58,7 +61,7 @@ const Homepage = () => {
                             <Sidebar onPriceFilterChange={handlePriceFilterChange} />
                         </Hide>
                         {/* HomeCards */}
-                        <HomeCard state={filteredData} filterdata={filterdata} />
+                        <HomeCard state={filteredData} filterdata={filterdatabycategory} />
                     </Flex>
                 </Box>
             </Box>

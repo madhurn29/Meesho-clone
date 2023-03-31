@@ -16,10 +16,10 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar/Navbar";
 
 function AdminLogin() {
-  const navigate = useNavigate();
-  const toast = useToast();
-  const [user, setUser] = useState([]);
-  const [mobile, setMobile] = useState("");
+  // const navigate = useNavigate();
+  // const toast = useToast();
+  // const [user, setUser] = useState([]);
+  // const [mobile, setMobile] = useState("");
 
 //   function verifyUsers(mobile) {
 //     axios
@@ -65,7 +65,7 @@ function AdminLogin() {
               fontWeight={"light"}
               fontSize={"sm"}
               cursor={"pointer"}
-              onClick={() => setMobile("")}
+              // onClick={() => setMobile("")}
             >
               Change Number
             </Text>
@@ -89,13 +89,13 @@ function AdminLogin() {
                 borderRadius={"0"}
                 borderBottom={"3px solid rgb(223, 223, 223)"}
                 focusBorderColor={"white"}
-                value={mobile}
-                isDisabled={mobile.length === 10}
-                onChange={(e) => {
-                  setMobile(e.target.value);
-                  console.log(mobile);
-                  verifyUsers(mobile);
-                }}
+                // value={mobile}
+                // isDisabled={mobile.length === 10}
+                // onChange={(e) => {
+                //   setMobile(e.target.value);
+                //   console.log(mobile);
+                //   verifyUsers(mobile);
+                // }}
               />
             </InputGroup>
             <Button
@@ -105,28 +105,28 @@ function AdminLogin() {
               color={"white"}
               width={"100%"}
               _hover={{ bg: "rgb(199, 60, 157)" }}
-              onClick={() => {
-                localStorage.setItem("login", true);
-                user.length === 1
-                  ? toast(
-                      {
-                        title: "Welcome to Admin's Dashboard",
-                        status: "success",
-                        duration: 6000,
-                        isClosable: true,
-                        position: "top",
-                      },
-                      navigate("/profile/Admin")
-                    )
-                  : toast({
-                      title: "Invalid Mobile Number",
-                      description: `no user found please signup`,
-                      status: "error",
-                      duration: 3000,
-                      isClosable: true,
-                      position: "bottom",
-                    });
-              }}
+              // onClick={() => {
+              //   localStorage.setItem("login", true);
+              //   user.length === 1
+              //     ? toast(
+              //         {
+              //           title: "Welcome to Admin's Dashboard",
+              //           status: "success",
+              //           duration: 6000,
+              //           isClosable: true,
+              //           position: "top",
+              //         },
+              //         navigate("/profile/Admin")
+              //       )
+              //     : toast({
+              //         title: "Invalid Mobile Number",
+              //         description: `no user found please signup`,
+              //         status: "error",
+              //         duration: 3000,
+              //         isClosable: true,
+              //         position: "bottom",
+              //       });
+              // }}
             >
               Go to Dashboard
             </Button>

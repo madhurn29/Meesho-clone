@@ -85,11 +85,12 @@ const Sidebar = (props) => {
                     <AccordionPanel pb={4}>
 
                         <Stack spacing={5} direction='column'>
+                           
                             <Checkbox  value={199}    
                                   onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
                                 Under ₹ 199
                             </Checkbox>
-                            <Checkbox  value={399}    
+                            <Checkbox  value={299}    
                                   onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
                                 Under ₹ 399
                             </Checkbox>
@@ -97,22 +98,15 @@ const Sidebar = (props) => {
                                   onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
                                 Under ₹ 599
                             </Checkbox>
+                            <Checkbox  value={799}    
+                                  onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
+                                Under ₹ 799
+                            </Checkbox>
                             <Checkbox  value={999}    
                                   onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
                                 Under ₹ 999
                             </Checkbox>
-                            <Checkbox  value={1499}    
-                                  onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
-                                Under ₹ 1499
-                            </Checkbox>
-                            <Checkbox  value={1999}    
-                                  onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
-                                Under ₹ 1999
-                            </Checkbox>
-                            <Checkbox  value={2999}    
-                                  onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
-                                Under ₹ 2999
-                            </Checkbox>
+                            
                         </Stack>
                     </AccordionPanel>
                 </AccordionItem>

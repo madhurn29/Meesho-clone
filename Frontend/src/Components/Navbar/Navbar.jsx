@@ -50,11 +50,11 @@ const Navbar = (props) => {
 
   return (
     <>
-      <Box borderBottom={"1px solid grey"} position={"sticky"} top={0}>
+      <Box  zIndex={9} borderBottom={"1px solid grey"} position={"sticky"} top={0}>
         <Box
           borderBottom={"1px solid grey"}
           py={"4px"}
-          zIndex={9}
+         
           w="100%"
           style={Theme === "light" ? light : dark}
           padding={"10px"}
