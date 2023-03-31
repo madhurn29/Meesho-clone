@@ -2,19 +2,24 @@ import React from "react";
 import { Box, Text, Input, Button } from "@chakra-ui/react";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import CartNavbar from "../Components/Cart/Cart.Navbar";
+import { Link } from "react-router-dom";
 
 const Address = () => {
-  const sum = localStorage.getItem("cartPrice");
+  const sum = JSON.parse(localStorage.getItem("cartPrice"));
   return (
     <Box>
       <Box margin="3% 20% 0 20%">
         <CartNavbar />
       </Box>
+      <hr />
       <Box
         margin="3% 20% 0 20%"
         display="grid"
-        gridTemplateColumns="repeat(2,1fr)"
-        gap="5%"
+        gridTemplateColumns={{
+          base: "repeat(1,1fr)",
+          lg: "repeat(2,1fr)",
+        }}
+        gap={{ base: "2%", lg: "5%" }}
         fontFamily="-apple-system, Helvetica Neue, sans-serif, Mier Book"
       >
         {/* Address form */}
@@ -48,6 +53,7 @@ const Address = () => {
             </Box>
           </Box>
           <br />
+          <br />
           <Box>
             <Box display={"flex"}>
               <HiOutlineLocationMarker />
@@ -55,7 +61,6 @@ const Address = () => {
                 Address
               </Text>
             </Box>
-            <br />
             <Box>
               <Input
                 variant={"flushed"}
@@ -78,15 +83,17 @@ const Address = () => {
             </Box>
           </Box>
           <br />
-          <Button w={"100%"} color={"white"} bg={"#f43297"}>
-            Save Address & Continue
-          </Button>
+          <Link to="/cart/payment">
+            <Button w={"100%"} color={"white"} bg={"#f43297"}>
+              Save Address & Continue
+            </Button>
+          </Link>
         </Box>
 
         {/* //Cart Price */}
         <Box w={"80%"}>
           <Text fontWeight={"semibold"} fontSize={"xl"}>
-            Product Details
+            Price Details
           </Text>
           <br />
           <Box

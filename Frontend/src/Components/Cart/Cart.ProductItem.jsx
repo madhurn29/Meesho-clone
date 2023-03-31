@@ -1,5 +1,6 @@
 import { Box, Text, Button, Image } from "@chakra-ui/react";
 import React from "react";
+import DrawerExample from "./Cart.Drawer";
 
 const CartProductItem = ({ id, title, images, price, reviews }) => {
   return (
@@ -11,10 +12,20 @@ const CartProductItem = ({ id, title, images, price, reviews }) => {
             <Text>{title}</Text>
             <Text>{price}</Text>
           </Box>
-          <Box marginRight={"-10%"}>
-            <Text fontWeight={"semibold"} color={"#f43297"}>
+          <Box>
+            <Button
+              onClick={() => DrawerExample()}
+              fontWeight={"semibold"}
+              color={"#f43297"}
+              variant="ghost"
+              _hover={{
+                transform: "translateY(-2px)",
+                boxShadow: "lg",
+              }}
+              marginLeft="2"
+            >
               EDIT
-            </Text>
+            </Button>
           </Box>
         </Box>
       </Box>
