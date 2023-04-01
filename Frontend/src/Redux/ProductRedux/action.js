@@ -13,10 +13,10 @@ export const getProductFailure=()=>{
     return {type:GET_PRODUCT_FAILURE}
 }
 
-export const getProduct=(params={})=>(dispatch)=>{
+export const getProduct=(params,category)=>(dispatch)=>{
     dispatch(getProductRequest());
 
-    axios.get("http://localhost:8080/women",params).then((res)=>{
+    axios.get(`https://long-lime-fly-tux.cyclic.app/products?category=${category}`,params).then((res)=>{
         console.log(res.data)
         dispatch(getProductSuccess(res.data))
     }).catch(err=>{
