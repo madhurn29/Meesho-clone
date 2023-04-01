@@ -68,7 +68,7 @@ import axios from 'axios';
   console.log("prod:",prod.products)
   const navigate=useNavigate()
 
-    const newData={...prod.products,quantity:1}
+    
 
   useEffect(() => {
 
@@ -80,12 +80,17 @@ import axios from 'axios';
 // //border={'1px solid #C2C2C2'}
 
   const handleCart=(prod)=>{
-    console.log("cart:",prod)
-    
-    axios.post("https://long-lime-fly-tux.cyclic.app/cart/add",
-        newData,
-        {'Authorization':"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NDI1ZTI0NjBiOGVkOGJlZjJhOTU3NjkiLCJpYXQiOjE2ODAyOTYwNzh9.fgnp3JhjqJt0d8kMRDRlgft5tV6f0J7b1NKDfyXFRHE"}
-).then(res => {
+    // console.log("cart:",prod)
+    const newData={...prod,quantity:1}
+    console.log("newdata:",newData)
+    fetch("https://long-lime-fly-tux.cyclic.app/cart/add",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+        "Authorization":localStorage.getItem("token")
+      },
+      body:JSON.stringify(newData)
+    }).then(res => {
       console.log("tot:",res)
       toast({
         title: 'Add to cart',
@@ -94,8 +99,7 @@ import axios from 'axios';
         duration: 4000,
         isClosable: true,
       })
-    })
-    .catch(error => {
+    }).catch(error => {
       console.error(error);
     });
   }
