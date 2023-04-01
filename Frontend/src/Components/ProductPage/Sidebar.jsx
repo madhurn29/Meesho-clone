@@ -17,7 +17,7 @@ const handlePriceFilterChange=()=>{
 }
   
   return (
-    <Box width="43%" >
+    <Box>
 
             <Accordion fontSize="10px" fontWeight={400} lineHeight='24px' color=' rgb(102, 102, 102)' border="1px solid rgb(240,240,240)" padding={"20px"} allowMultiple>
                 <AccordionItem marginTop="20px" >
@@ -25,7 +25,7 @@ const handlePriceFilterChange=()=>{
                         <AccordionButton fontSize="18px" fontWeight={600} lineHeight='24px' color=' rgb(26, 32, 44)' >
                             <Box as="span" flex='1' textAlign='left'>
                                 <Text fontSize={"17px"}>Filters</Text>
-                                <Text fontSize={"13px"} color="grey">{"state.length"}0+ Products</Text>
+                                <Text fontSize={"13px"} color="grey">1000+ Products</Text>
                             </Box>
 
                         </AccordionButton>
