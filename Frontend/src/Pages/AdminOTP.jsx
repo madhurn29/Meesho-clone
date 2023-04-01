@@ -15,9 +15,7 @@ import React, { useEffect, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar/Navbar";
-import { validateOtp } from "../Redux/AuthRedux/action";
-
-
+import { validateAdminOtp, validateOtp } from "../Redux/AuthRedux/action";
 
 export function Timer({ handleTimer }) {
   const [count, setCount] = React.useState(59);
@@ -49,7 +47,7 @@ export function Timer({ handleTimer }) {
   );
 }
 
-function OTP() {
+function AdminOTP() {
   const [timer, setTimer] = useState(false);
   const [otpNumber, setOtpNumber] = useState([]);
   const dispatch = useDispatch();
@@ -83,19 +81,20 @@ function OTP() {
       tempOtp: Number(otpNumber.join("")),
     };
 
-    dispatch(validateOtp(obj)).then((res) => {
+    dispatch(validateAdminOtp(obj)).then((res) => {
       if (res) {
-        localStorage.setItem("token", res.token);
+        console.log(res);
+        localStorage.setItem("admintoken", res.token);
         toast({
-          title: "Account Created Successfully",
-          description: `Welcome to Shop Vibes`,
+          title: "Admin Logged In Successfully",
+          description: `Welcome to Admin Dashboard`,
           status: "success",
           duration: 3000,
           isClosable: true,
           position: "top",
         });
         setOtpNumber([]);
-        navigate("/");
+        navigate("/dashboard");
       } else {
         toast({
           title: "Please Check your OTP",
@@ -108,28 +107,6 @@ function OTP() {
         setOtpNumber([]);
       }
     });
-
-    // if (otpNumber.join("") === localStorage.getItem("OTP")) {
-    //   toast({
-    //     title: "Account Created Successfully",
-    //     description: `Welcome to shoperz`,
-    //     status: "success",
-    //     duration: 3000,
-    //     isClosable: true,
-    //     position: "top",
-    //   });
-    //   setOtpNumber([]);
-    //   navigate("/");
-    // } else {
-    //   toast({
-    //     title: "Wrong OTP ",
-    //     description: `Please enter correct otp to proceed`,
-    //     status: "error",
-    //     duration: 5000,
-    //     isClosable: true,
-    //   });
-    //   setOtpNumber([]);
-    // }
   };
 
   return (
@@ -153,16 +130,6 @@ function OTP() {
           {/* MObile Number */}
           <Stack mt={"20px"} h={"308px"} p={"20px"}>
             <Heading fontSize={"2xl"}>Enter OTP</Heading>
-
-            {/* <Text
-              color={"rgb(166, 153, 153)"}
-              fontWeight={"light"}
-              fontSize={"sm"}
-              cursor={"pointer"}
-              onClick={() => ""}
-            >
-              Reset OTP
-            </Text> */}
 
             <HStack m={"auto"}>
               <PinInput type="number">
@@ -190,8 +157,10 @@ function OTP() {
                 color={"rgb(246, 93, 151)"}
                 onClick={() => {
                   toast({
-                    title: "OTP sent on your mobile number",
-                    description: `Please enter your otp to proceed `,
+                    title: `OTP sent to your mobile number ${localStorage.getItem(
+                      "phoneNo"
+                    )}`,
+                    description: `Otp is ${localStorage.getItem("OTP")}`,
                     status: "success",
                     duration: 9000,
                     isClosable: true,
@@ -213,4 +182,4 @@ function OTP() {
   );
 }
 
-export default OTP;
+export default AdminOTP;

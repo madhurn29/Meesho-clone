@@ -1,60 +1,45 @@
 import React from "react";
 import { useContext } from "react";
-import {
-  Box,
-  Flex,
-  IconButton,
-  useDisclosure,
-  Stack,
-  Text,
-  Image,
-  Input,
-  Button,
-  Grid,
+import {Box,Flex,IconButton,useDisclosure,Stack,Text,Image,Input,Button,Grid,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon, Search2Icon } from "@chakra-ui/icons";
-import {
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-  PopoverHeader,
-  PopoverBody,
-  PopoverArrow,
-  PopoverCloseButton,
+import {Popover,PopoverTrigger,PopoverContent,PopoverHeader,PopoverBody,PopoverArrow,PopoverCloseButton,
 } from "@chakra-ui/react";
 import { AppContext } from "../Context/Theme";
 import meesho from "../Images/meesho.png";
 import { Link } from "react-router-dom";
 
 const Navbar = (props) => {
+
+  let firstname=localStorage.getItem("firstName")
+  let lastname=localStorage.getItem("lastName")
+  let phoneNo=localStorage.getItem("phoneNo")
+  console.log('firstname: ', firstname);
   const inputRef = React.useRef(null);
 
   const handleInputChange = (event) => {
     setTimeout(() => {
       props.handleInputChange(event.target.value);
-    }, 4000);
+    }, 3000);
   };
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { Theme, ToggleTheme } = useContext(AppContext);
-
   const light = {
     backgroundColor: "white",
     color: "black",
   };
-
   const dark = {
     backgroundColor: "black",
     color: "white",
   };
-
   return (
     <>
-      <Box  zIndex={9} borderBottom={"1px solid grey"} position={"sticky"} top={0}>
+      <Box zIndex={9} borderBottom={"1px solid grey"} position={"sticky"} top={0}>
         <Box
           borderBottom={"1px solid grey"}
           py={"4px"}
-         
+
           w="100%"
           style={Theme === "light" ? light : dark}
           padding={"10px"}
@@ -67,7 +52,6 @@ const Navbar = (props) => {
               aria-label="Open Menu"
               display={{ md: "none" }}
               marigin-top="15px"
-             
               onClick={isOpen ? onClose : onOpen}
             />
 
@@ -213,8 +197,9 @@ const Navbar = (props) => {
                       <PopoverHeader>Manage Account</PopoverHeader>
                       <PopoverBody>
                         <Box>
-                          <Text>Vishal</Text>
-                          <Text>1234567890</Text>
+                          <Text>{firstname}</Text>
+                          <Text>{lastname}</Text>
+                          <Text>{phoneNo}</Text>
                         </Box>
                       </PopoverBody>
 
@@ -265,19 +250,16 @@ const Navbar = (props) => {
           justifyContent="space-around"
           alignItems="center"
         >
-          <Link to="/product" cursor="pointer">
-            Women Ethnic{" "}
-          </Link>
-          <Link to="/product" cursor="pointer">
-            Women Western{" "}
-          </Link>
-          <Text cursor="pointer">Men</Text>
-          <Text cursor="pointer">Kids</Text>
-          <Text cursor="pointer">Home & Kitchen</Text>
-          <Text cursor="pointer">Beauty & Health</Text>
-          <Text cursor="pointer">Jewellery & Accessories </Text>
-          <Text cursor="pointer">Bags & Footwear</Text>
-          <Text cursor="pointer">Electronics</Text>
+          <Link to="/womensEthenic" cursor="pointer"> Women Ethnic</Link>
+          <Link to="/womensWestern" cursor="pointer">Women Western</Link>
+          <Link to="/mens" cursor="pointer">Men</Link>
+          <Link to="/kids" cursor="pointer">Kids</Link>
+          <Link to="/kitchen" cursor="pointer">Home & Kitchen</Link>
+          <Link to="/makeup" cursor="pointer">Beauty & Health</Link>
+          <Link to="/jwellery" cursor="pointer">Jewellery & Accessories </Link>
+          <Link to="/bags" cursor="pointer">Bags & Footwear</Link>
+          <Link to="/electronics" cursor="pointer">Electronics</Link>
+
         </Flex>
       </Box>
     </>

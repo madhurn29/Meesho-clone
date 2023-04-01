@@ -3,7 +3,7 @@ import { Box, Text, Input, Button } from "@chakra-ui/react";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import CartNavbar from "../Components/Cart/Cart.Navbar";
 import { Link } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 
 const Address = () => {
   const sum = JSON.parse(localStorage.getItem("cartPrice"));
@@ -16,16 +16,12 @@ const Address = () => {
   const [state, setState] = useState("");
 
   const handleAddress = () => {
-    const payload = {
-      name,
-      phone,
-      address1,
-      address2,
-      pincode,
-      city,
-      state,
-    };
-    axios.patch();
+    localStorage.setItem("Address1", JSON.stringify(address1));
+    localStorage.setItem("Address2", JSON.stringify(address2));
+    localStorage.setItem("City", JSON.stringify(city));
+    localStorage.setItem("Pincode", JSON.stringify(pincode));
+    localStorage.setItem("State", JSON.stringify(state));
+    localStorage.setItem("Name_in_Address", JSON.stringify(name));
   };
 
   return (

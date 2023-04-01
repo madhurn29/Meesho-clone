@@ -1,11 +1,59 @@
 import { Box, Text, Button } from "@chakra-ui/react";
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CartNavbar from "../Components/Cart/Cart.Navbar";
+import CartProductItem from "../Components/Cart/Cart.ProductItem";
 // import CartProductItem from "../Components/Cart/Cart.ProductItem";
 
 const Summary = () => {
-  const sum = JSON.parse(localStorage.getItem("cartPrice"));
+  // const sum = JSON.parse(localStorage.getItem("cartPrice"));
+  const [data, setData] = useState([]);
+  const name = JSON.parse(localStorage.getItem("Name_in_Address"));
+  const phone = JSON.parse(localStorage.getItem("phoneNo"));
+  const address1 = JSON.parse(localStorage.getItem("Address1"));
+  const address2 = JSON.parse(localStorage.getItem("Address2"));
+  const city = JSON.parse(localStorage.getItem("City"));
+  const pincode = JSON.parse(localStorage.getItem("Pincode"));
+  const state = JSON.parse(localStorage.getItem("State"));
+
+  const getCartData = () => {
+    axios
+      .get("https://long-lime-fly-tux.cyclic.app/cart", {
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+      })
+      .then((res) => {
+        setData(res.data);
+        console.log(res.data);
+      })
+      .catch((e) => console.log(e));
+  };
+
+  let sum = 0;
+  for (let i = 0; i < data.length; i++) {
+    sum += data[i].price * data[i].quantity;
+  }
+  localStorage.setItem("cartPrice", JSON.stringify(sum));
+
+  const handleDelete = (id) => {
+    axios
+      .delete(`https://long-lime-fly-tux.cyclic.app/cart/delete/${id}`, {
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+      })
+      .then((res) => {
+        getCartData();
+      })
+      .catch((e) => console.log(e));
+  };
+
+  useEffect(() => {
+    getCartData();
+  }, []);
+
   return (
     <Box>
       <Box margin="3% 20% 0 20%">
@@ -28,18 +76,28 @@ const Summary = () => {
             <Text fontWeight={"semibold"}>Product Details</Text>
           </Box>
 
-          <Box>Cart items here </Box>
+          <Box>
+            {data.map((e) => (
+              <CartProductItem {...e} key={e._id} handleDelete={handleDelete} />
+            ))}
+          </Box>
 
+          <br />
           <Box>
             <Text fontWeight={"medium"}>Delivery Address</Text>
-            <Box border={"1px solid #f0f0f0"}>
-              <Text fontWeight={"bold"}>Name of the user given in address</Text>
+            <Box border={"1px solid #f0f0f0"} p={3}>
+              <Text fontWeight={"bold"}>{name}</Text>
               <br />
-              <Text>Address</Text>
-              <Text>State - pincode</Text>
-              <Text>Phone Number</Text>
+              <Text>
+                {address1},{address2},{city}
+              </Text>
+              <Text>
+                {state} - {pincode}
+              </Text>
+              <Text>+91 {phone}</Text>
             </Box>
           </Box>
+          <br />
 
           <Box>
             <Text fontWeight={"medium"}>Payment Mode</Text>

@@ -12,13 +12,12 @@ const Cartpage = () => {
     axios
       .get("https://long-lime-fly-tux.cyclic.app/cart", {
         headers: {
-          Authorization:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NDI3NTc2NmJlNGQwNTA4ZjEzMzIyYmEiLCJpYXQiOjE2ODAzNDk0Mjl9.SRfDD-l-GJAkEYAMVCvS1Qb4smwTgIrmbYtuORO267g",
+          Authorization: localStorage.getItem("token"),
         },
       })
       .then((res) => {
         setData(res.data);
-        console.log(res.data);
+        // console.log(res.data);
       })
       .catch((e) => console.log(e));
   };
@@ -29,13 +28,16 @@ const Cartpage = () => {
   localStorage.setItem("cartPrice", JSON.stringify(sum));
 
   const handleDelete = (id) => {
-    axios.delete(`https://long-lime-fly-tux.cyclic.app/cart/delete/${id}`, {
-      headers: {
-        Authorization:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NDI3NTc2NmJlNGQwNTA4ZjEzMzIyYmEiLCJpYXQiOjE2ODAzNDk0Mjl9.SRfDD-l-GJAkEYAMVCvS1Qb4smwTgIrmbYtuORO267g",
-      },
-    });
-    getCartData();
+    axios
+      .delete(`https://long-lime-fly-tux.cyclic.app/cart/delete/${id}`, {
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+      })
+      .then((res) => {
+        getCartData();
+      })
+      .catch((e) => console.log(e));
   };
 
   useEffect(() => {
@@ -74,6 +76,7 @@ const Cartpage = () => {
                   {...e}
                   key={e._id}
                   handleDelete={handleDelete}
+                  getCartData={getCartData}
                 />
               );
             })}

@@ -1,12 +1,13 @@
 import { Box, Divider, Flex, Image, Text } from "@chakra-ui/react";
 import React from "react";
-import Home from "../Components/Images/Home1.png";
-// import Home2 from "../Components/Images/Home2.png"
-// import Home3 from "./Components/Images/Home3.png"
+import Home1 from "./HomeImage/Home1.png";
+import Home2 from "./HomeImage/Home2.png";
+import Home3 from "./HomeImage/Home3.png";
 const HomeImages = () => {
   return (
     <>
-      <Image width="80%" margin={"auto"} src={Home} />
+      <Image width="80%" margin={"auto"} src={Home1} />
+
       <Box>
         <Flex width="80%" margin={"auto"}>
           <Divider
@@ -184,14 +185,13 @@ const HomeImages = () => {
         </Flex>
 
         <Box width={"80%"} m="auto" mb={"50px"}>
-          <Image src={"Home2.png"} />
+          <Image src={Home2} />
         </Box>
         <Box width={"80%"} m="auto" mt="5%" mb={"50px"}>
-          <Image src={"Home3.png"} />
+          <Image src={Home3} />
         </Box>
       </Box>
     </>
   );
 };
-
 export default HomeImages;
