@@ -1,25 +1,25 @@
 import React from 'react'
 import { Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Box, Text, Input, Stack, Checkbox, } from '@chakra-ui/react'
 
+const Sidebar = ({ categoryFilter, onPriceFilterChange }) => {
+    // category filter func to filte data by category
 
-const Sidebar = (props) => {
-
-    const [priceFilter, setPriceFilter] = React.useState([]);
-
+    // price filter to sore value
+    const [priceFilter, setPriceFilter] = React.useState([]); 
+    // filter data
     const handlePriceFilterChange = (event) => {
-      const value = parseInt(event.target.value);
-      let newPriceFilter = [...priceFilter];
-      if (event.target.checked) {
-        newPriceFilter.push(value);
-      } else {
-        newPriceFilter = newPriceFilter.filter((price) => price !== value);
-      }
-      setPriceFilter(newPriceFilter);
-      props.onPriceFilterChange(newPriceFilter);
+        const value = parseInt(event.target.value);
+        let newPriceFilter = [...priceFilter];
+        if (event.target.checked) {
+            newPriceFilter.push(value);
+        } else {
+            newPriceFilter = newPriceFilter.filter((price) => price !== value);
+        }
+        setPriceFilter(newPriceFilter);
+        onPriceFilterChange(newPriceFilter);
     };
     return (
         <Box width="23%" >
-
             <Accordion fontSize="10px" fontWeight={400} lineHeight='24px' color=' rgb(102, 102, 102)' border="1px solid rgb(240,240,240)" padding={"20px"} allowMultiple>
                 <AccordionItem marginTop="20px" >
                     <h2>
@@ -28,10 +28,8 @@ const Sidebar = (props) => {
                                 <Text fontSize={"17px"}>Filters</Text>
                                 <Text fontSize={"13px"} color="grey">{"state.length"}0+ Products</Text>
                             </Box>
-
                         </AccordionButton>
                     </h2>
-
                 </AccordionItem>
                 {/* category */}
                 <AccordionItem marginTop="20px" >
@@ -44,34 +42,40 @@ const Sidebar = (props) => {
                         </AccordionButton>
                     </h2>
                     <AccordionPanel pb={4}>
-                        <Input />
+
                         <Stack spacing={5} direction='column'>
-                            <Checkbox colorScheme='green' >
-                                Analog Watches
+                            <Checkbox value={"furniture"}
+                                onChange={categoryFilter} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
+                                furniture
                             </Checkbox>
-                            <Checkbox colorScheme='green' >
-                                Anklets & Toe Rings
+                            <Checkbox value={"mens-watches"}
+                                onChange={categoryFilter} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
+                                mens-watches
                             </Checkbox>
-                            <Checkbox colorScheme='green' >
-                                Appliance Covers
+                            <Checkbox value={"sunglasses"}
+                                onChange={categoryFilter} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
+                                sunglasses
                             </Checkbox>
-                            <Checkbox colorScheme='green' >
-                                Artificial Plant and Flower
+                            <Checkbox value={"lighting"}
+                                onChange={categoryFilter} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
+                                lighting
                             </Checkbox>
-                            <Checkbox colorScheme='green' >
-                                Bags & Backpacks
+                            <Checkbox value={"automotive"}
+                                onChange={categoryFilter} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
+                                automotive
                             </Checkbox>
-                            <Checkbox colorScheme='green' >
-                                Bedsheets
+                            <Checkbox value={"womens-shoes"}
+                                onChange={categoryFilter} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
+                                womens-shoes
                             </Checkbox>
 
-                            <Checkbox colorScheme='green' >
-                                Ayurvedic
+                            <Checkbox value={"mens-shoes"}
+                                onChange={categoryFilter} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
+                                mens-shoes
                             </Checkbox>
                         </Stack>
                     </AccordionPanel>
                 </AccordionItem>
-
                 {/* Price */}
                 <AccordionItem marginTop="20px">
                     <h2>
@@ -85,33 +89,31 @@ const Sidebar = (props) => {
                     <AccordionPanel pb={4}>
 
                         <Stack spacing={5} direction='column'>
-                           
-                            <Checkbox  value={199}    
-                                  onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
+
+                            <Checkbox value={199}
+                                onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
                                 Under ₹ 199
                             </Checkbox>
-                            <Checkbox  value={299}    
-                                  onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
+                            <Checkbox value={299}
+                                onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
                                 Under ₹ 399
                             </Checkbox>
-                            <Checkbox  value={599}    
-                                  onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
+                            <Checkbox value={599}
+                                onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
                                 Under ₹ 599
                             </Checkbox>
-                            <Checkbox  value={799}    
-                                  onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
+                            <Checkbox value={799}
+                                onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
                                 Under ₹ 799
                             </Checkbox>
-                            <Checkbox  value={999}    
-                                  onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
+                            <Checkbox value={999}
+                                onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
                                 Under ₹ 999
                             </Checkbox>
-                            
+
                         </Stack>
                     </AccordionPanel>
                 </AccordionItem>
-
-
                 {/* Rating */}
                 <AccordionItem marginTop="20px">
                     <h2>
@@ -142,8 +144,6 @@ const Sidebar = (props) => {
                         </Stack>
                     </AccordionPanel>
                 </AccordionItem>
-
-
                 {/* fabric */}
                 <AccordionItem marginTop="20px" >
                     <h2>
@@ -190,7 +190,6 @@ const Sidebar = (props) => {
                         </Stack>
                     </AccordionPanel>
                 </AccordionItem>
-
                 {/* oxfords */}
                 <AccordionItem marginTop="20px">
                     <h2>
@@ -210,7 +209,6 @@ const Sidebar = (props) => {
                         </Stack>
                     </AccordionPanel>
                 </AccordionItem>
-
                 {/* dialshape */}
                 <AccordionItem marginTop="20px">
                     <h2>
@@ -230,7 +228,6 @@ const Sidebar = (props) => {
                         </Stack>
                     </AccordionPanel>
                 </AccordionItem>
-
                 {/* colors */}
                 <AccordionItem marginTop="20px">
                     <h2>
@@ -279,11 +276,6 @@ const Sidebar = (props) => {
 
                     </AccordionPanel>
                 </AccordionItem>
-
-
-
-
-
                 {/* Size */}
                 <AccordionItem marginTop="20px">
                     <h2>
@@ -309,7 +301,6 @@ const Sidebar = (props) => {
                         </Stack>
                     </AccordionPanel>
                 </AccordionItem>
-
                 {/* Combo */}
                 <AccordionItem marginTop="20px">
                     <h2>
@@ -347,7 +338,6 @@ const Sidebar = (props) => {
                         </Stack>
                     </AccordionPanel>
                 </AccordionItem>
-
             </Accordion>
         </Box>
     )
