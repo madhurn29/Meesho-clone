@@ -10,6 +10,11 @@ import meesho from "../Images/meesho.png";
 import { Link } from "react-router-dom";
 
 const Navbar = (props) => {
+
+  let firstname=localStorage.getItem("firstName")
+  let lastname=localStorage.getItem("lastName")
+  let phoneNo=localStorage.getItem("phoneNo")
+  console.log('firstname: ', firstname);
   const inputRef = React.useRef(null);
 
   const handleInputChange = (event) => {
@@ -192,8 +197,9 @@ const Navbar = (props) => {
                       <PopoverHeader>Manage Account</PopoverHeader>
                       <PopoverBody>
                         <Box>
-                          <Text>Vishal</Text>
-                          <Text>1234567890</Text>
+                          <Text>{firstname}</Text>
+                          <Text>{lastname}</Text>
+                          <Text>{phoneNo}</Text>
                         </Box>
                       </PopoverBody>
 

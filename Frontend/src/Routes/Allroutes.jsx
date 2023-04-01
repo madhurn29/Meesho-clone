@@ -26,26 +26,26 @@ import Jwellery from "../Pages/Jwellery";
 import Bags from "../Pages/Bags";
 import Electronics from "../Pages/Electronics";
 import Homepage from "../Pages/Homepage/Homepage";
-import Signup from "../Pages/SignUp";
+import Signup from "../Pages/Signup";
 import AdminOTP from "../Pages/AdminOTP";
 
 function Allroutes() {
   return (
     <Routes>
       {/* TODO: add routes here */}
-//ram
+{/* {ram} */}
       <Route path="/cart" element={<Cartpage />}></Route>
       <Route path="/cart/address" element={<Address />}></Route>
       <Route path="/cart/payment" element={<Payment />}></Route>
       <Route path="/cart/summary" element={<Summary />}></Route>
 
-//vishal
+{/* {vishal} */}
       <Route path="/" element={<Homepage/>}/>
       <Route path="/jwellery" element={<Jwellery/>}/>
       <Route path="/bags" element={<Bags/>}/>
       <Route path="/electronics" element={<Electronics/>}/>
       
-//ankit
+{/* {ankit} */}
       <Route path="/product" element={<Product/>}/>
       <Route path="/product/:id" element={<SingleProduct />} />
       <Route path="/mens" element={<Mens/>}/>
@@ -62,8 +62,8 @@ function Allroutes() {
       <Route path="/kitchen/:id" element={<SingleProductKitchen/>}/> 
        {/* <Route path="/product/:id" element={<SingleProduct/>}/> */}
  
-//madhur
-      <Route path="/signup" element={<Signup />}></Route>
+{/* {madhur} */}
+      <Route path="/signup" element={<Signup/>}></Route>
       <Route path="/login" element={<Login />}></Route>
       <Route path="/otp" element={<OTP />}></Route>
       <Route path="/adminlogin" element={<AdminLogin />}></Route>
