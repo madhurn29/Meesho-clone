@@ -31,6 +31,9 @@ import { SingleProductKids } from "../Components/ProductPage/SingleProductKids";
 import { SingleProductEthenic } from "../Components/ProductPage/SingleProductEthenic";
 
 import Thankyou from "../Pages/Thankyou";
+import Jwellery from "../Pages/Jwellery";
+import Bags from "../Pages/Bags";
+import Electronics from "../Pages/Electronics";
 
 // import Homepage from "../Pages/Homapage";
 
@@ -47,6 +50,10 @@ function Allroutes() {
       <Route path="/cart/summary" element={<Summary />}></Route>
 
       <Route path="/" element={<Homepage/>}/>
+      <Route path="/jwellery" element={<Jwellery/>}/>
+      <Route path="/bags" element={<Bags/>}/>
+      <Route path="/electronics" element={<Electronics/>}/>
+
       <Route path="/product" element={<Product/>}/>
       <Route path="/mens" element={<Mens/>}/>
       <Route path="/womensWestern" element={<WomensWestern/>}/>
@@ -66,10 +73,6 @@ function Allroutes() {
       <Route path="/login" element={<Login />}></Route>
       <Route path="/otp" element={<OTP />}></Route>
       <Route path="/adminlogin" element={<AdminLogin />}></Route>
-
-
-
-
     </Routes>
   );
 }
