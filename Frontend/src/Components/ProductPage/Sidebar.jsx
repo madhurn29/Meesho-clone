@@ -17,7 +17,7 @@ const handlePriceFilterChange=()=>{
 }
   
   return (
-    <Box width="23%" >
+    <Box width="43%" >
 
             <Accordion fontSize="10px" fontWeight={400} lineHeight='24px' color=' rgb(102, 102, 102)' border="1px solid rgb(240,240,240)" padding={"20px"} allowMultiple>
                 <AccordionItem marginTop="20px" >
