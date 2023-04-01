@@ -1,6 +1,14 @@
 .container{
+    
     border-color: red;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(300px,max-content));
+    grid-gap:10px
+}
+
+.contain{
+    
+    border-color: red;
+    display: flex;
+    
     grid-gap:10px
 }

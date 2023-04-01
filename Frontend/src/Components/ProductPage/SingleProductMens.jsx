@@ -56,36 +56,37 @@ import axios from 'axios';
     );
   };
   
-  export default function SingleProduct() {
+  export default function SingleProductMens() {
     
-    const { _id } = useParams();
-    console.log("id:",_id)
+    const {id} = useParams();
+    console.log("id:",id)
     const toast=useToast()
-  const product = useSelector((store) =>{
-    // console.log("store.Productreducer.product:",store.Productreducer.product)
-    return store.Productreducer.product
-  } );
-  console.log("product11:",product)
+  
+  
   const [prod, setProd] = useState({});
   const [cart,setCart]=useState([])
-  // console.log("prod:",prod)
+  console.log("prod:",prod.products)
   const navigate=useNavigate()
 
+    const newData={...prod.products,quantity:1}
 
   useEffect(() => {
-    let prodData = product.find((el) => el.id === _id);
-    prodData && setProd(prodData);
+
+    axios.get(`https://long-lime-fly-tux.cyclic.app/products/${id}`).then(res=>{
+        console.log("res.data11:",res.data.products)
+        setProd(res.data.products)
+    }).catch(err=>console.log(err))
   }, []);
-//border={'1px solid #C2C2C2'}
+// //border={'1px solid #C2C2C2'}
 
   const handleCart=(prod)=>{
     console.log("cart:",prod)
     
-    axios.post("https://long-lime-fly-tux.cyclic.app/products/add",{
-      prod
-}).then(res => {
+    axios.post("https://long-lime-fly-tux.cyclic.app/cart/add",
+        newData,
+        {'Authorization':"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NDI1ZTI0NjBiOGVkOGJlZjJhOTU3NjkiLCJpYXQiOjE2ODAyOTYwNzh9.fgnp3JhjqJt0d8kMRDRlgft5tV6f0J7b1NKDfyXFRHE"}
+).then(res => {
       console.log("tot:",res)
-      setCart([...cart, res.data]);
       toast({
         title: 'Add to cart',
         description: "Product is successfully added to cart",
@@ -101,7 +102,7 @@ import axios from 'axios';
 
 
     return (
-      <Box>
+        <Box>
         <Box>
         <Container maxW={'5xl'} py={12}>
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
@@ -269,11 +270,11 @@ import axios from 'axios';
         </SimpleGrid>
       </Container>
       </Box>
-      <Box ml={'9%'} maxW="xxl">
+      {/* <Box ml={'9%'} maxW="xxl">
         <Hide breakpoint='(max-width: 900px)'>
-        <PeopleAlsoLike data={prod.products}/>
+        <PeopleAlsoLike prod={prod}/>
         </Hide>
-      </Box>
+      </Box> */}
       </Box>
     );
   }
