@@ -12,3 +12,9 @@
     
     grid-gap:10px
 }
+.props{
+    
+    margin: auto;
+    width: 70%;
+    display: flex;
+}

@@ -6,8 +6,9 @@ import Home3 from "./HomeImage/Home3.png"
 const HomeImages = () => {
     return (
         <>
-            {/* HomeBody */}
+
             <Image width="80%" margin={"auto"} src={Home1} />
+
 
             <Box>
                 <Flex width="80%" margin={"auto"}>
