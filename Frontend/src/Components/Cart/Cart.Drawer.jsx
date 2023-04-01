@@ -6,26 +6,26 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-  Button,
   Input,
+  Button,
   useDisclosure,
 } from "@chakra-ui/react";
 import React from "react";
 
-export default function DrawerExample() {
+function DrawerExample() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  //   const btnRef = React.useRef();
+  const btnRef = React.useRef();
 
   return (
     <>
-      {/* <Button ref={btnRef} colorScheme="teal" onClick={onOpen}>
-        Open
-      </Button> */}
+      <Button ref={btnRef} colorScheme="teal" onClick={onOpen}>
+        Edit
+      </Button>
       <Drawer
-        // isOpen={isOpen}
+        isOpen={isOpen}
         placement="right"
         onClose={onClose}
-        // finalFocusRef={btnRef}
+        finalFocusRef={btnRef}
       >
         <DrawerOverlay />
         <DrawerContent>
@@ -47,3 +47,4 @@ export default function DrawerExample() {
     </>
   );
 }
+export default DrawerExample;

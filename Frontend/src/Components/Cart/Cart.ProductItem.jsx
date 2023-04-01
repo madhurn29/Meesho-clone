@@ -1,32 +1,93 @@
-import { Box, Text, Button, Image } from "@chakra-ui/react";
-import React from "react";
-import DrawerExample from "./Cart.Drawer";
+import { Box, Text, Button, Image, Flex } from "@chakra-ui/react";
+// import axios from "axios";
+import React, { useState } from "react";
 
-const CartProductItem = ({ id, title, images, price, reviews }) => {
+const CartProductItem = ({
+  _id,
+  title,
+  images,
+  price,
+  reviews,
+  rating,
+  delivery,
+  quantity,
+  handleDelete,
+  getCartData,
+}) => {
+  const [qty, setQty] = useState(quantity);
+  // console.log(qty);
+
+  const handleQuantity = () => {
+    // console.log(qty, _id);
+    const payload = { quantity: qty };
+    fetch(`https://long-lime-fly-tux.cyclic.app/cart/update/${_id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
+      },
+      body: JSON.stringify(payload),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        getCartData();
+      })
+      .catch((e) => console.log(e));
+  };
+
   return (
-    <Box border={"1px solid #dfdfdf"} key={id} marginBottom={"3%"}>
+    <Box border={"1px solid #dfdfdf"} key={_id} marginBottom={"3%"}>
       <Box display={"flex"} p={"3%"}>
         <Image borderRadius={"20%"} w={"18%"} src={images}></Image>
         <Box display={"flex"}>
-          <Box marginLeft={"3%"}>
-            <Text>{title}</Text>
-            <Text>{price}</Text>
+          <Box marginLeft={"5%"}>
+            <Text fontWeight={"medium"}>{title}</Text>
+            <Text fontWeight={"semibold"}>₹{price}</Text>
           </Box>
-          <Box>
+          <Flex>
             <Button
-              onClick={() => DrawerExample()}
+              color={"#f43297"}
+              variant="ghost"
+              isDisabled={qty === 1}
+              _hover={
+                qty > 1
+                  ? {
+                      transform: "translateY(-2px)",
+                      boxShadow: "lg",
+                    }
+                  : null
+              }
+              onClick={() => {
+                setQty((prev) => prev - 1);
+                handleQuantity();
+              }}
+            >
+              -
+            </Button>
+            <Button
               fontWeight={"semibold"}
+              color={"#f43297"}
+              variant="ghost"
+              marginLeft="1"
+            >
+              {qty}
+            </Button>
+            <Button
               color={"#f43297"}
               variant="ghost"
               _hover={{
                 transform: "translateY(-2px)",
                 boxShadow: "lg",
               }}
-              marginLeft="2"
+              // onClick={() => setQty((prev) => prev + 1)}
+              onClick={() => {
+                setQty((prev) => prev + 1);
+                handleQuantity();
+              }}
             >
-              EDIT
+              +
             </Button>
-          </Box>
+          </Flex>
         </Box>
       </Box>
       <Box>
@@ -39,12 +100,12 @@ const CartProductItem = ({ id, title, images, price, reviews }) => {
             transform: "translateY(-2px)",
             boxShadow: "lg",
           }}
+          onClick={() => handleDelete(_id)}
         >
           <svg
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
-            height="12px"
-            iconSize="20"
+            height="15px"
             style={{ marginRight: "2%" }}
           >
             <path
@@ -56,7 +117,11 @@ const CartProductItem = ({ id, title, images, price, reviews }) => {
         </Button>
         <hr />
       </Box>
-      <Text p={"3%"}>Reviews : {reviews}</Text>
+      <Flex>
+        <Text p={"3%"}>{reviews}</Text>
+        <Text p={"3%"}>Rating: {rating}</Text>
+        <Text p={"3%"}>{delivery}</Text>
+      </Flex>
     </Box>
   );
 };
