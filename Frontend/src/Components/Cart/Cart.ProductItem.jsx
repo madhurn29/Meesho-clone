@@ -1,20 +1,34 @@
 import { Box, Text, Button, Image } from "@chakra-ui/react";
+import axios from "axios";
 import React from "react";
 import DrawerExample from "./Cart.Drawer";
 
-const CartProductItem = ({ id, title, images, price, reviews }) => {
+const CartProductItem = ({
+  _id,
+  title,
+  images,
+  price,
+  reviews,
+  handleDelete,
+}) => {
+  // const handleEdit = () => {
+  //   <DrawerExample />;
+  // };
+
   return (
-    <Box border={"1px solid #dfdfdf"} key={id} marginBottom={"3%"}>
+    <Box border={"1px solid #dfdfdf"} key={_id} marginBottom={"3%"}>
       <Box display={"flex"} p={"3%"}>
         <Image borderRadius={"20%"} w={"18%"} src={images}></Image>
         <Box display={"flex"}>
-          <Box marginLeft={"3%"}>
-            <Text>{title}</Text>
-            <Text>{price}</Text>
+          <Box marginLeft={"5%"}>
+            <Text fontWeight={"medium"}>{title}</Text>
+            <Text fontWeight={"semibold"}>₹{price}</Text>
           </Box>
           <Box>
             <Button
-              onClick={() => DrawerExample()}
+              onClick={() => {
+                <DrawerExample />;
+              }}
               fontWeight={"semibold"}
               color={"#f43297"}
               variant="ghost"
@@ -22,7 +36,7 @@ const CartProductItem = ({ id, title, images, price, reviews }) => {
                 transform: "translateY(-2px)",
                 boxShadow: "lg",
               }}
-              marginLeft="2"
+              marginLeft="1"
             >
               EDIT
             </Button>
@@ -39,6 +53,7 @@ const CartProductItem = ({ id, title, images, price, reviews }) => {
             transform: "translateY(-2px)",
             boxShadow: "lg",
           }}
+          onClick={() => handleDelete(_id)}
         >
           <svg
             viewBox="0 0 20 20"

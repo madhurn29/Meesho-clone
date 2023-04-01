@@ -1,11 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Text, Input, Button } from "@chakra-ui/react";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import CartNavbar from "../Components/Cart/Cart.Navbar";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Address = () => {
   const sum = JSON.parse(localStorage.getItem("cartPrice"));
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address1, setAddress1] = useState("");
+  const [address2, setAddress2] = useState("");
+  const [pincode, setPincode] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+
+  const handleAddress = () => {
+    const payload = {
+      name,
+      phone,
+      address1,
+      address2,
+      pincode,
+      city,
+      state,
+    };
+    axios.patch();
+  };
+
   return (
     <Box>
       <Box margin="3% 20% 0 20%">
@@ -48,8 +70,18 @@ const Address = () => {
               </Text>
             </Box>
             <Box>
-              <Input variant={"flushed"} placeholder="Name"></Input>
-              <Input variant={"flushed"} placeholder="PhoneNumber"></Input>
+              <Input
+                variant={"flushed"}
+                placeholder="Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              ></Input>
+              <Input
+                variant={"flushed"}
+                placeholder="PhoneNumber"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              ></Input>
             </Box>
           </Box>
           <br />
@@ -65,15 +97,34 @@ const Address = () => {
               <Input
                 variant={"flushed"}
                 placeholder="House no./ Building Name"
+                value={address1}
+                onChange={(e) => setAddress1(e.target.value)}
               ></Input>
               <Input
                 variant={"flushed"}
                 placeholder="Road Name/ Area/ Colony"
+                value={address2}
+                onChange={(e) => setAddress2(e.target.value)}
               ></Input>
-              <Input variant={"flushed"} placeholder="Pincode"></Input>
+              <Input
+                variant={"flushed"}
+                placeholder="Pincode"
+                value={pincode}
+                onChange={(e) => setPincode(e.target.value)}
+              ></Input>
               <Box display={"flex"} gap={"2%"}>
-                <Input variant={"flushed"} placeholder="City"></Input>
-                <Input variant={"flushed"} placeholder="State"></Input>
+                <Input
+                  variant={"flushed"}
+                  placeholder="City"
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                ></Input>
+                <Input
+                  variant={"flushed"}
+                  placeholder="State"
+                  value={state}
+                  onChange={(e) => setState(e.target.value)}
+                ></Input>
               </Box>
 
               <Input
@@ -84,7 +135,12 @@ const Address = () => {
           </Box>
           <br />
           <Link to="/cart/payment">
-            <Button w={"100%"} color={"white"} bg={"#f43297"}>
+            <Button
+              w={"100%"}
+              color={"white"}
+              bg={"#f43297"}
+              onClick={handleAddress}
+            >
               Save Address & Continue
             </Button>
           </Link>
