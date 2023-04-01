@@ -36,6 +36,8 @@ import { BsArrowReturnLeft, BsCartDash, BsCash } from 'react-icons/bs';
 import { ProductList } from './ProductList';
 import { PeopleAlsoLike } from './PeopleAlsoLike';
 import axios from 'axios';
+import Navbar from '../Navbar/Navbar';
+import Footer from '../Navbar/Footer';
   
 
   
@@ -107,6 +109,8 @@ import axios from 'axios';
 
     return (
         <Box>
+          <Navbar/>
+          <Box>
         <Box>
         <Container maxW={'5xl'} py={12}>
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
@@ -280,6 +284,8 @@ import axios from 'axios';
         </Hide>
       </Box> */}
       </Box>
+          <Footer/>
+        </Box>
     );
   }
 
