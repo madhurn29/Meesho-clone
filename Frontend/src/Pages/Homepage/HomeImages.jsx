@@ -8,6 +8,7 @@ const HomeImages = () => {
         <>
             {/* HomeBody */}
             <Image width="80%" margin={"auto"} src={Home1} />
+
             <Box>
                 <Flex width="80%" margin={"auto"}>
                     <Divider orientation='horizontal' borderColor={'pink'} width="25%" m="auto" />
