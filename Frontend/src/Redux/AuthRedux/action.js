@@ -46,7 +46,7 @@ export const validateOtp = (obj) => (dispatch) => {
     .post("https://long-lime-fly-tux.cyclic.app/user/validateOtp", obj)
     .then((res) => {
       dispatch(postRequestSuccess(res.data));
-      // console.log(res.data, "from action");
+
       return res.data;
     })
     .catch((err) => {

@@ -10,7 +10,7 @@ import {
   Button,
   useToast,
 } from "@chakra-ui/react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
@@ -25,6 +25,11 @@ function Signup() {
   const [firstName, setFirstname] = useState("");
   const [lastName, setLastname] = useState("");
   const [phoneNo, setPhoneNo] = useState("");
+
+  const isLoading = useSelector((store) => {
+    return store.AuthReducer.isLoading;
+  });
+  console.log(isLoading, "from sign up");
 
   const handleSendOtp = () => {
     let obj = { firstName, lastName, phoneNo };
@@ -49,19 +54,6 @@ function Signup() {
         isClosable: true,
       });
     }
-
-    // toast(
-    //   {
-    //     title: "OTP sent on your mobile number",
-    //     description: `Please enter your otp to proceed ${otp}`,
-    //     status: "success",
-    //     duration: 9000,
-    //     isClosable: true,
-    //   },
-
-    //   localStorage.setItem("login", true),
-    //   navigate("/otp-page")
-    // );
   };
 
   return (
@@ -69,8 +61,9 @@ function Signup() {
       <Navbar />
       <Box bgColor={"rgb(253, 237, 236)"} p={"50px"}>
         <Box
-          w={"431px"}
+          w={{ sm: "300px", md: "431px" }}
           border={"1px solid rgb(223, 223, 223)"}
+          // border={"1px solid red"}
           m={"auto"}
           borderRadius={"5px"}
           bgColor={"white"}
@@ -78,7 +71,7 @@ function Signup() {
           <Stack>
             <Image
               borderTopRadius={"5px"}
-              w={"431px"}
+              w={{ sm: "300px", md: "431px" }}
               src="https://images.meesho.com/images/marketing/1661417516766.webp"
             />
           </Stack>
@@ -163,7 +156,7 @@ function Signup() {
               _hover={{ bg: "rgb(199, 60, 157)" }}
               onClick={handleSendOtp}
             >
-              Send OTP
+              {isLoading ? "Sending..." : "Send OTP"}
             </Button>
             <Text m={" auto"}>
               Already have an account? Login{" "}
