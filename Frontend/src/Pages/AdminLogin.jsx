@@ -14,35 +14,53 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar/Navbar";
+import { useDispatch } from "react-redux";
+import { adminLoginRequest } from "../Redux/AuthRedux/action";
 
 function AdminLogin() {
-  // const navigate = useNavigate();
-  // const toast = useToast();
-  // const [user, setUser] = useState([]);
-  // const [mobile, setMobile] = useState("");
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const toast = useToast();
 
-//   function verifyUsers(mobile) {
-//     axios
-//       .get(`https://63cd0ca00f1d5967f028fa8e.mockapi.io/admin?search=${mobile}`)
-//       .then((res) => {
-//         setUser(res.data);
-//         localStorage.setItem("id", res.data[0].id);
-//       });
-//   }
+  const [phoneNo, setMobile] = useState("");
 
-  // useState(() => {
-  //   verifyUsers(mobile);
-  // }, [mobile]);
-  // console.log(user);
+  const handleSendOTP = () => {
+    console.log(phoneNo);
+    if (phoneNo.length < 10) {
+      toast({
+        title: "Enter Correct Mobile Number to proceed",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+        position: "top",
+      });
+    } else {
+      let obj = { phoneNo };
+      dispatch(adminLoginRequest(obj)).then((res) => {
+        // console.log(res, "from Admin");
+        if (res) {
+          const { phoneNo, OTP } = res.data;
+          localStorage.setItem("role", "admin");
+          localStorage.setItem("phoneNo", phoneNo);
+          localStorage.setItem("OTP", OTP);
+          navigate("/adminotp");
+        } else {
+          toast({
+            title: "Access denied",
+            description: `Contact administration`,
+            status: "error",
+            duration: 5000,
+            isClosable: true,
+            position: "top",
+          });
+        }
+      });
+    }
+  };
   return (
     <Box>
       <Navbar />
-      <Box
-        bgColor={"rgb(253, 237, 236)"}
-        height={"635px"}
-      
-        pt={"50px"}
-      >
+      <Box bgColor={"rgb(253, 237, 236)"} height={"635px"} pt={"50px"}>
         <Box
           w={"431px"}
           border={"1px solid rgb(223, 223, 223)"}
@@ -65,7 +83,7 @@ function AdminLogin() {
               fontWeight={"light"}
               fontSize={"sm"}
               cursor={"pointer"}
-              // onClick={() => setMobile("")}
+              onClick={() => setMobile("")}
             >
               Change Number
             </Text>
@@ -89,13 +107,11 @@ function AdminLogin() {
                 borderRadius={"0"}
                 borderBottom={"3px solid rgb(223, 223, 223)"}
                 focusBorderColor={"white"}
-                // value={mobile}
-                // isDisabled={mobile.length === 10}
-                // onChange={(e) => {
-                //   setMobile(e.target.value);
-                //   console.log(mobile);
-                //   verifyUsers(mobile);
-                // }}
+                value={phoneNo}
+                isDisabled={phoneNo.length === 10}
+                onChange={(e) => {
+                  setMobile(e.target.value);
+                }}
               />
             </InputGroup>
             <Button
@@ -105,30 +121,9 @@ function AdminLogin() {
               color={"white"}
               width={"100%"}
               _hover={{ bg: "rgb(199, 60, 157)" }}
-              // onClick={() => {
-              //   localStorage.setItem("login", true);
-              //   user.length === 1
-              //     ? toast(
-              //         {
-              //           title: "Welcome to Admin's Dashboard",
-              //           status: "success",
-              //           duration: 6000,
-              //           isClosable: true,
-              //           position: "top",
-              //         },
-              //         navigate("/profile/Admin")
-              //       )
-              //     : toast({
-              //         title: "Invalid Mobile Number",
-              //         description: `no user found please signup`,
-              //         status: "error",
-              //         duration: 3000,
-              //         isClosable: true,
-              //         position: "bottom",
-              //       });
-              // }}
+              onClick={handleSendOTP}
             >
-              Go to Dashboard
+              Send OTP
             </Button>
           </Stack>
         </Box>

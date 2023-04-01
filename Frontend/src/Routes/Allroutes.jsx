@@ -1,22 +1,18 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Homepage from "../Pages/Homepage/Homepage";
+
 import { Product } from "../Components/ProductPage/Product";
 import SingleProduct from "../Components/ProductPage/SingleProduct";
 
 import Address from "../Pages/Address";
 import Cartpage from "../Pages/Cartpage";
-
-
-
-
-import Signup from "../Pages/Signup";
 import Login from "../Pages/Login";
 import OTP from "../Pages/OTP";
 import AdminLogin from "../Pages/AdminLogin";
-
 import Payment from "../Pages/Payment";
 import Summary from "../Pages/Summary";
+
+
 import { Mens } from "../Components/ProductPage/Mens";
 import { WomensWestern } from "../Components/ProductPage/WomensWestern";
 import { WomenEthnic } from "../Components/ProductPage/WomenEthnic";
@@ -30,11 +26,11 @@ import { SingleProductMakeup } from "../Components/ProductPage/SingleProductMake
 import { SingleProductKids } from "../Components/ProductPage/SingleProductKids";
 import { SingleProductEthenic } from "../Components/ProductPage/SingleProductEthenic";
 
+
 import Thankyou from "../Pages/Thankyou";
-
-// import Homepage from "../Pages/Homapage";
-
-
+import Homepage from "../Pages/Homepage/Homepage";
+import Signup from "../Pages/SignUp";
+import AdminOTP from "../Pages/AdminOTP";
 
 function Allroutes() {
   return (
@@ -46,8 +42,12 @@ function Allroutes() {
       <Route path="/cart/payment" element={<Payment />}></Route>
       <Route path="/cart/summary" element={<Summary />}></Route>
 
-      <Route path="/" element={<Homepage/>}/>
-      <Route path="/product" element={<Product/>}/>
+      <Route path="/" element={<Homepage />} />
+      <Route path="/product" element={<Product />} />
+      <Route path="/product/:id" element={<SingleProduct />} />
+
+
+ 
       <Route path="/mens" element={<Mens/>}/>
       <Route path="/womensWestern" element={<WomensWestern/>}/>
       <Route path="/womensEthenic" element={<WomenEthnic/>}/>
@@ -62,10 +62,14 @@ function Allroutes() {
       <Route path="/kitchen/:id" element={<SingleProductKitchen/>}/> 
        {/* <Route path="/product/:id" element={<SingleProduct/>}/> */}
  
+
       <Route path="/signup" element={<Signup />}></Route>
       <Route path="/login" element={<Login />}></Route>
       <Route path="/otp" element={<OTP />}></Route>
       <Route path="/adminlogin" element={<AdminLogin />}></Route>
+
+      <Route path="/adminotp" element={<AdminOTP />}></Route>
+
 
 
 

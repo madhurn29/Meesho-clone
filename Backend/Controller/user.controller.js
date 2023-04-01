@@ -20,6 +20,8 @@ const registerUser = async (req, res) => {
         message: "User already exists",
         OTP: existinguser.tempOtp,
         phoneNo,
+        firstName: existinguser.firstName || "user",
+        lastName: existinguser.lastName || "user",
       });
     } else {
       req.body.tempOtp = otp;
@@ -29,6 +31,8 @@ const registerUser = async (req, res) => {
         message: "New user has been created successfully",
         OTP: +otp,
         phoneNo,
+        firstName: firstName || "user",
+        lastName: lastName || "user",
       });
     }
   } catch (error) {

@@ -10,39 +10,53 @@ import {
   Button,
   useToast,
 } from "@chakra-ui/react";
-import axios from "axios";
+
 import { useState } from "react";
-import { useEffect } from "react";
-import { useContext } from "react";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar/Navbar";
-
-//   import { OTPcontext } from "../context/OTPcontext";
+import { loginRequest } from "../Redux/AuthRedux/action";
 
 function Login() {
   const navigate = useNavigate();
-  // const { manageOTP } = useContext(OTPcontext);
+  const dispatch = useDispatch();
   const toast = useToast();
-  const otp = Math.random().toString().substr(2, 6);
-  const [user, setUser] = useState([]);
-  const [mobile, setMobile] = useState("");
-  const [verified, setVerified] = useState(false);
 
-  // function verifyUsers(mobile) {
-  //   axios
-  //     .get(
-  //       `https://63ca9c80f36cbbdfc75c5b52.mockapi.io/meesho_users?search=${mobile}`
-  //     )
-  //     .then((res) => {
-  //       setUser(res.data);
-  //       localStorage.setItem("id", res.data[0].id);
-  //     });
-  // }
+  const [phoneNo, setMobile] = useState("");
 
-  // useState(() => {
-  //   verifyUsers(mobile);
-  // }, [mobile]);
-  // console.log(user);
+  const handleSendOTP = () => {
+    if (phoneNo.length < 10) {
+      toast({
+        title: "Enter Correct Mobile Number to proceed",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+        position: "top",
+      });
+    } else {
+      let obj = { phoneNo };
+      dispatch(loginRequest(obj)).then((res) => {
+        if (res) {
+          const { phoneNo, firstName, lastName, OTP } = res.data;
+          localStorage.setItem("firstName", firstName);
+          localStorage.setItem("lastName", lastName);
+          localStorage.setItem("phoneNo", phoneNo);
+          localStorage.setItem("OTP", OTP);
+          navigate("/otp");
+        } else {
+          toast({
+            title: "Welcome, New User",
+            description: `Please Sign Up First`,
+            status: "error",
+            duration: 5000,
+            isClosable: true,
+            position: "top",
+          });
+        }
+      });
+    }
+  };
+
   return (
     <Box>
       <Navbar />
@@ -64,7 +78,7 @@ function Login() {
           {/* MObile Number */}
           <Stack mt={"20px"} h={"308px"} p={"20px"}>
             <Heading fontSize={"2xl"}>Log in</Heading>
-            {mobile.length > 9 && (
+            {phoneNo.length > 9 && (
               <Text
                 color={"rgb(166, 153, 153)"}
                 fontWeight={"light"}
@@ -95,12 +109,11 @@ function Login() {
                 borderRadius={"0"}
                 borderBottom={"3px solid rgb(223, 223, 223)"}
                 focusBorderColor={"white"}
-                value={mobile}
-                isDisabled={mobile.length === 10}
+                value={phoneNo}
+                isDisabled={phoneNo.length === 10}
                 onChange={(e) => {
                   setMobile(e.target.value);
-                  console.log(mobile);
-                  // verifyUsers(mobile);
+
                 }}
               />
             </InputGroup>
@@ -111,61 +124,20 @@ function Login() {
               color={"white"}
               width={"100%"}
               _hover={{ bg: "rgb(199, 60, 157)" }}
-              onClick={() => {
-                if (mobile.length === 0) {
-                  toast({
-                    title: "Enter Mobile Number to proceed",
-                    status: "error",
-                    duration: 3000,
-                    isClosable: true,
-                    position: "bottom",
-                  });
-                } else {
-                  localStorage.setItem("login", true);
-                  setTimeout(() => {
-                    user.length === 1
-                      ? toast(
-                          {
-                            title: "OTP sent on your mobile number",
-                            description: `Please enter your otp to proceed ${otp}`,
-                            status: "success",
-                            duration: 5000,
-                            isClosable: true,
-                            position: "top",
-                          },
-                          // manageOTP(otp),
-                          navigate("/otp-page")
-                        )
-                      : toast(
-                          {
-                            title: "Invalid Mobile Number",
-                            description: `no user found please signup`,
-                            status: "error",
-                            duration: 3000,
-                            isClosable: true,
-                            position: "bottom",
-                          },
-                          // manageOTP(otp)
-                        );
-                  }, 1000);
-                }
-              }}
+              onClick={handleSendOTP}
             >
               Send OTP
             </Button>
             <Text m={"auto"}>
               Don't have a account yet? signup
-              <Link
-                style={{ color: "blue", marginLeft: "5px" }}
-                to={"/signup"}
-              >
+              <Link style={{ color: "blue", marginLeft: "5px" }} to={"/signup"}>
                 here
               </Link>
             </Text>
             <Text m={"auto"}>
               <Link
                 style={{ color: "blue", marginLeft: "5px" }}
-                to={"/admin-login"}
+                to={"/adminlogin"}
               >
                 Admins Here
               </Link>
