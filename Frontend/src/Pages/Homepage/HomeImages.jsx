@@ -6,7 +6,9 @@ import React from 'react'
 const HomeImages = () => {
     return (
         <>
-            <Image width="80%" margin={"auto"} src={"Home"} />
+
+            {/* <Image width="80%" margin={"auto"} src={Home} /> */}
+
             <Box>
                 <Flex width="80%" margin={"auto"}>
                     <Divider orientation='horizontal' borderColor={'pink'} width="25%" m="auto" />

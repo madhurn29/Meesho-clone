@@ -10,33 +10,60 @@ import {
   Button,
   useToast,
 } from "@chakra-ui/react";
-import axios from "axios";
+import { useDispatch } from "react-redux";
 import { useState } from "react";
-import { useContext } from "react";
+
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar/Navbar";
+import { postRegisterRequest } from "../Redux/AuthRedux/action";
 
-// import { OTPcontext } from "../context/OTPcontext";
-
-export default function Signup() {
+function Signup() {
   const navigate = useNavigate();
-  // const { manageOTP } = useContext(OTPcontext);
+  const dispatch = useDispatch();
   const toast = useToast();
-  const otp = Math.random().toString().substr(2, 6);
-  const [name, setname] = useState("");
-  const [mobile, setMobile] = useState("");
 
-  // function postReq(name, mobile) {
-  //   axios
-  //     .post("https://63ca9c80f36cbbdfc75c5b52.mockapi.io/meesho_users", {
-  //       name,
-  //       mobile,
-  //     })
-  //     .then((res) => {
-  //       localStorage.setItem("id", res.data.id);
-  //     });
-  //   verifyUsers(name);
-  // }
+  const [firstName, setFirstname] = useState("");
+  const [lastName, setLastname] = useState("");
+  const [phoneNo, setPhoneNo] = useState("");
+
+  const handleSendOtp = () => {
+    let obj = { firstName, lastName, phoneNo };
+    if (phoneNo.length === 10 && firstName && lastName) {
+      dispatch(postRegisterRequest(obj)).then((res) => {
+        console.log("from signup", res.data);
+        const { firstName, lastName, phoneNo, OTP } = res.data;
+        localStorage.setItem("firstName", firstName);
+        localStorage.setItem("lastName", lastName);
+        localStorage.setItem("phoneNo", phoneNo);
+        localStorage.setItem("OTP", OTP);
+        navigate("/otp");
+      });
+    } else {
+      toast({
+        title: "Enter valid data",
+        description:
+          "Please check your mobile number, first name and last name",
+        position: "top",
+        status: "error",
+        duration: 4000,
+        isClosable: true,
+      });
+    }
+
+    // toast(
+    //   {
+    //     title: "OTP sent on your mobile number",
+    //     description: `Please enter your otp to proceed ${otp}`,
+    //     status: "success",
+    //     duration: 9000,
+    //     isClosable: true,
+    //   },
+
+    //   localStorage.setItem("login", true),
+    //   navigate("/otp-page")
+    // );
+  };
+
   return (
     <Box>
       <Navbar />
@@ -77,7 +104,7 @@ export default function Signup() {
                 borderBottom={"3px solid rgb(223, 223, 223)"}
                 focusBorderColor={"white"}
                 mb={"20px"}
-                onChange={(e) => setname(e.target.value)}
+                onChange={(e) => setFirstname(e.target.value)}
               />
             </InputGroup>
             <InputGroup>
@@ -99,7 +126,7 @@ export default function Signup() {
                 borderBottom={"3px solid rgb(223, 223, 223)"}
                 focusBorderColor={"white"}
                 mb={"20px"}
-                onChange={(e) => setname(e.target.value)}
+                onChange={(e) => setLastname(e.target.value)}
               />
             </InputGroup>
             <InputGroup>
@@ -113,7 +140,7 @@ export default function Signup() {
                 mr={"10px"}
               />
               <Input
-                type="tel"
+                type="number"
                 placeholder="phone number"
                 borderTop={"none"}
                 borderLeft={"none"}
@@ -122,8 +149,9 @@ export default function Signup() {
                 borderBottom={"3px solid rgb(223, 223, 223)"}
                 focusBorderColor={"white"}
                 mb={"20px"}
-                isDisabled={mobile.length === 10}
-                onChange={(e) => setMobile(e.target.value)}
+                pattern="[0-9]"
+                // isDisabled={phoneNo.length === 10}
+                onChange={(e) => setPhoneNo(e.target.value)}
               />
             </InputGroup>
             <Button
@@ -133,21 +161,7 @@ export default function Signup() {
               color={"white"}
               width={"100%"}
               _hover={{ bg: "rgb(199, 60, 157)" }}
-              onClick={() => {
-                toast(
-                  {
-                    title: "OTP sent on your mobile number",
-                    description: `Please enter your otp to proceed ${otp}`,
-                    status: "success",
-                    duration: 9000,
-                    isClosable: true,
-                  },
-                  // postReq(name, mobile),
-                  // manageOTP(otp),
-                  localStorage.setItem("login", true),
-                  navigate("/otp-page")
-                );
-              }}
+              onClick={handleSendOtp}
             >
               Send OTP
             </Button>
@@ -163,3 +177,5 @@ export default function Signup() {
     </Box>
   );
 }
+
+export default Signup;
