@@ -7,11 +7,13 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./Redux/Store";
+import AppContextProvider from "./Components/Context/Theme";
 // import { StyledEngineProvider } from '@mui/material/styles';
-import AppContextProvider from "./Context/Theme";
+// import AppContextProvider from "./Context/Theme";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
+
   <AppContextProvider>
     <BrowserRouter>
       <ChakraProvider>

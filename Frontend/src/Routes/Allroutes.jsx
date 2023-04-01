@@ -1,14 +1,20 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-
+import Homepage from "../Pages/Homepage/Homepage";
 import { Product } from "../Components/ProductPage/Product";
 import SingleProduct from "../Components/ProductPage/SingleProduct";
 
-
 import Address from "../Pages/Address";
 import Cartpage from "../Pages/Cartpage";
-import Homepage from "../Pages/Homepage";
-// import Homepage from "../Pages/Homapage/Homepage";
+
+
+
+
+import Signup from "../Pages/Signup";
+import Login from "../Pages/Login";
+import OTP from "../Pages/OTP";
+import AdminLogin from "../Pages/AdminLogin";
+
 import Payment from "../Pages/Payment";
 import Summary from "../Pages/Summary";
 import { Mens } from "../Components/ProductPage/Mens";
@@ -24,8 +30,10 @@ import { SingleProductMakeup } from "../Components/ProductPage/SingleProductMake
 import { SingleProductKids } from "../Components/ProductPage/SingleProductKids";
 import { SingleProductEthenic } from "../Components/ProductPage/SingleProductEthenic";
 
+import Thankyou from "../Pages/Thankyou";
 
 // import Homepage from "../Pages/Homapage";
+
 
 
 function Allroutes() {
@@ -37,6 +45,7 @@ function Allroutes() {
       <Route path="/cart/address" element={<Address />}></Route>
       <Route path="/cart/payment" element={<Payment />}></Route>
       <Route path="/cart/summary" element={<Summary />}></Route>
+
       <Route path="/" element={<Homepage/>}/>
       <Route path="/product" element={<Product/>}/>
       <Route path="/mens" element={<Mens/>}/>
@@ -52,6 +61,15 @@ function Allroutes() {
       <Route path="/makeup/:id" element={<SingleProductMakeup/>}/>
       <Route path="/kitchen/:id" element={<SingleProductKitchen/>}/> 
        {/* <Route path="/product/:id" element={<SingleProduct/>}/> */}
+ 
+      <Route path="/signup" element={<Signup />}></Route>
+      <Route path="/login" element={<Login />}></Route>
+      <Route path="/otp" element={<OTP />}></Route>
+      <Route path="/adminlogin" element={<AdminLogin />}></Route>
+
+
+
+
     </Routes>
   );
 }
