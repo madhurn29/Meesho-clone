@@ -2,15 +2,16 @@
 
 # Project Title : ShopVibes (Meesho Clone) Website
 
-This repo is the clone of meesho.com ,ShopVibes is a shopping and lifestyle brand which is the ultimate destination for the latest fashion styles that are handpicked and are available at the best price that one can find anywhere.and also you can do business with shopvibes.com  
+This repo is the clone of meesho.com. ShopVibes is a shopping and lifestyle brand which is the ultimate destination for the latest fashion styles that are handpicked and are available at the best price that one can find anywhere and also you can do business with shopvibes.com  
 
-### * Tech Stack
+### * Tech Stack Used
 
 - React
 - Redux
 - Chakra UI
 - Node JS 
 - Mongo DB 
+- Mongoose 
 
 
 ### * Team-Members
