@@ -98,7 +98,7 @@ const Navbar = (props) => {
                           onChange={handleInputChange}
                           ref={inputRef}
                           variant="unstyled"
-                          placeholder={`Try Saree,Kurta or Search by product code`}
+                          placeholder={`Try Tops, Fragrance or Search By Category `}
                           width="100%"
                           ml={{ base: "-20px", sm: "0px" }}
 
