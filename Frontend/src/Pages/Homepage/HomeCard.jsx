@@ -1,8 +1,9 @@
 import { StarIcon } from '@chakra-ui/icons'
-import { Box, Flex, Grid, Image, Text } from '@chakra-ui/react'
+import { AspectRatio, Box, Flex, Grid, Image, Text } from '@chakra-ui/react'
 import React from 'react'
 
 
+const HomeCard = ({ filterdata, state }) => {
   return (
     // mappedData filtered data and  all data in grid
     <Grid
@@ -153,6 +154,6 @@ import React from 'react'
           ))}
     </Grid>
   );
-};
+        };
 
 export default HomeCard;
