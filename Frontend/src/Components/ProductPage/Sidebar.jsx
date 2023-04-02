@@ -11,13 +11,23 @@ import { useSearchParams } from 'react-router-dom'
 import { Text } from '@chakra-ui/react'
 
 export const Sidebar = () => {
-  
-const handlePriceFilterChange=()=>{
-  
-}
+    const [productList, setProductList] = useState([]);
+    const [sortOption, setSortOption] = useState('Price: Low to High');
+
+    const handleSortOption = (event) => {
+        const option = event.target.value;
+        setSortOption(option);
+        let sortedProducts = [];
+        if (option === 'Price: Low to High') {
+          sortedProducts = productList.sort((a, b) => a.price - b.price);
+        } else if (option === 'Price: High to Low') {
+          sortedProducts = productList.sort((a, b) => b.price - a.price);
+        }
+        setProductList(sortedProducts);
+      };
   
   return (
-    <Box width="43%" >
+    <Box>
 
             <Accordion fontSize="10px" fontWeight={400} lineHeight='24px' color=' rgb(102, 102, 102)' border="1px solid rgb(240,240,240)" padding={"20px"} allowMultiple>
                 <AccordionItem marginTop="20px" >
@@ -25,12 +35,33 @@ const handlePriceFilterChange=()=>{
                         <AccordionButton fontSize="18px" fontWeight={600} lineHeight='24px' color=' rgb(26, 32, 44)' >
                             <Box as="span" flex='1' textAlign='left'>
                                 <Text fontSize={"17px"}>Filters</Text>
-                                <Text fontSize={"13px"} color="grey">{"state.length"}0+ Products</Text>
+                                <Text fontSize={"13px"} color="grey">1000+ Products</Text>
                             </Box>
 
                         </AccordionButton>
                     </h2>
 
+                </AccordionItem>
+                <AccordionItem marginTop="20px">
+                    <h2>
+                        <AccordionButton fontSize="18px" fontWeight={600} lineHeight='24px' color=' rgb(26, 32, 44)'>
+                            <Box as="span" flex='1' textAlign='left'>
+                                Sort by
+                            </Box>
+                            <AccordionIcon />
+                        </AccordionButton>
+                    </h2>
+                    <AccordionPanel pb={4}>
+
+                        <Stack spacing={5} direction='column'>
+                           
+                        <select id="sort-option" value={sortOption} onChange={handleSortOption}>
+                        <option value="Price: Low to High">Price: Low to High</option>
+                        <option value="Price: High to Low">Price: High to Low</option>
+                        </select>
+                            
+                        </Stack>
+                    </AccordionPanel>
                 </AccordionItem>
                 {/* category */}
                 <AccordionItem marginTop="20px" >
@@ -85,24 +116,24 @@ const handlePriceFilterChange=()=>{
 
                         <Stack spacing={5} direction='column'>
                            
-                            <Checkbox  value={199}    
-                                  onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
+                            <Checkbox  value='199'    
+                                 borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
                                 Under ₹ 199
                             </Checkbox>
                             <Checkbox  value={299}    
-                                  onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
+                                 borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
                                 Under ₹ 399
                             </Checkbox>
                             <Checkbox  value={599}    
-                                  onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
+                                 borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
                                 Under ₹ 599
                             </Checkbox>
                             <Checkbox  value={799}    
-                                  onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
+                                 borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
                                 Under ₹ 799
                             </Checkbox>
                             <Checkbox  value={999}    
-                                  onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
+                                 borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
                                 Under ₹ 999
                             </Checkbox>
                             

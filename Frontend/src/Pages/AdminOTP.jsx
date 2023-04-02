@@ -10,7 +10,7 @@ import {
   Button,
   useToast,
 } from "@chakra-ui/react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
@@ -49,62 +49,66 @@ export function Timer({ handleTimer }) {
 
 function AdminOTP() {
   const [timer, setTimer] = useState(false);
-  const [otpNumber, setOtpNumber] = useState([]);
+  const [otpNumber, setOtpNumber] = useState("");
   const dispatch = useDispatch();
   const toast = useToast();
   const navigate = useNavigate();
   const handleTimer = () => {
     setTimer(false);
   };
-  const handleOTP = (e) => {
-    // console.log(e);
-    setOtpNumber([...otpNumber, e.target.value]);
-    // console.log(otpNumber);
-  };
+  const isLoading = useSelector((store) => {
+    return store.AuthReducer.isLoading;
+  });
 
   useEffect(() => {
     toast({
       title: `OTP sent to your mobile number ${localStorage.getItem(
         "phoneNo"
       )}`,
-      description: `Otp is ${localStorage.getItem("OTP")}`,
+      description: `OTP is ${localStorage.getItem("OTP")}`,
       status: "success",
-      duration: 6000,
+      duration: 3000,
       isClosable: true,
       position: "top",
     });
   }, []);
 
+  const handlePinChange = (e) => {
+    const { value, name } = e.target;
+    const newPin = otpNumber.slice(0, name) + value + otpNumber.slice(name + 1);
+    setOtpNumber(newPin);
+  };
   const verify = () => {
     let obj = {
       phoneNo: Number(localStorage.getItem("phoneNo")),
-      tempOtp: Number(otpNumber.join("")),
+      tempOtp: Number(otpNumber),
     };
 
     dispatch(validateAdminOtp(obj)).then((res) => {
       if (res) {
         console.log(res);
         localStorage.setItem("admintoken", res.token);
+        localStorage.setItem("adminLogin", true);
         toast({
           title: "Admin Logged In Successfully",
           description: `Welcome to Admin Dashboard`,
           status: "success",
-          duration: 3000,
+          duration: 2000,
           isClosable: true,
           position: "top",
         });
-        setOtpNumber([]);
+        setOtpNumber("");
         navigate("/dashboard");
       } else {
         toast({
           title: "Please Check your OTP",
 
           status: "error",
-          duration: 3000,
+          duration: 2000,
           isClosable: true,
           position: "top",
         });
-        setOtpNumber([]);
+        setOtpNumber("");
       }
     });
   };
@@ -114,7 +118,7 @@ function AdminOTP() {
       <Navbar />
       <Box bgColor={"rgb(253, 237, 236)"} height={"635px"} p={"50px"}>
         <Box
-          w={"431px"}
+          w={{ sm: "300px", md: "431px" }}
           border={"1px solid rgb(223, 223, 223)"}
           m={"auto"}
           borderRadius={"5px"}
@@ -123,7 +127,7 @@ function AdminOTP() {
           <Stack>
             <Image
               borderTopRadius={"5px"}
-              w={"431px"}
+              w={{ sm: "300px", md: "431px" }}
               src="https://images.meesho.com/images/marketing/1661417516766.webp"
             />
           </Stack>
@@ -132,13 +136,13 @@ function AdminOTP() {
             <Heading fontSize={"2xl"}>Enter OTP</Heading>
 
             <HStack m={"auto"}>
-              <PinInput type="number">
-                <PinInputField onChange={(e) => handleOTP(e)} />
-                <PinInputField onChange={(e) => handleOTP(e)} />
-                <PinInputField onChange={(e) => handleOTP(e)} />
-                <PinInputField onChange={(e) => handleOTP(e)} />
-                <PinInputField onChange={(e) => handleOTP(e)} />
-                <PinInputField onChange={(e) => handleOTP(e)} />
+              <PinInput type="number" value={otpNumber} onChange={setOtpNumber}>
+                <PinInputField name="0" onChange={handlePinChange} />
+                <PinInputField name="1" onChange={handlePinChange} />
+                <PinInputField name="2" onChange={handlePinChange} />
+                <PinInputField name="3" onChange={handlePinChange} />
+                <PinInputField name="4" onChange={handlePinChange} />
+                <PinInputField name="5" onChange={handlePinChange} />
               </PinInput>
             </HStack>
             <Button
@@ -150,7 +154,7 @@ function AdminOTP() {
               _hover={{ bg: "rgb(199, 60, 157)" }}
               onClick={verify}
             >
-              Verify
+              {isLoading ? "Verifying..." : "Verify"}
             </Button>
             {timer || (
               <Text
@@ -160,9 +164,9 @@ function AdminOTP() {
                     title: `OTP sent to your mobile number ${localStorage.getItem(
                       "phoneNo"
                     )}`,
-                    description: `Otp is ${localStorage.getItem("OTP")}`,
+                    description: `OTP is ${localStorage.getItem("OTP")}`,
                     status: "success",
-                    duration: 9000,
+                    duration: 2000,
                     isClosable: true,
                     position: "top",
                   });

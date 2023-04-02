@@ -164,7 +164,7 @@ const Payment = () => {
                 <Text
                   p={2}
                   fontWeight={"medium"}
-                  color={Number(marginPrice) >= sum ? "#028d63" : "#ell800"}
+                  color={Number(marginPrice) > sum ? "#028d63" : "#ell800"}
                 >
                   Your Margin : ₹
                   {Number(marginPrice) > 0 ? Number(marginPrice) - sum : 0}

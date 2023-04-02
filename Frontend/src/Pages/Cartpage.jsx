@@ -7,24 +7,49 @@ import { Link } from "react-router-dom";
 
 const Cartpage = () => {
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const getCartData = () => {
+    setIsLoading(true);
     axios
-      .get("https://63c701b54ebaa80285521e6e.mockapi.io/men")
+      .get("https://long-lime-fly-tux.cyclic.app/cart", {
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+      })
       .then((res) => {
         setData(res.data);
-        console.log(res.data);
+        // console.log(res.data);
+        setIsLoading(false);
       })
-      .catch((e) => console.log(e));
+      .catch((e) => {
+        console.log(e);
+        setIsLoading(false);
+      });
   };
   let sum = 0;
   for (let i = 0; i < data.length; i++) {
-    let p = data[i].price.split("₹")[1];
-    if (p !== undefined) {
-      sum += Number(p);
-    }
+    sum += data[i].price * data[i].quantity;
   }
   localStorage.setItem("cartPrice", JSON.stringify(sum));
+
+  const handleDelete = (id) => {
+    setIsLoading(true);
+    axios
+      .delete(`https://long-lime-fly-tux.cyclic.app/cart/delete/${id}`, {
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+      })
+      .then((res) => {
+        getCartData();
+        setIsLoading(false);
+      })
+      .catch((e) => {
+        console.log(e);
+        setIsLoading(false);
+      });
+  };
 
   useEffect(() => {
     getCartData();
@@ -36,11 +61,13 @@ const Cartpage = () => {
         <CartNavbar />
       </Box>
       <hr />
+
       <Box
         margin="3% 20% 0 20%"
         display="grid"
         gridTemplateColumns={{
           base: "repeat(1,1fr)",
+          md: "repeat(2,1fr)",
           lg: "repeat(2,1fr)",
         }}
         gap={{ base: "2%", lg: "5%" }}
@@ -57,7 +84,14 @@ const Cartpage = () => {
           </Box>
           <Box>
             {data?.map((e) => {
-              return <CartProductItem {...e} key={e.id} />;
+              return (
+                <CartProductItem
+                  {...e}
+                  key={e._id}
+                  handleDelete={handleDelete}
+                  getCartData={getCartData}
+                />
+              );
             })}
           </Box>
         </Box>

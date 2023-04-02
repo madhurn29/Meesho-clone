@@ -18,9 +18,13 @@ const getCartProducts = async (req, res) => {
 //*--------this is to control the add cartproduct routes----------//
 const addCartProduct = async (req, res) => {
   try {
+    const token = req.headers.authorization;
+
+    const decoded = jwt.verify(token, "meesho");
     const data = req.body;
     const existingProduct = await CartModel.findOne({
       images: req.body.images,
+      userID: decoded.userID,
     });
 
     if (existingProduct) {

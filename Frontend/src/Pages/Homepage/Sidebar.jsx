@@ -76,6 +76,7 @@ const Sidebar = ({ categoryFilter, onPriceFilterChange }) => {
                         </Stack>
                     </AccordionPanel>
                 </AccordionItem>
+
                 {/* Price */}
                 <AccordionItem marginTop="20px">
                     <h2>
@@ -114,6 +115,7 @@ const Sidebar = ({ categoryFilter, onPriceFilterChange }) => {
                         </Stack>
                     </AccordionPanel>
                 </AccordionItem>
+
                 {/* Rating */}
                 <AccordionItem marginTop="20px">
                     <h2>
@@ -144,6 +146,7 @@ const Sidebar = ({ categoryFilter, onPriceFilterChange }) => {
                         </Stack>
                     </AccordionPanel>
                 </AccordionItem>
+
                 {/* fabric */}
                 <AccordionItem marginTop="20px" >
                     <h2>
@@ -190,6 +193,7 @@ const Sidebar = ({ categoryFilter, onPriceFilterChange }) => {
                         </Stack>
                     </AccordionPanel>
                 </AccordionItem>
+
                 {/* oxfords */}
                 <AccordionItem marginTop="20px">
                     <h2>
@@ -209,6 +213,7 @@ const Sidebar = ({ categoryFilter, onPriceFilterChange }) => {
                         </Stack>
                     </AccordionPanel>
                 </AccordionItem>
+
                 {/* dialshape */}
                 <AccordionItem marginTop="20px">
                     <h2>
@@ -228,6 +233,7 @@ const Sidebar = ({ categoryFilter, onPriceFilterChange }) => {
                         </Stack>
                     </AccordionPanel>
                 </AccordionItem>
+
                 {/* colors */}
                 <AccordionItem marginTop="20px">
                     <h2>
@@ -276,6 +282,7 @@ const Sidebar = ({ categoryFilter, onPriceFilterChange }) => {
 
                     </AccordionPanel>
                 </AccordionItem>
+
                 {/* Size */}
                 <AccordionItem marginTop="20px">
                     <h2>
@@ -301,6 +308,7 @@ const Sidebar = ({ categoryFilter, onPriceFilterChange }) => {
                         </Stack>
                     </AccordionPanel>
                 </AccordionItem>
+                
                 {/* Combo */}
                 <AccordionItem marginTop="20px">
                     <h2>

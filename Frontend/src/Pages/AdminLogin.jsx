@@ -14,14 +14,16 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar/Navbar";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { adminLoginRequest } from "../Redux/AuthRedux/action";
 
 function AdminLogin() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const toast = useToast();
-
+  const isLoading = useSelector((store) => {
+    return store.AuthReducer.isLoading;
+  });
   const [phoneNo, setMobile] = useState("");
 
   const handleSendOTP = () => {
@@ -123,7 +125,7 @@ function AdminLogin() {
               _hover={{ bg: "rgb(199, 60, 157)" }}
               onClick={handleSendOTP}
             >
-              Send OTP
+              {isLoading ? "Sending..." : "Send OTP"}
             </Button>
           </Stack>
         </Box>
