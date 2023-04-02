@@ -1,0 +1,8 @@
+.bigblue:hover {
+   text-decoration-color: red;
+    /* font-size: 30px; */
+   color: rgb(244,51,151);
+   text-decoration: underline;
+   padding: "10px";
+  }
+  
