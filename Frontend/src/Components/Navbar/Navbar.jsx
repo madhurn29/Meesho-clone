@@ -41,7 +41,7 @@ const Navbar = (props) => {
     navigate("/")
   }
   const handlesignup = () => {
-    navigate("/signup")
+    navigate("/login")
   }
   return (
     <>
