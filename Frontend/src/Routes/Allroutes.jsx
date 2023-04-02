@@ -31,9 +31,10 @@ import SignUp from "../Pages/SignUp";
 
 
 
-import AdminOTP from "../Pages/AdminOTP";
+
 
 import AdminOTP from "../Pages/AdminOTP";
+
 import PrivateRoute from "./PrivateRoutes";
 
 
