@@ -27,10 +27,13 @@ import Bags from "../Pages/Bags";
 import Electronics from "../Pages/Electronics";
 import Homepage from "../Pages/Homepage/Homepage";
 
+import SignUp from "../Pages/SignUp";
+
+
+
+
 
 import AdminOTP from "../Pages/AdminOTP";
-import Signup from "../Pages/Signup";
-
 
 import PrivateRoute from "./PrivateRoutes";
 
@@ -105,7 +108,7 @@ function Allroutes() {
       {/* <Route path="/product/:id" element={<SingleProduct/>}/> */}
 
       {/* {madhur} */}
-      <Route path="/signup" element={<Signup />}></Route>
+      <Route path="/signup" element={<SignUp />}></Route>
       <Route path="/login" element={<Login />}></Route>
       <Route path="/otp" element={<OTP />}></Route>
       <Route path="/adminlogin" element={<AdminLogin />}></Route>

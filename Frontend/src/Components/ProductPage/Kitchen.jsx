@@ -49,9 +49,15 @@ export const Kitchen = () => {
         }).catch(err=>{console.log(err)
           setLoad(false)})
     },[])
+
+    const [inputValue, setInputValue] = React.useState('');
+    const handleInputChange = (value) => {
+      setInputValue(value);
+  };
+  
   return (
     <Box>
-    <Navbar />
+    <Navbar handleInputChange={handleInputChange}/>
     <Box className={Styles.props} marginTop="45px" justifyContent='space-between' >
       <Box w='25%'>
       <Hide breakpoint="(max-width: 400px)">
@@ -91,45 +97,29 @@ export const Kitchen = () => {
             </Stack>
         </AccordionPanel>
     </AccordionItem>
-    {/* category */}
-    <AccordionItem marginTop="20px" >
+    {/* Rating */}
+<AccordionItem marginTop="20px">
         <h2>
-            <AccordionButton fontSize="18px" fontWeight={600} lineHeight='24px' color=' rgb(26, 32, 44)' >
+            <AccordionButton fontSize="18px" fontWeight={600} lineHeight='24px' color=' rgb(26, 32, 44)'>
                 <Box as="span" flex='1' textAlign='left'>
-                    Category
+                    Rating
                 </Box>
                 <AccordionIcon />
             </AccordionButton>
         </h2>
         <AccordionPanel pb={4}>
-            <Input />
-            <Stack spacing={5} direction='column'>
-                <Checkbox colorScheme='green' >
-                    Analog Watches
-                </Checkbox>
-                <Checkbox colorScheme='green' >
-                    Anklets & Toe Rings
-                </Checkbox>
-                <Checkbox colorScheme='green' >
-                    Appliance Covers
-                </Checkbox>
-                <Checkbox colorScheme='green' >
-                    Artificial Plant and Flower
-                </Checkbox>
-                <Checkbox colorScheme='green' >
-                    Bags & Backpacks
-                </Checkbox>
-                <Checkbox colorScheme='green' >
-                    Bedsheets
-                </Checkbox>
 
-                <Checkbox colorScheme='green' >
-                    Ayurvedic
-                </Checkbox>
+            <Stack spacing={5} direction='column'>
+                <Select id="category-filter" value={filterCategory} onChange={handleCategoryFilter}>
+                <option value="All">All</option>
+                <option value="2.0 and above">2.0 and above</option>
+                <option value="3.0 and above">3.0 and above</option>
+                <option value="4.0 and above">4.0 and above</option>
+               
+              </Select>
             </Stack>
         </AccordionPanel>
     </AccordionItem>
-
     {/* Price */}
     <AccordionItem marginTop="20px">
         <h2>
@@ -168,28 +158,41 @@ export const Kitchen = () => {
             </Stack>
         </AccordionPanel>
     </AccordionItem>
-
-
-    {/* Rating */}
-    <AccordionItem marginTop="20px">
+    {/* category */}
+    <AccordionItem marginTop="20px" >
         <h2>
-            <AccordionButton fontSize="18px" fontWeight={600} lineHeight='24px' color=' rgb(26, 32, 44)'>
+            <AccordionButton fontSize="18px" fontWeight={600} lineHeight='24px' color=' rgb(26, 32, 44)' >
                 <Box as="span" flex='1' textAlign='left'>
-                    Rating
+                    Category
                 </Box>
                 <AccordionIcon />
             </AccordionButton>
         </h2>
         <AccordionPanel pb={4}>
-
+            <Input />
             <Stack spacing={5} direction='column'>
-                <Select id="category-filter" value={filterCategory} onChange={handleCategoryFilter}>
-                <option value="All">All</option>
-                <option value="2.0 and above">2.0 and above</option>
-                <option value="3.0 and above">3.0 and above</option>
-                <option value="4.0 and above">4.0 and above</option>
-               
-              </Select>
+                <Checkbox colorScheme='green' >
+                    Analog Watches
+                </Checkbox>
+                <Checkbox colorScheme='green' >
+                    Anklets & Toe Rings
+                </Checkbox>
+                <Checkbox colorScheme='green' >
+                    Appliance Covers
+                </Checkbox>
+                <Checkbox colorScheme='green' >
+                    Artificial Plant and Flower
+                </Checkbox>
+                <Checkbox colorScheme='green' >
+                    Bags & Backpacks
+                </Checkbox>
+                <Checkbox colorScheme='green' >
+                    Bedsheets
+                </Checkbox>
+
+                <Checkbox colorScheme='green' >
+                    Ayurvedic
+                </Checkbox>
             </Stack>
         </AccordionPanel>
     </AccordionItem>
