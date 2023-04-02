@@ -17,8 +17,9 @@ export const getProduct=(params,category)=>(dispatch)=>{
     dispatch(getProductRequest());
 
     axios.get(`https://long-lime-fly-tux.cyclic.app/products?category=${category}`,params).then((res)=>{
-        console.log(res.data)
+        // console.log(res.data)
         dispatch(getProductSuccess(res.data))
+       
     }).catch(err=>{
         dispatch(getProductFailure())
     })

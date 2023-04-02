@@ -14,7 +14,6 @@ import {
   handleWomenWestDelete,
   handleWomenWestEdit,
 } from "./AllHandles";
-import { DeleteButton, EditButton } from "./EditButton";
 
 import EditProductModal from "./EditProductModal";
 
@@ -109,15 +108,30 @@ const ProductCard = ({
       >
         {product.title}
       </Box>
-      <Box mt="2" display="flex" alignItems="center">
-        <Box as="span" fontWeight="bold" color="teal.500" mr="2">
+      <Box mt="2">
+        <Box as="span" fontWeight="bold" color="teal.500">
           {product.price}
         </Box>
-        <Box mr="2">
-          <EditButton onOpen={onOpen} />
+        <Box
+          onClick={() => {
+            onOpen();
+          }}
+          as="button"
+          ml="2"
+          color="teal.500"
+          fontSize="sm"
+          _hover={{ textDecoration: "underline" }}
+        >
+          Edit
         </Box>
-        <Box>
-          <DeleteButton handleDelete={handleDelete} />
+        <Box
+          onClick={() => handleDelete()}
+          as="button"
+          ml="2"
+          color="red.700"
+          fontSize="sm"
+        >
+          Delete
         </Box>
       </Box>
       <EditProductModal
