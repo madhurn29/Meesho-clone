@@ -9,7 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { AppContext } from "../Context/Theme";
 import meesho from "../Images/meesho.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { HiUserCircle, HiShoppingCart } from "react-icons/hi";
 import { MdAddShoppingCart, MdInstallMobile } from "react-icons/md";
 import { AiOutlineShoppingCart } from "react-icons/ai";
@@ -17,7 +17,7 @@ import { BiUser } from "react-icons/bi";
 import styles from "./navbar.module.css"
 
 const Navbar = (props) => {
-
+const navigate=useNavigate()
   let firstname = localStorage.getItem("firstName") || ""
   let lastname = localStorage.getItem("lastName") || ""
   let phoneNo = localStorage.getItem("phoneNo") || ""
@@ -43,10 +43,10 @@ const Navbar = (props) => {
 
 const handlelogout=()=>{
   localStorage.clear()
-  window.open("/")
+  navigate("/")
 }
  const handlesignup=()=>{
-window.open("/signup")
+navigate("/signup")
 }
   return (
     <>
@@ -83,6 +83,7 @@ window.open("/signup")
                     h={{ base: "30px", md: "40px", lg: "40px" }}
                     width={{ base: "150px", md: "140px", lg: "190px" }}
                     src={meesho}
+                    // objectFit={"cover"}
                   />
                 </Link>
 
