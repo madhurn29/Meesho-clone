@@ -43,8 +43,12 @@ const CartProductItem = ({
   return (
     <Box border={"1px solid #dfdfdf"} key={_id} marginBottom={"3%"}>
       <Box display={"flex"} p={"3%"}>
-        <Image borderRadius={"20%"} w={"18%"} src={images}></Image>
-        <Box display={"flex"}>
+        <Image
+          borderRadius={"20%"}
+          w={{ base: "35%", md: "22%", lg: "18%" }}
+          src={images}
+        ></Image>
+        <Box>
           <Box marginLeft={"5%"}>
             <Text fontWeight={"medium"}>{title}</Text>
             <Text fontWeight={"semibold"}>₹{price}</Text>
