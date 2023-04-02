@@ -154,7 +154,7 @@ const HomeCard = ({ filterdata, state }) => {
           ))}
     </Grid>
   );
-};
+        };
 
 export default HomeCard;
 
