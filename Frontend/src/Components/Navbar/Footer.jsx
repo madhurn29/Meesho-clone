@@ -11,10 +11,10 @@ const ListHeader = ({ children }) => {
 export default function Footer() {
     return (
         <>
-            <Box
-                bg={useColorModeValue('gray.50', 'gray.900')}
+            <Box mt="50px"
+                bg='rgb(249,249,249)'
                 color={useColorModeValue('gray.700', 'gray.200')}>
-                <Container as={Stack} maxW={'6xl'} py={10}>
+                <Container as={Stack} maxW={'7xl'} py={10}      justifyContent={"space-between"}>
                     <SimpleGrid columns={{ base: 1, sm: 2, md: 4,lg:5 }} spacing={8}>
                         <Stack align={'flex-start'}>
                             <ListHeader>Shop Non-Stop on Meesho</ListHeader>

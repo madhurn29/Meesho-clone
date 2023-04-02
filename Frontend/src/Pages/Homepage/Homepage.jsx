@@ -6,17 +6,17 @@ import Footer from '../../Components/Navbar/Footer'
 import Sidebar from './Sidebar'
 import HomeImages from './HomeImages'
 import HomeCard from './HomeCard'
-
+import data from "./HomePageProducts.json"
 const Homepage = () => {
 
     const [Productsdata, setProductsdata] = React.useState([]);
-    console.log('Productsdata: ', Productsdata);
+ 
     // price filter stored here
     const [priceFilter, setPriceFilter] = React.useState([]);
 
     // inputvalue form navbnar and sidebar to  filter data 
     const [inputValue, setInputValue] = React.useState('');
-    const filterdatabycategory = Productsdata.filter((item) => item.category === inputValue)
+    const filterdatabycategory = data.filter((item) => item.category === inputValue)
 
     const handleInputChange = (value) => {
         setInputValue(value);
@@ -44,7 +44,7 @@ const Homepage = () => {
         setPriceFilter(value);
     };
     // filter - data by -  price - get value - form side bar
-    const filteredData = Productsdata.filter((item) => {
+    const filteredData = data.filter((item) => {
         if (priceFilter.length === 0) {
             return true;
         }

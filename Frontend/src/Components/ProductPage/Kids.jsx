@@ -63,9 +63,14 @@ export const Kids = () => {
           console.log(err)
           setLoad(false)})
     },[])
+    const [inputValue, setInputValue] = React.useState('');
+    const handleInputChange = (value) => {
+      setInputValue(value);
+  };
+  
   return (
     <Box>
-    <Navbar />
+    <Navbar handleInputChange={handleInputChange}/>
     <Box className={Styles.props} marginTop="45px" justifyContent='space-between' >
       <Box w='25%'>
       <Hide breakpoint="(max-width: 400px)">
@@ -105,8 +110,60 @@ export const Kids = () => {
             </Stack>
         </AccordionPanel>
     </AccordionItem>
-    {/* category */}
-    <AccordionItem marginTop="20px" >
+    {/* Rating */}
+    <AccordionItem marginTop="20px">
+        <h2>
+            <AccordionButton fontSize="18px" fontWeight={600} lineHeight='24px' color=' rgb(26, 32, 44)'>
+                <Box as="span" flex='1' textAlign='left'>
+                    Rating
+                </Box>
+                <AccordionIcon />
+            </AccordionButton>
+        </h2>
+        <AccordionPanel pb={4}>
+
+            <Stack spacing={5} direction='column'>
+            <Select id="category-filter" value={filterCategory} onChange={handleCategoryFilter}>
+            <option value="All">All</option>
+                <option value="2.0 and above">2.0 and above</option>
+                <option value="3.0 and above">3.0 and above</option>
+                <option value="4.0 and above">4.0 and above</option>
+              </Select>
+
+            </Stack>
+        </AccordionPanel>
+    </AccordionItem>
+    
+
+    {/* Price */}
+    <AccordionItem marginTop="20px">
+        <h2>
+            <AccordionButton fontSize="18px" fontWeight={600} lineHeight='24px' color=' rgb(26, 32, 44)'>
+                <Box as="span" flex='1' textAlign='left'>
+                    Price
+                </Box>
+                <AccordionIcon />
+            </AccordionButton>
+        </h2>
+        <AccordionPanel pb={4}>
+
+            <Stack spacing={5} direction='column'>
+               
+            <Select value={filterPrice} onChange={handleCategoryPrice}>
+            <option value="All">All</option>
+                <option value="Under ₹ 199">Under ₹ 199</option>
+                <option value="Under ₹ 399">Under ₹ 399</option>
+                <option value="Under ₹ 599">Under ₹ 599</option>
+                <option value="Under ₹ 799">Under ₹ 799</option>
+                <option value="Under ₹ 999">Under ₹ 999</option>
+              </Select>
+                
+            </Stack>
+        </AccordionPanel>
+    </AccordionItem>
+
+{/* category */}
+<AccordionItem marginTop="20px" >
         <h2>
             <AccordionButton fontSize="18px" fontWeight={600} lineHeight='24px' color=' rgb(26, 32, 44)' >
                 <Box as="span" flex='1' textAlign='left'>
@@ -143,58 +200,7 @@ export const Kids = () => {
             </Stack>
         </AccordionPanel>
     </AccordionItem>
-
-    {/* Price */}
-    <AccordionItem marginTop="20px">
-        <h2>
-            <AccordionButton fontSize="18px" fontWeight={600} lineHeight='24px' color=' rgb(26, 32, 44)'>
-                <Box as="span" flex='1' textAlign='left'>
-                    Price
-                </Box>
-                <AccordionIcon />
-            </AccordionButton>
-        </h2>
-        <AccordionPanel pb={4}>
-
-            <Stack spacing={5} direction='column'>
-               
-            <Select value={filterPrice} onChange={handleCategoryPrice}>
-            <option value="All">All</option>
-                <option value="Under ₹ 199">Under ₹ 199</option>
-                <option value="Under ₹ 399">Under ₹ 399</option>
-                <option value="Under ₹ 599">Under ₹ 599</option>
-                <option value="Under ₹ 799">Under ₹ 799</option>
-                <option value="Under ₹ 999">Under ₹ 999</option>
-              </Select>
-                
-            </Stack>
-        </AccordionPanel>
-    </AccordionItem>
-
-
-    {/* Rating */}
-    <AccordionItem marginTop="20px">
-        <h2>
-            <AccordionButton fontSize="18px" fontWeight={600} lineHeight='24px' color=' rgb(26, 32, 44)'>
-                <Box as="span" flex='1' textAlign='left'>
-                    Rating
-                </Box>
-                <AccordionIcon />
-            </AccordionButton>
-        </h2>
-        <AccordionPanel pb={4}>
-
-            <Stack spacing={5} direction='column'>
-            <Select id="category-filter" value={filterCategory} onChange={handleCategoryFilter}>
-            <option value="All">All</option>
-                <option value="2.0 and above">2.0 and above</option>
-                <option value="3.0 and above">3.0 and above</option>
-                <option value="4.0 and above">4.0 and above</option>
-              </Select>
-
-            </Stack>
-        </AccordionPanel>
-    </AccordionItem>
+    
 
 
     {/* fabric */}
