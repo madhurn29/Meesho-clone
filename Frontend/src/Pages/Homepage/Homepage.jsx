@@ -10,6 +10,7 @@ import HomeCard from './HomeCard'
 const Homepage = () => {
 
     const [Productsdata, setProductsdata] = React.useState([]);
+    console.log('Productsdata: ', Productsdata);
     // price filter stored here
     const [priceFilter, setPriceFilter] = React.useState([]);
 
@@ -24,6 +25,7 @@ const Homepage = () => {
     // filter by category get value from sidebar
     const categoryFilterFunc = (e) => {
         setInputValue(e.target.value)
+        // setInputValue('');
     }
 
     
