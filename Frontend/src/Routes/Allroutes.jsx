@@ -27,17 +27,11 @@ import Bags from "../Pages/Bags";
 import Electronics from "../Pages/Electronics";
 import Homepage from "../Pages/Homepage/Homepage";
 
-// import SignUp from "../Pages/SignUp";
-
-
-
-
 
 import AdminOTP from "../Pages/AdminOTP";
 
 import PrivateRoute from "./PrivateRoutes";
 import SignIn from "../Pages/SignIn";
-
 
 function Allroutes() {
   return (

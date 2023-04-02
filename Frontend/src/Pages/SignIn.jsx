@@ -29,7 +29,7 @@ import {
     const isLoading = useSelector((store) => {
       return store.AuthReducer.isLoading;
     });
-    console.log(isLoading, "from sign up");
+    
   
     const handleSendOtp = () => {
       let obj = { firstName, lastName, phoneNo };
