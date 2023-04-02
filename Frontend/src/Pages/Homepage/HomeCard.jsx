@@ -93,6 +93,7 @@ const HomeCard = ({ filterdata, state }) => {
               borderRadius={"10px"}
             >
               {/* all data mappaed here  */}
+              {/* all data mappaed here  */}
               <AspectRatio maxH={"400px"} ratio={9 / 12}>
                 <Image src={item.images} />
               </AspectRatio>
