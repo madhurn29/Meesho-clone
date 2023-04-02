@@ -1,27 +1,22 @@
 import React from "react";
 import { useContext } from "react";
-import {
-  Box, Flex, IconButton, useDisclosure, Stack, Text, Image, Input, Button, Grid,
-} from "@chakra-ui/react";
+import { Box, Flex, IconButton, useDisclosure, Stack, Text, Image, Input, Button, Grid, } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon, Search2Icon } from "@chakra-ui/icons";
-import {
-  Popover, PopoverTrigger, PopoverContent, PopoverHeader, PopoverBody, PopoverArrow, PopoverCloseButton,
-} from "@chakra-ui/react";
+import { Popover, PopoverTrigger, PopoverContent, PopoverHeader, PopoverBody, PopoverArrow, PopoverCloseButton, } from "@chakra-ui/react";
 import { AppContext } from "../Context/Theme";
 import meesho from "../Images/meesho.png";
-import { Link } from "react-router-dom";
-import { HiUserCircle, HiShoppingCart } from "react-icons/hi";
-import { MdAddShoppingCart, MdInstallMobile } from "react-icons/md";
+import { Link, useNavigate } from "react-router-dom";
+import { MdInstallMobile } from "react-icons/md";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BiUser } from "react-icons/bi";
 import styles from "./navbar.module.css"
 
 const Navbar = (props) => {
-
+  const navigate = useNavigate()
   let firstname = localStorage.getItem("firstName") || ""
   let lastname = localStorage.getItem("lastName") || ""
   let phoneNo = localStorage.getItem("phoneNo") || ""
-  
+
   const inputRef = React.useRef(null);
 
   const handleInputChange = (event) => {
@@ -31,7 +26,7 @@ const Navbar = (props) => {
   };
 
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { Theme, ToggleTheme } = useContext(AppContext);
+  const { Theme, } = useContext(AppContext);
   const light = {
     backgroundColor: "white",
     color: "black",
@@ -41,13 +36,13 @@ const Navbar = (props) => {
     color: "white",
   };
 
-const handlelogout=()=>{
-  localStorage.clear()
-  window.open("/")
-}
- const handlesignup=()=>{
-window.open("/signup")
-}
+  const handlelogout = () => {
+    localStorage.clear()
+    navigate("/")
+  }
+  const handlesignup = () => {
+    navigate("/signup")
+  }
   return (
     <>
       <Box zIndex={9} borderBottom={"1px solid rgb(223,223,223)"} position={"sticky"} top={0}>
@@ -77,16 +72,22 @@ window.open("/signup")
               m={"auto"}
               gap="100px"
             >
-              <Flex width="70%" gap="40px">
+
+              <Flex width={{ base: "100%", sm: "70%" }} gap={{ base: "20px", sm: "40px" }} alignItems={"center"} >
+
+                {/* logo */}
                 <Link to="/">
                   <Image
-                    h={{ base: "30px", md: "40px", lg: "40px" }}
-                    width={{ base: "150px", md: "140px", lg: "190px" }}
+
+                    width={"100%"}
                     src={meesho}
+                  // objectFit={"cover"}
                   />
                 </Link>
 
+                {/* searchbar */}
                 <Flex width={"100%"} gap="10px" border={"1px solid grey"} borderRadius="5px">
+                  {/* serchicon */}
                   <Search2Icon color="grey" margin={"12px 0px 0px 10px"} />
                   {/* Input model */}
                   <Popover padding="auto">
@@ -99,6 +100,8 @@ window.open("/signup")
                           variant="unstyled"
                           placeholder={`Try Saree,Kurta or Search by product code`}
                           width="100%"
+                          ml={{ base: "-20px", sm: "0px" }}
+
                         />
                       </Button>
                     </PopoverTrigger>
@@ -155,6 +158,7 @@ window.open("/signup")
                   </Popover>
                   {/* <Input variant='unstyled' placeholder={`Try Saree,Kurta or Search by product code`} /> */}
                 </Flex>
+
               </Flex>
 
               <Flex
@@ -167,7 +171,7 @@ window.open("/signup")
                 alignItems="center"
               >
                 {/* Dowload button */}
-                <Box cursor="pointer"  className={styles.bigblue} >
+                <Box cursor="pointer" className={styles.bigblue} >
                   <Popover>
                     <PopoverTrigger>
                       <Flex gap='10px'><MdInstallMobile fontSize={"20px"} /> Download App</Flex>
@@ -199,7 +203,7 @@ window.open("/signup")
 
                 <Text height="50px" border={"1px solid rgb(223,223,223)"}></Text>
 
-                <Text  className={styles.bigblue} cursor="pointer">Become a Supplier </Text>
+                <Text className={styles.bigblue} cursor="pointer">Become a Supplier </Text>
 
                 <Text height="50px" border={"1px solid rgb(223,223,223)"}></Text>
 
@@ -208,11 +212,11 @@ window.open("/signup")
                   {firstname || lastname ?
 
                     <Popover position="relative" zIndex={9}>
-                       {/* logout button */}
+                      {/* logout button */}
                       <PopoverTrigger>
-                        <Box className={styles.bigblue}  alignItems={"center"}>
-                        <BiUser   fontSize={"25px"} />
-                          <Text  marginLeft="-10px">Profile</Text>
+                        <Box className={styles.bigblue} alignItems={"center"}>
+                          <BiUser fontSize={"25px"} />
+                          <Text marginLeft="-10px">Profile</Text>
                         </Box>
                       </PopoverTrigger>
                       <PopoverContent width={"200px"}>
@@ -221,12 +225,12 @@ window.open("/signup")
                         <PopoverHeader>Manage Account</PopoverHeader>
                         <PopoverBody>
                           <Flex>
-                          <Box>
-                              <Box marginTop={"10px"}> <BiUser fontSize={"35px"}margin="10px 0px 0px 10px" /></Box>
+                            <Box>
+                              <Box marginTop={"10px"}> <BiUser fontSize={"35px"} margin="10px 0px 0px 10px" /></Box>
                             </Box>
                             <Box marginLeft="10px">
-                            <Text>{firstname} {lastname}</Text>
-                            <Text>{phoneNo}</Text>
+                              <Text>{firstname} {lastname}</Text>
+                              <Text>{phoneNo}</Text>
                             </Box>
                           </Flex>
                         </PopoverBody>
@@ -234,7 +238,7 @@ window.open("/signup")
                         <PopoverBody>My Orders</PopoverBody>
                         <hr />
                         <PopoverBody>
-                          <Button onClick={handlelogout}colorScheme={"pink"}>Log Out</Button>
+                          <Button onClick={handlelogout} colorScheme={"pink"}>Log Out</Button>
                         </PopoverBody>
                       </PopoverContent>
                     </Popover> :
@@ -244,7 +248,7 @@ window.open("/signup")
                       <PopoverTrigger>
                         <Box alignItems={"center"}>
                           <BiUser fontSize={"25px"} />
-                          <Text className={styles.bigblue}  marginLeft="-10px">Profile</Text>
+                          <Text className={styles.bigblue} marginLeft="-10px">Profile</Text>
                         </Box>
                       </PopoverTrigger>
                       <PopoverContent width={"200px"}>
@@ -277,7 +281,7 @@ window.open("/signup")
 
                 </Box>
 
-                <Link  className={styles.bigblue} to="/cart" cursor="pointer">
+                <Link className={styles.bigblue} to="/cart" cursor="pointer">
                   <AiOutlineShoppingCart fontSize={"25px"} />
                   Cart
                 </Link>
@@ -291,17 +295,18 @@ window.open("/signup")
               display={{ md: "none" }}
               style={Theme === "light" ? light : dark}
             >
-              <Stack as={"nav"} spacing={4} color="goldenrod" fontWeight="600">
-                <Link to="/product" cursor="pointer">
-                  Womens
-                </Link>
-                <Text cursor="pointer">Mens</Text>
-                <Text cursor="pointer">Kids</Text>
-                <Text cursor="pointer">Electronics</Text>
-                <Link to="/cart" cursor="pointer">
-                  Cart
-                </Link>
-                <Text cursor="pointer">Profile</Text>
+              <Stack as={"nav"} spacing={4} fontWeight="400">
+                <Link className={styles.bigblue} to="/womensEthenic" cursor="pointer"> Women Ethnic</Link>
+                <Link className={styles.bigblue} to="/womensWestern" cursor="pointer">Women Western</Link>
+                <Link className={styles.bigblue} to="/mens" cursor="pointer">Men</Link>
+                <Link className={styles.bigblue} to="/kids" cursor="pointer">Kids</Link>
+                <Link className={styles.bigblue} to="/kitchen" cursor="pointer">Home & Kitchen</Link>
+                <Link className={styles.bigblue} to="/makeup" cursor="pointer">Beauty & Health</Link>
+                <Link className={styles.bigblue} to="/jwellery" cursor="pointer">Jewellery & Accessories </Link>
+                <Link className={styles.bigblue} to="/bags" cursor="pointer">Bags & Footwear</Link>
+                <Link className={styles.bigblue} to="/electronics" cursor="pointer">Electronics</Link>
+                <Link className={styles.bigblue} to="/signup" cursor="pointer">SignUp</Link>
+
               </Stack>
             </Box>
           ) : null}
