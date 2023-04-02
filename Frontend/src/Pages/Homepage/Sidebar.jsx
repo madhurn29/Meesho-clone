@@ -5,7 +5,7 @@ const Sidebar = ({ categoryFilter, onPriceFilterChange }) => {
     // category filter func to filte data by category
 
     // price filter to sore value
-    const [priceFilter, setPriceFilter] = React.useState([]); 
+    const [priceFilter, setPriceFilter] = React.useState([]);
     // filter data
     const handlePriceFilterChange = (event) => {
         const value = parseInt(event.target.value);
@@ -31,6 +31,45 @@ const Sidebar = ({ categoryFilter, onPriceFilterChange }) => {
                         </AccordionButton>
                     </h2>
                 </AccordionItem>
+                {/* Price */}
+                <AccordionItem marginTop="20px">
+                    <h2>
+                        <AccordionButton fontSize="18px" fontWeight={600} lineHeight='24px' color=' rgb(26, 32, 44)'>
+                            <Box as="span" flex='1' textAlign='left'>
+                                Price
+                            </Box>
+                            <AccordionIcon />
+                        </AccordionButton>
+                    </h2>
+                    <AccordionPanel pb={4}>
+
+                        <Stack spacing={5} direction='column'>
+
+                            <Checkbox value={199}
+                                onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
+                                Under ₹ 199
+                            </Checkbox>
+                            <Checkbox value={299}
+                                onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
+                                Under ₹ 399
+                            </Checkbox>
+                            <Checkbox value={599}
+                                onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
+                                Under ₹ 599
+                            </Checkbox>
+                            <Checkbox value={799}
+                                onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
+                                Under ₹ 799
+                            </Checkbox>
+                            <Checkbox value={999}
+                                onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
+                                Under ₹ 999
+                            </Checkbox>
+
+                        </Stack>
+                    </AccordionPanel>
+                </AccordionItem>
+
                 {/* category */}
                 <AccordionItem marginTop="20px" >
                     <h2>
@@ -77,44 +116,7 @@ const Sidebar = ({ categoryFilter, onPriceFilterChange }) => {
                     </AccordionPanel>
                 </AccordionItem>
 
-                {/* Price */}
-                <AccordionItem marginTop="20px">
-                    <h2>
-                        <AccordionButton fontSize="18px" fontWeight={600} lineHeight='24px' color=' rgb(26, 32, 44)'>
-                            <Box as="span" flex='1' textAlign='left'>
-                                Price
-                            </Box>
-                            <AccordionIcon />
-                        </AccordionButton>
-                    </h2>
-                    <AccordionPanel pb={4}>
 
-                        <Stack spacing={5} direction='column'>
-
-                            <Checkbox value={199}
-                                onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
-                                Under ₹ 199
-                            </Checkbox>
-                            <Checkbox value={299}
-                                onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
-                                Under ₹ 399
-                            </Checkbox>
-                            <Checkbox value={599}
-                                onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
-                                Under ₹ 599
-                            </Checkbox>
-                            <Checkbox value={799}
-                                onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
-                                Under ₹ 799
-                            </Checkbox>
-                            <Checkbox value={999}
-                                onChange={handlePriceFilterChange} borderRadius={"15px"} mt="5px" padding="10px" fontSize={"17px"} border={"1px solid rgb(240,240,240)"} colorScheme='green' >
-                                Under ₹ 999
-                            </Checkbox>
-
-                        </Stack>
-                    </AccordionPanel>
-                </AccordionItem>
 
                 {/* Rating */}
                 <AccordionItem marginTop="20px">
@@ -308,7 +310,7 @@ const Sidebar = ({ categoryFilter, onPriceFilterChange }) => {
                         </Stack>
                     </AccordionPanel>
                 </AccordionItem>
-                
+
                 {/* Combo */}
                 <AccordionItem marginTop="20px">
                     <h2>

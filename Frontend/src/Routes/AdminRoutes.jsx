@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import EditProducts from "../Admin/EditProducts";
 import AddProduct from "../Adminpages/AddProduct";
 import Dashboard from "../Adminpages/Dashboard";
 
@@ -11,6 +12,7 @@ const AdminRoutes = () => {
       <Route path="/store" element={<Store />} />
       <Route path="/addproducts" element={<AddProduct />} />
       <Route path="/dashboard" element={<Dashboard />} />
+      <Route path={"/product/:id"} element={<EditProducts />} />
     </Routes>
   );
 };

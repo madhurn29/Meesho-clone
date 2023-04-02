@@ -20,7 +20,7 @@ This repo is the clone of meesho.com. ShopVibes is a shopping and lifestyle bran
 - Vishal More
 - Ankit Sharma
 - Ram Sahith 
-- Hrisikesh Gadhei
+- Hrushikesh Gadhei
 
 ## Some Screenshots of our Project :-
 

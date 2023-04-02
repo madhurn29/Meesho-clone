@@ -22,7 +22,7 @@ const Navbar = (props) => {
   const handleInputChange = (event) => {
     setTimeout(() => {
       props.handleInputChange(event.target.value);
-    }, 3000);
+    }, 2500);
   };
 
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -41,7 +41,7 @@ const Navbar = (props) => {
     navigate("/")
   }
   const handlesignup = () => {
-    navigate("/signup")
+    navigate("/login")
   }
   return (
     <>

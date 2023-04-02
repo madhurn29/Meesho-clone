@@ -2,6 +2,7 @@ import { StarIcon } from "@chakra-ui/icons";
 import { AspectRatio, Box, Flex, Grid, Image, Text } from "@chakra-ui/react";
 import React from "react";
 
+
 const HomeCard = ({ filterdata, state }) => {
   return (
     // mappedData filtered data and  all data in grid
@@ -11,7 +12,7 @@ const HomeCard = ({ filterdata, state }) => {
         md: "repeat(3, 1fr)",
         lg: "repeat(4, 1fr)",
       }}
-      gap={6}
+      gap={{base:5,sm:6}}
       width="75%"
     >
       {filterdata.length > 0
@@ -92,6 +93,7 @@ const HomeCard = ({ filterdata, state }) => {
               borderRadius={"10px"}
             >
               {/* all data mappaed here  */}
+              {/* all data mappaed here  */}
               <AspectRatio maxH={"400px"} ratio={9 / 12}>
                 <Image src={item.images} />
               </AspectRatio>
@@ -153,6 +155,7 @@ const HomeCard = ({ filterdata, state }) => {
           ))}
     </Grid>
   );
-};
+        };
 
 export default HomeCard;
+
