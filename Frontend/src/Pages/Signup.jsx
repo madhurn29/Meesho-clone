@@ -17,7 +17,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar/Navbar";
 import { postRegisterRequest } from "../Redux/AuthRedux/action";
 
-function Signup() {
+function SignUp() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const toast = useToast();
@@ -171,4 +171,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default SignUp;
