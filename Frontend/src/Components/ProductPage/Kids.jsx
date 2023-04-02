@@ -40,6 +40,8 @@ export const Kids = () => {
         setPro(filteredProducts);
       }
     };
+
+    //sorting functionality
     const handleSortOption = (event) => {
         const option = event.target.value;
         setSortOption(option);
