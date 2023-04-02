@@ -39,11 +39,11 @@ import {
   StarIcon,
 } from "@chakra-ui/icons";
 import { BsArrowReturnLeft, BsCartDash, BsCash } from "react-icons/bs";
-
+import { ProductList } from "./ProductList";
+import { PeopleAlsoLike } from "./PeopleAlsoLike";
 import axios from "axios";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Navbar/Footer";
-import SingleLoader from "./SingleLoader";
 
 const Feature = ({ text, icon, iconBg }) => {
   return (
@@ -62,90 +62,24 @@ const Feature = ({ text, icon, iconBg }) => {
     </Stack>
   );
 };
-// const arr=new Array().fill('')
-export default function SingleProductMens() {
-  const { id } = useParams();
-  // console.log("id:",id)
-  const toast = useToast();
 
-  const [prod, setProd] = useState({});
-  const [cart, setCart] = useState([]);
-  // console.log("prod:",prod.products)
-  const [load, setLoad] = useState(true);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    setLoad(true);
-    axios
-      .get(`https://long-lime-fly-tux.cyclic.app/products/${id}`)
-      .then((res) => {
-        console.log("res.data11:", res.data.products);
-        setProd(res.data.products);
-        setLoad(false);
-      })
-      .catch((err) => {
-        console.log(err);
-        setLoad(false);
-      });
-  }, []);
-  // //border={'1px solid #C2C2C2'}
-
-  const handleCart = (prod) => {
-    // console.log("cart:",prod)
-    const newData = { ...prod, quantity: 1 };
-    console.log("newdata:", newData);
-    fetch("https://long-lime-fly-tux.cyclic.app/cart/add", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: localStorage.getItem("token"),
-      },
-      body: JSON.stringify(newData),
-    })
-      .then((res) => {
-        console.log("tot:", res);
-        toast({
-          title: "Add to cart",
-          description: "Product is successfully added to cart",
-          status: "success",
-          duration: 4000,
-          isClosable: true,
-        });
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
-  console.log("load:", load);
+export default function SingleLoader() {
   return (
     <Box>
       <Navbar />
-      <Box>
+      <Skeleton>
         <Box>
           <Container maxW={"5xl"} py={12}>
             <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
               <Box w="70%" borderRadius="4px">
                 <Flex>
-                  {load ? (
-                    <Skeleton>
-                      <Image
-                        border={"1px solid #C2C2C2"}
-                        w={"100%"}
-                        margin="auto"
-                        alt="feature image"
-                        src="#"
-                      />
-                    </Skeleton>
-                    // <Text>loading..</Text>
-                  ) : (
-                    <Image
-                      border={"1px solid #C2C2C2"}
-                      w={"100%"}
-                      margin="auto"
-                      alt={"feature image"}
-                      src={prod.images}
-                    />
-                  )}
+                  <Image
+                    border={"1px solid #C2C2C2"}
+                    w={"100%"}
+                    margin="auto"
+                    alt={"feature image"}
+                    src="#"
+                  />
                 </Flex>
                 <Stack direction="row" spacing={4} ml="40px" mt={"20px"}>
                   <Button
@@ -153,9 +87,6 @@ export default function SingleProductMens() {
                     bg="#F43397"
                     color={"white"}
                     variant="solid"
-                    onClick={() => {
-                      handleCart(prod);
-                    }}
                   >
                     Add to Cart
                   </Button>
@@ -173,10 +104,10 @@ export default function SingleProductMens() {
                 <Card>
                   <CardHeader>
                     <Heading size="md" color="gray">
-                      {prod.title}
+                      {"#"}
                     </Heading>
                     <Text color="black.600" fontSize="2xl" fontWeight="bold">
-                      ₹{prod.price}
+                      ₹'#'
                     </Text>
                     <Badge
                       mt={"15px"}
@@ -184,15 +115,8 @@ export default function SingleProductMens() {
                       px="2"
                       fontSize="md"
                       color={"white"}
-                      bgColor={
-                        prod.rating >= 4
-                          ? "rgb(3, 141, 99)"
-                          : prod.rating > 2
-                          ? "rgb(244, 182, 25)"
-                          : "red"
-                      }
                     >
-                      {prod.rating}
+                      {"#"}
                       <StarIcon color={"white"} height={"10px"} />
                     </Badge>
                   </CardHeader>
@@ -231,6 +155,7 @@ export default function SingleProductMens() {
                   <Box ml={"10px"}>
                     <Text
                       fontSize={{ base: "16px", lg: "18px" }}
+                      color={useColorModeValue("black", "yellow.300")}
                       fontWeight={"bold"}
                       textTransform={"uppercase"}
                       mb={"4"}
@@ -243,7 +168,7 @@ export default function SingleProductMens() {
                         <Text as={"span"} fontWeight={"bold"} color="gray">
                           Name:
                         </Text>{" "}
-                        {prod.title}
+                        {"#"}
                       </ListItem>
                       <ListItem>
                         <Text as={"span"} fontWeight={"bold"} color="gray">
@@ -267,19 +192,19 @@ export default function SingleProductMens() {
                         <Text as={"span"} fontWeight={"bold"} color="gray">
                           rating:
                         </Text>{" "}
-                        {prod.rating}
+                        {"#"}
                       </ListItem>
                       <ListItem>
                         <Text as={"span"} fontWeight={"bold"} color="gray">
                           reviews:
                         </Text>{" "}
-                        {prod.reviews}
+                        {"#"}
                       </ListItem>
                       <ListItem>
                         <Text as={"span"} fontWeight={"bold"} color="gray">
                           delivery:
                         </Text>{" "}
-                        {prod.delivery}{" "}
+                        {"#"}{" "}
                       </ListItem>
                       <ListItem>
                         <Text as={"span"} fontWeight={"bold"} color="gray">
@@ -343,13 +268,7 @@ export default function SingleProductMens() {
             </SimpleGrid>
           </Container>
         </Box>
-        )
-        {/* <Box ml={'9%'} maxW="xxl">
-        <Hide breakpoint='(max-width: 900px)'>
-        <PeopleAlsoLike prod={prod}/>
-        </Hide>
-      </Box> */}
-      </Box>
+      </Skeleton>
       <Footer />
     </Box>
   );
