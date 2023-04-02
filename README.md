@@ -15,11 +15,11 @@ This repo is the clone of meesho.com ,ShopVibes is a shopping and lifestyle bran
 
 ### * Team-Members
 
-- Madhur NAdamwar (Team Lead)
+- Madhur Nadamwar (Team Lead)
 - Vishal More
 - Ankit Sharma
-- Ram Sahit 
-- Hrikesh Gadhei
+- Ram Sahith 
+- Hrisikesh Gadhei
 
 ## Some Screenshots of our Project :-
 
