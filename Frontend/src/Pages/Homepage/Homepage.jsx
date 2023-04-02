@@ -44,6 +44,7 @@ const Homepage = () => {
         setPriceFilter(value);
     };
     // filter - data by -  price - get value - form side bar
+    
     const filteredData = data.filter((item) => {
         if (priceFilter.length === 0) {
             return true;
