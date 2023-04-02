@@ -1,6 +1,7 @@
 import { Box, Text, Button, Image, Flex } from "@chakra-ui/react";
 // import axios from "axios";
 import React, { useState } from "react";
+import { useEffect } from "react";
 
 const CartProductItem = ({
   _id,
@@ -34,6 +35,10 @@ const CartProductItem = ({
       })
       .catch((e) => console.log(e));
   };
+
+  useEffect(() => {
+    handleQuantity();
+  }, [qty]);
 
   return (
     <Box border={"1px solid #dfdfdf"} key={_id} marginBottom={"3%"}>

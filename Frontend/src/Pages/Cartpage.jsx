@@ -7,8 +7,10 @@ import { Link } from "react-router-dom";
 
 const Cartpage = () => {
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const getCartData = () => {
+    setIsLoading(true);
     axios
       .get("https://long-lime-fly-tux.cyclic.app/cart", {
         headers: {
@@ -18,8 +20,12 @@ const Cartpage = () => {
       .then((res) => {
         setData(res.data);
         // console.log(res.data);
+        setIsLoading(false);
       })
-      .catch((e) => console.log(e));
+      .catch((e) => {
+        console.log(e);
+        setIsLoading(false);
+      });
   };
   let sum = 0;
   for (let i = 0; i < data.length; i++) {
@@ -28,6 +34,7 @@ const Cartpage = () => {
   localStorage.setItem("cartPrice", JSON.stringify(sum));
 
   const handleDelete = (id) => {
+    setIsLoading(true);
     axios
       .delete(`https://long-lime-fly-tux.cyclic.app/cart/delete/${id}`, {
         headers: {
@@ -36,8 +43,12 @@ const Cartpage = () => {
       })
       .then((res) => {
         getCartData();
+        setIsLoading(false);
       })
-      .catch((e) => console.log(e));
+      .catch((e) => {
+        console.log(e);
+        setIsLoading(false);
+      });
   };
 
   useEffect(() => {
@@ -50,6 +61,7 @@ const Cartpage = () => {
         <CartNavbar />
       </Box>
       <hr />
+
       <Box
         margin="3% 20% 0 20%"
         display="grid"

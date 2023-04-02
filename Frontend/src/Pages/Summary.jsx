@@ -55,7 +55,7 @@ const Summary = () => {
   }, []);
 
   return (
-    <Box>
+    <Box marginBottom={"3%"}>
       <Box margin="3% 20% 0 20%">
         <CartNavbar />
       </Box>
@@ -78,7 +78,12 @@ const Summary = () => {
 
           <Box>
             {data.map((e) => (
-              <CartProductItem {...e} key={e._id} handleDelete={handleDelete} />
+              <CartProductItem
+                {...e}
+                key={e._id}
+                handleDelete={handleDelete}
+                getCartData={getCartData}
+              />
             ))}
           </Box>
 

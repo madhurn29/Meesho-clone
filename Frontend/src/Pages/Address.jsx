@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Box, Text, Input, Button } from "@chakra-ui/react";
+import { Box, Text, Input, Button, useToast } from "@chakra-ui/react";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import CartNavbar from "../Components/Cart/Cart.Navbar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, NavLink } from "react-router-dom";
 // import axios from "axios";
 
 const Address = () => {
+  const toast = useToast();
   const sum = JSON.parse(localStorage.getItem("cartPrice"));
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -14,14 +15,29 @@ const Address = () => {
   const [pincode, setPincode] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
+  const [temp, setTemp] = useState(false);
+  const navigate = useNavigate();
 
   const handleAddress = () => {
-    localStorage.setItem("Address1", JSON.stringify(address1));
-    localStorage.setItem("Address2", JSON.stringify(address2));
-    localStorage.setItem("City", JSON.stringify(city));
-    localStorage.setItem("Pincode", JSON.stringify(pincode));
-    localStorage.setItem("State", JSON.stringify(state));
-    localStorage.setItem("Name_in_Address", JSON.stringify(name));
+    if (address1 && address2 && city && pincode && state && name) {
+      localStorage.setItem("Address1", JSON.stringify(address1));
+      localStorage.setItem("Address2", JSON.stringify(address2));
+      localStorage.setItem("City", JSON.stringify(city));
+      localStorage.setItem("Pincode", JSON.stringify(pincode));
+      localStorage.setItem("State", JSON.stringify(state));
+      localStorage.setItem("Name_in_Address", JSON.stringify(name));
+      navigate("/cart/payment");
+    } else {
+      toast({
+        title: "Empty fields!",
+        position: "top",
+        description: "Please fill all the details",
+        status: "warning",
+        duration: 5000,
+        isClosable: true,
+      });
+      // setTemp(false);
+    }
   };
 
   return (
@@ -130,16 +146,15 @@ const Address = () => {
             </Box>
           </Box>
           <br />
-          <Link to="/cart/payment">
-            <Button
-              w={"100%"}
-              color={"white"}
-              bg={"#f43297"}
-              onClick={handleAddress}
-            >
-              Save Address & Continue
-            </Button>
-          </Link>
+
+          <Button
+            w={"100%"}
+            color={"white"}
+            bg={"#f43297"}
+            onClick={handleAddress}
+          >
+            Save Address & Continue
+          </Button>
         </Box>
 
         {/* //Cart Price */}
