@@ -17,11 +17,11 @@ const HomeCard = ({ filterdata, state }) => {
       {filterdata.length > 0
         ? filterdata.map((item) => (
             <Box
+              key={item.id}
               box-shadow="rgba(149, 157, 165, 0.2) 0px 8px 24px"
               padding="15px"
               border="1px solid rgb(240,240,240)"
               borderRadius={"10px"}
-              key={item.id}
             >
               {/* filtered data mappaed here  */}
               <AspectRatio maxH={"400px"} ratio={9 / 12}>
@@ -85,11 +85,11 @@ const HomeCard = ({ filterdata, state }) => {
           ))
         : state.map((item) => (
             <Box
+              key={item.id}
               box-shadow="rgba(149, 157, 165, 0.2) 0px 8px 24px"
               padding="15px"
               border="1px solid rgb(240,240,240)"
               borderRadius={"10px"}
-              key={item.id}
             >
               {/* all data mappaed here  */}
               <AspectRatio maxH={"400px"} ratio={9 / 12}>
