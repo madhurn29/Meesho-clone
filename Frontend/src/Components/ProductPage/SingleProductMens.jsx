@@ -135,7 +135,7 @@ import Footer from '../Navbar/Footer';
     Add to Cart
   </Button>
   <Button rightIcon={<ArrowRightIcon/>} color={'#F43397'} borderColor='#F43397' variant='outline' onClick={()=>{
-    navigate("/payment")
+    navigate("/cart/payment")
     }}>
     Buy Now
   </Button>
