@@ -50,7 +50,7 @@ export const validateOtp = (obj) => (dispatch) => {
       return res.data;
     })
     .catch((err) => {
-      dispatch(postRequestError);
+      dispatch(postRequestError());
       return false;
     });
 };
@@ -66,7 +66,9 @@ export const loginRequest = (obj) => (dispatch) => {
       return res;
     })
     .catch((err) => {
-      dispatch(postRequestError);
+      console.log(err);
+      // dispatch(postRequestSuccess());
+      dispatch(postRequestError());
       return false;
     });
 };
@@ -89,16 +91,16 @@ export const adminLoginRequest = (obj) => (dispatch) => {
 
 export const validateAdminOtp = (obj) => (dispatch) => {
   dispatch(postRequest());
-
+  console.log(obj, "from validateAdminOtp");
   return axios
     .post("https://long-lime-fly-tux.cyclic.app/admin/validateOtp", obj)
     .then((res) => {
       dispatch(postRequestSuccess(res.data));
-      // console.log(res.data, "from action");
+      console.log(res.data, "from action");
       return res.data;
     })
     .catch((err) => {
-      dispatch(postRequestError);
+      dispatch(postRequestError());
       return false;
     });
 };
