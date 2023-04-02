@@ -6,7 +6,7 @@ const HomeCard = ({ filterdata, state }) => {
     return (
 
         // mappedData filtered data and  all data in grid  
-        <Grid templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(3, 1fr)", lg: 'repeat(4, 1fr)' }} gap={6} width="75%">
+        <Grid templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(3, 1fr)", lg: 'repeat(4, 1fr)' }} gap={{base:5,sm:6}} width="75%">
             {filterdata.length > 0 ? filterdata.map((item) => <Box box-shadow="rgba(149, 157, 165, 0.2) 0px 8px 24px" padding="15px" border="1px solid rgb(240,240,240)" borderRadius={"10px"} key={item.id}>
                 {/* filtered data mappaed here  */}
                 <Image objectFit={"cover"}  src={item.images} />

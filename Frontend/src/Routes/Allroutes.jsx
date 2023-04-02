@@ -26,8 +26,9 @@ import Jwellery from "../Pages/Jwellery";
 import Bags from "../Pages/Bags";
 import Electronics from "../Pages/Electronics";
 import Homepage from "../Pages/Homepage/Homepage";
-import Signup from "../Pages/SignUp";
+
 import AdminOTP from "../Pages/AdminOTP";
+import Signup from "../Pages/Signup";
 
 function Allroutes() {
   return (
