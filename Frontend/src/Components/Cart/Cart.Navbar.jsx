@@ -7,8 +7,14 @@ import { Link } from "react-router-dom";
 
 const CartNavbar = () => {
   return (
-    <Box marginTop={"-3%"} display={{ sm: "flex", md: "flex", lg: "flex" }}>
-      <Box marginLeft={"-20%"}>
+    <Box
+      marginTop={{ base: "8%", md: "3%", lg: "-3%" }}
+      display={{ sm: "flex", md: "flex", lg: "flex" }}
+    >
+      <Box
+        marginLeft={{ base: "30%", sm: "-20%", md: "-20%", lg: "-20%" }}
+        marginBottom={{ base: "3%", sm: "5%", md: "3%", lg: "1%" }}
+      >
         <Link to="/">
           <Image w={"60%"} src={meesho}></Image>
         </Link>
