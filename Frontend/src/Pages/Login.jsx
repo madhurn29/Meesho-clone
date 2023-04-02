@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar/Navbar";
 import { loginRequest } from "../Redux/AuthRedux/action";
@@ -23,7 +23,9 @@ function Login() {
   const toast = useToast();
 
   const [phoneNo, setMobile] = useState("");
-
+  const isLoading = useSelector((store) => {
+    return store.AuthReducer.isLoading;
+  });
   const handleSendOTP = () => {
     if (phoneNo.length < 10) {
       toast({
@@ -113,7 +115,6 @@ function Login() {
                 isDisabled={phoneNo.length === 10}
                 onChange={(e) => {
                   setMobile(e.target.value);
-
                 }}
               />
             </InputGroup>
@@ -126,7 +127,7 @@ function Login() {
               _hover={{ bg: "rgb(199, 60, 157)" }}
               onClick={handleSendOTP}
             >
-              Send OTP
+              {isLoading ? "Sending..." : "Send OTP"}
             </Button>
             <Text m={"auto"}>
               Don't have a account yet? signup
