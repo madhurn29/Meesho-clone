@@ -27,19 +27,60 @@ import Bags from "../Pages/Bags";
 import Electronics from "../Pages/Electronics";
 import Homepage from "../Pages/Homepage/Homepage";
 
+
 import AdminOTP from "../Pages/AdminOTP";
 import Signup from "../Pages/Signup";
+
+import Signup from "../Pages/Signup";
+import AdminOTP from "../Pages/AdminOTP";
+import PrivateRoute from "./PrivateRoutes";
+
 
 function Allroutes() {
   return (
     <Routes>
       {/* TODO: add routes here */}
       {/* {ram} */}
-      <Route path="/cart" element={<Cartpage />}></Route>
-      <Route path="/cart/address" element={<Address />}></Route>
-      <Route path="/cart/payment" element={<Payment />}></Route>
-      <Route path="/cart/summary" element={<Summary />}></Route>
-      <Route path="/cart/thankyou" element={<Thankyou />}></Route>
+      <Route
+        path="/cart"
+        element={
+          <PrivateRoute>
+            <Cartpage />
+          </PrivateRoute>
+        }
+      ></Route>
+      <Route
+        path="/cart/address"
+        element={
+          <PrivateRoute>
+            <Address />
+          </PrivateRoute>
+        }
+      ></Route>
+      <Route
+        path="/cart/payment"
+        element={
+          <PrivateRoute>
+            <Payment />
+          </PrivateRoute>
+        }
+      ></Route>
+      <Route
+        path="/cart/summary"
+        element={
+          <PrivateRoute>
+            <Summary />
+          </PrivateRoute>
+        }
+      ></Route>
+      <Route
+        path="/cart/thankyou"
+        element={
+          <PrivateRoute>
+            <Thankyou />
+          </PrivateRoute>
+        }
+      ></Route>
 
       {/* {vishal} */}
       <Route path="/" element={<Homepage />} />

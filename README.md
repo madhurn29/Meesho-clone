@@ -42,14 +42,12 @@ This repo is the clone of meesho.com ,ShopVibes is a shopping and lifestyle bran
 
 ### * Products detail page
 
-![productdetails1](https://user-images.githubusercontent.com/106108504/221402132-e6cbd03b-32e8-4331-9209-6a3dc3b593cb.png)
 
 ### * Cart page
 
 ![Screenshot (1247)](https://user-images.githubusercontent.com/107456969/229345812-90674928-37f3-4c8a-8038-1b29d06e79ee.png)
 
 ### * Payment page
-
 
 ![Screenshot (1249)](https://user-images.githubusercontent.com/107456969/229345824-9d5df5ed-6899-454a-bbe9-22a11ebf1bd8.png)
 
