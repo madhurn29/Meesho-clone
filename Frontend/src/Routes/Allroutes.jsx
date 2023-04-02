@@ -33,42 +33,42 @@ function Allroutes() {
   return (
     <Routes>
       {/* TODO: add routes here */}
-{/* {ram} */}
+      {/* {ram} */}
       <Route path="/cart" element={<Cartpage />}></Route>
       <Route path="/cart/address" element={<Address />}></Route>
       <Route path="/cart/payment" element={<Payment />}></Route>
       <Route path="/cart/summary" element={<Summary />}></Route>
+      <Route path="/cart/thankyou" element={<Thankyou />}></Route>
 
-{/* {vishal} */}
-      <Route path="/" element={<Homepage/>}/>
-      <Route path="/jwellery" element={<Jwellery/>}/>
-      <Route path="/bags" element={<Bags/>}/>
-      <Route path="/electronics" element={<Electronics/>}/>
-      
-{/* {ankit} */}
-      <Route path="/product" element={<Product/>}/>
+      {/* {vishal} */}
+      <Route path="/" element={<Homepage />} />
+      <Route path="/jwellery" element={<Jwellery />} />
+      <Route path="/bags" element={<Bags />} />
+      <Route path="/electronics" element={<Electronics />} />
+
+      {/* {ankit} */}
+      <Route path="/product" element={<Product />} />
       <Route path="/product/:id" element={<SingleProduct />} />
-      <Route path="/mens" element={<Mens/>}/>
-      <Route path="/womensWestern" element={<WomensWestern/>}/>
-      <Route path="/womensEthenic" element={<WomenEthnic/>}/>
-      <Route path="/kids" element={<Kids/>}/>
-      <Route path="/makeup" element={<Makeup/>}/>
-      <Route path="/kitchen" element={<Kitchen/>}/>
-      <Route path="/mens/:id" element={<SingleProductMens/>}/>
-      <Route path="/womensWestern/:id" element={<SingleProductWestern/>}/>
-      <Route path="/womensEthenic/:id" element={<SingleProductEthenic/>}/>
-      <Route path="/kids/:id" element={<SingleProductKids/>}/>
-      <Route path="/makeup/:id" element={<SingleProductMakeup/>}/>
-      <Route path="/kitchen/:id" element={<SingleProductKitchen/>}/> 
-       {/* <Route path="/product/:id" element={<SingleProduct/>}/> */}
- 
-{/* {madhur} */}
-      <Route path="/signup" element={<Signup/>}></Route>
+      <Route path="/mens" element={<Mens />} />
+      <Route path="/womensWestern" element={<WomensWestern />} />
+      <Route path="/womensEthenic" element={<WomenEthnic />} />
+      <Route path="/kids" element={<Kids />} />
+      <Route path="/makeup" element={<Makeup />} />
+      <Route path="/kitchen" element={<Kitchen />} />
+      <Route path="/mens/:id" element={<SingleProductMens />} />
+      <Route path="/womensWestern/:id" element={<SingleProductWestern />} />
+      <Route path="/womensEthenic/:id" element={<SingleProductEthenic />} />
+      <Route path="/kids/:id" element={<SingleProductKids />} />
+      <Route path="/makeup/:id" element={<SingleProductMakeup />} />
+      <Route path="/kitchen/:id" element={<SingleProductKitchen />} />
+      {/* <Route path="/product/:id" element={<SingleProduct/>}/> */}
+
+      {/* {madhur} */}
+      <Route path="/signup" element={<Signup />}></Route>
       <Route path="/login" element={<Login />}></Route>
       <Route path="/otp" element={<OTP />}></Route>
       <Route path="/adminlogin" element={<AdminLogin />}></Route>
       <Route path="/adminotp" element={<AdminOTP />}></Route>
-      
     </Routes>
   );
 }
