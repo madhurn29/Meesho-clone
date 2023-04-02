@@ -21,7 +21,7 @@ const Navbar = (props) => {
   let firstname = localStorage.getItem("firstName") || ""
   let lastname = localStorage.getItem("lastName") || ""
   let phoneNo = localStorage.getItem("phoneNo") || ""
-  console.log('firstname: ', firstname);
+  
   const inputRef = React.useRef(null);
 
   const handleInputChange = (event) => {
