@@ -18,7 +18,7 @@ const HomeCard = ({ filterdata, state }) => {
       {filterdata.length > 0
         ? filterdata.map((item) => (
             <Box
-              key={item.id}
+              key={item._id}
               box-shadow="rgba(149, 157, 165, 0.2) 0px 8px 24px"
               padding="15px"
               border="1px solid rgb(240,240,240)"
@@ -86,7 +86,7 @@ const HomeCard = ({ filterdata, state }) => {
           ))
         : state.map((item) => (
             <Box
-              key={item.id}
+              key={item._id}
               box-shadow="rgba(149, 157, 165, 0.2) 0px 8px 24px"
               padding="15px"
               border="1px solid rgb(240,240,240)"
