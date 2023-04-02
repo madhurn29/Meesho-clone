@@ -19,20 +19,13 @@ import { validateOtp } from "../Redux/AuthRedux/action";
 
 function OTP() {
   const [timer, setTimer] = useState(false);
-  const [otpNumber, setOtpNumber] = useState([]);
+  const [otpNumber, setOtpNumber] = useState("");
   const dispatch = useDispatch();
   const toast = useToast();
   const navigate = useNavigate();
-  let isLoading = useSelector((store) => {
+  const isLoading = useSelector((store) => {
     return store.AuthReducer.isLoading;
   });
-
-  const handleTimer = () => {
-    setTimer(false);
-  };
-  const handleOTP = (e) => {
-    setOtpNumber([...otpNumber, e.target.value]);
-  };
 
   useEffect(() => {
     toast({
@@ -41,18 +34,27 @@ function OTP() {
       )}`,
       description: `OTP is ${localStorage.getItem("OTP")}`,
       status: "success",
-      duration: 6000,
+      duration: 3000,
       isClosable: true,
       position: "top",
     });
-  }, [isLoading]);
+  }, []);
 
+  const handleTimer = () => {
+    setTimer(false);
+  };
+  const handlePinChange = (e) => {
+    const { value, name } = e.target;
+    const newPin = otpNumber.slice(0, name) + value + otpNumber.slice(name + 1);
+    setOtpNumber(newPin);
+  };
+  
   const verify = () => {
     let obj = {
       phoneNo: Number(localStorage.getItem("phoneNo")),
-      tempOtp: Number(otpNumber.join("")),
+      tempOtp: Number(otpNumber),
     };
-
+    
     dispatch(validateOtp(obj)).then((res) => {
       if (res) {
         localStorage.setItem("token", res.token);
@@ -65,7 +67,7 @@ function OTP() {
           isClosable: true,
           position: "top",
         });
-        setOtpNumber([]);
+        setOtpNumber("");
         navigate("/");
       } else {
         toast({
@@ -75,7 +77,8 @@ function OTP() {
           isClosable: true,
           position: "top",
         });
-        setOtpNumber([]);
+
+        setOtpNumber("");
       }
     });
   };
@@ -103,13 +106,13 @@ function OTP() {
             <Heading fontSize={"2xl"}>Enter OTP</Heading>
 
             <HStack m={"auto"}>
-              <PinInput type="number">
-                <PinInputField onChange={(e) => handleOTP(e)} />
-                <PinInputField onChange={(e) => handleOTP(e)} />
-                <PinInputField onChange={(e) => handleOTP(e)} />
-                <PinInputField onChange={(e) => handleOTP(e)} />
-                <PinInputField onChange={(e) => handleOTP(e)} />
-                <PinInputField onChange={(e) => handleOTP(e)} />
+              <PinInput value={otpNumber} type="number" onChange={setOtpNumber}>
+                <PinInputField name="0" onChange={handlePinChange} />
+                <PinInputField name="1" onChange={handlePinChange} />
+                <PinInputField name="2" onChange={handlePinChange} />
+                <PinInputField name="3" onChange={handlePinChange} />
+                <PinInputField name="4" onChange={handlePinChange} />
+                <PinInputField name="5" onChange={handlePinChange} />
               </PinInput>
             </HStack>
             <Button
@@ -133,7 +136,7 @@ function OTP() {
                     )}`,
                     description: `OTP is ${localStorage.getItem("OTP")}`,
                     status: "success",
-                    duration: 9000,
+                    duration: 2000,
                     isClosable: true,
                     position: "top",
                   });

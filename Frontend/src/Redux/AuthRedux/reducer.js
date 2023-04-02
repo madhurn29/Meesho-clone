@@ -30,6 +30,7 @@ export const reducer = (state = initState, action) => {
     }
 
     case POST_REGISTER_REQUEST_FAILURE: {
+      console.log("errrrrrrrrrrr")
       return {
         isLoading: false,
         isError: true,
