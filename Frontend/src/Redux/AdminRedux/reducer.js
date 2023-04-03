@@ -1,4 +1,4 @@
-import { ADMIN_PATCH_PRODUCT_SUCCESS, ADMIN_POST_PRODUCT__SUCCESS, ADMIN_PRODUCT_FAILURE, ADMIN_PRODUCT_REQUEST, ADMIN_PRODUCT_SUCCESS } from "../ActionTypes"
+import { ADMIN_DELETE_PRODUCT_SUCCESS, ADMIN_PATCH_PRODUCT_SUCCESS, ADMIN_POST_PRODUCT__SUCCESS, ADMIN_PRODUCT_FAILURE, ADMIN_PRODUCT_REQUEST, ADMIN_PRODUCT_SUCCESS } from "../ActionTypes"
 
 
 const initialState ={
@@ -19,6 +19,8 @@ export const reducer = (state = initialState,{type,payload})=>{
             return{...state,isLoading:false}
         case ADMIN_PRODUCT_FAILURE:
             return{...state,isLoading:false,isError:true}
+        case ADMIN_DELETE_PRODUCT_SUCCESS:
+            return{...state,isLoading:false,isError:false}
         default:
             return state
     }

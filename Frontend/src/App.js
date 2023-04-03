@@ -12,13 +12,14 @@ function App() {
 
     <>
 
-    
-    
+
+
 
 
 
       <Allroutes />
-      <AdminRoutes />
+     <AdminRoutes />
+
 
 
     </>

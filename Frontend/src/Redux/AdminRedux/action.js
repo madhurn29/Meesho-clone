@@ -1,6 +1,6 @@
 
 import axios from "axios"
-import { ADMIN_PATCH_PRODUCT_SUCCESS, ADMIN_POST_PRODUCT__SUCCESS, ADMIN_PRODUCT_FAILURE, ADMIN_PRODUCT_REQUEST, ADMIN_PRODUCT_SUCCESS } from "../ActionTypes"
+import { ADMIN_DELETE_PRODUCT_SUCCESS, ADMIN_PATCH_PRODUCT_SUCCESS, ADMIN_POST_PRODUCT__SUCCESS, ADMIN_PRODUCT_FAILURE, ADMIN_PRODUCT_REQUEST, ADMIN_PRODUCT_SUCCESS } from "../ActionTypes"
 
 
 
@@ -21,10 +21,10 @@ export const adminProductFailure=()=>{
 }
 
 
-export const getProduct=(category)=>(dispatch)=>{
+export const getProduct=(params)=>(dispatch)=>{
     dispatch(adminProductRequest())
     console.log("request")
-    axios.get(`https://long-lime-fly-tux.cyclic.app/products?category=${category}`).then((res)=>{
+    axios.get(`https://long-lime-fly-tux.cyclic.app/products`,params).then((res)=>{
         // console.log(res.data)
         dispatch(getAdminProductSuccess(res.data));
         console.log("product")
@@ -44,6 +44,33 @@ export const editProduct=(id,newData)=>(dispatch)=>{
         },
     })
     .then (()=>{
-        dispatch({type:ADMIN_PATCH_PRODUCT_SUCCESS}).catch(()=>{dispatch(adminProductFailure())})
+        dispatch({type:ADMIN_PATCH_PRODUCT_SUCCESS})
+    }).catch(()=>{dispatch(adminProductFailure())})
+}
+export const DeleteProduct=(id)=>(dispatch)=>{
+    dispatch(adminProductRequest())
+    axios.delete(`https://long-lime-fly-tux.cyclic.app/products/delete/${id}`,{
+        headers:{
+            Authorization:`${localStorage.getItem("admintoken")}`
+        },
     })
+    .then ((res)=>{
+        console.log(res.data);
+        dispatch({type:ADMIN_DELETE_PRODUCT_SUCCESS})
+    }).catch(()=>{dispatch(adminProductFailure())})
+}
+
+
+export const addProduct=(payload)=>(dispatch)=>{
+        dispatch(adminProductRequest())
+        axios.post(`https://long-lime-fly-tux.cyclic.app/products/add`,payload,{
+        headers:{
+            Authorization:`${localStorage.getItem("admintoken")}`
+        },
+    }).then((res)=>{
+            console.log(res.data)
+            dispatch(postAdminProductSuccess(res.data))
+        }).catch((err)=>{
+            dispatch(adminProductFailure())
+        })
 }

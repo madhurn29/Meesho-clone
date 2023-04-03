@@ -19,7 +19,7 @@ const Sidebar = () => {
   const initialState = searchParams.get("category");
   const initialOrder = searchParams.get("order");
 
-  const [categories, setCategories] = useState(initialState || "mens");
+  const [categories, setCategories] = useState(initialState || "");
   const [order, setOrder] = useState(initialOrder || "");
 
   const handleCategoryChange = (selected) => {

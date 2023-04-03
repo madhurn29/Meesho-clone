@@ -16,48 +16,51 @@ import {
 } from "@chakra-ui/react";
 import ProductsCard from "../Admin/ProductsCard.admin";
 import EditProductModal from "./EditProductModal";
+import LoadingPage from "./LoadingPage";
 
 const Store = () => {
   const dispatch = useDispatch();
   const [searchParams] = useSearchParams();
 
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  //   console.log(category);
-  //   let obj = {
-  //     params: {
-  //       category: searchParams.get("category"),
-  //       order: searchParams.get("order"),
-  //       sortBy: searchParams.get("order") && "price",
-  //     },
-  //   };
-  const category = searchParams.get("category");
-  const order = searchParams.get("order") && "price";
-  const sortBy = searchParams.get("order");
+  let obj = {
+    params: {
+      category: searchParams.get("category"),
+      sortBy: searchParams.get("order") && "price",
+      order: searchParams.get("order"),
+    },
+  };
+
   useEffect(() => {
-    dispatch(getProduct(category, order, sortBy));
+    dispatch(getProduct(obj));
   }, [dispatch, searchParams]);
 
   const product = useSelector((store) => {
     return store.adminReducer.products;
   });
-  console.log(product);
+  const isLoading = useSelector((store) => {
+    return store.adminReducer.isLoading;
+  });
+  console.log(isLoading);
 
   return (
     <>
       <AdminNavbar />
       <Flex>
         <Sidebar />
-
-        <SimpleGrid
-          width="100%"
-          margin="auto"
-          columns={{ base: 1, md: 3, lg: 4 }}
-          spacing={8}
-        >
-          {product?.map((product) => (
-            <ProductsCard product={product} height={200} />
-          ))}
-        </SimpleGrid>
+        {isLoading ? (
+          <LoadingPage />
+        ) : (
+          <SimpleGrid
+            width="100%"
+            margin="auto"
+            columns={{ base: 1, md: 3, lg: 4 }}
+            spacing={8}
+          >
+            {product?.map((product) => (
+              <ProductsCard product={product} params={obj} height={270} />
+            ))}
+          </SimpleGrid>
+        )}
       </Flex>
     </>
   );
