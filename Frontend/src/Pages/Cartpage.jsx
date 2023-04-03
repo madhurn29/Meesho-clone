@@ -18,9 +18,9 @@ const Cartpage = () => {
         },
       })
       .then((res) => {
+        setIsLoading(false);
         setData(res.data);
         // console.log(res.data);
-        setIsLoading(false);
       })
       .catch((e) => {
         console.log(e);
@@ -42,8 +42,8 @@ const Cartpage = () => {
         },
       })
       .then((res) => {
-        getCartData();
         setIsLoading(false);
+        getCartData();
       })
       .catch((e) => {
         console.log(e);
