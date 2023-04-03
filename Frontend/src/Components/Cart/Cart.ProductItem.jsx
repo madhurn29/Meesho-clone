@@ -29,7 +29,7 @@ const CartProductItem = ({
       },
       body: JSON.stringify(payload),
     })
-      .then((res) => res.json())
+      // .then((res) => res.json())
       .then((res) => {
         getCartData();
       })
@@ -38,7 +38,7 @@ const CartProductItem = ({
 
   useEffect(() => {
     handleQuantity();
-  }, [qty]);
+  }, [qty, handleQuantity]);
 
   return (
     <Box border={"1px solid #dfdfdf"} key={_id} marginBottom={"3%"}>
