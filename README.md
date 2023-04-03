@@ -50,7 +50,7 @@ This repo is the clone of meesho.com. ShopVibes is a shopping and lifestyle bran
 
 ![Screenshot (1249)](https://user-images.githubusercontent.com/107456969/229345824-9d5df5ed-6899-454a-bbe9-22a11ebf1bd8.png)
 
-
+server link:https://long-lime-fly-tux.cyclic.app/
 
 
 
