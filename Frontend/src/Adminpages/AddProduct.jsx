@@ -9,77 +9,144 @@ import {
   Input,
   Select,
 } from "@chakra-ui/react";
-import React from "react";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import React, { useState } from "react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import AdminNavbar from "./AdminNavbar";
+import { useDispatch } from "react-redux";
+import { addProduct } from "../Redux/AdminRedux/action";
+import { Product } from "../Components/ProductPage/Product";
 
 const AddProduct = () => {
+  const [data, setData] = useState({
+    images: "",
+    title: "",
+    category: "",
+    price: "",
+    rating: "",
+    reviews: "",
+    delivery: "",
+  });
+  const dispatch = useDispatch();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(addProduct(data));
+    // handle form submission here
+
+    setIsSubmitting(true);
+    setTimeout(() => {
+      // enable the submit button
+      setIsSubmitting(false);
+
+      toast.success("The item has been successfully added.", {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }, 3000);
+  };
+
+  const handleChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+    console.log(data);
+  };
   return (
     <>
       <AdminNavbar />
-      <Box border={"1px solid re"}>
-        <Box>
-          <Breadcrumb
-            spacing="8px"
-            separator={<ChevronRightIcon color="gray.500" />}
-          >
-            <BreadcrumbItem>
-              <BreadcrumbLink href="#">Admin</BreadcrumbLink>
-            </BreadcrumbItem>
-
-            <BreadcrumbItem>
-              <BreadcrumbLink href="#">Add Product</BreadcrumbLink>
-            </BreadcrumbItem>
-          </Breadcrumb>
-        </Box>
-        <Box
-          m={"auto"}
-          border={"1px solid re"}
-          width={"50%"}
-          p={"15px"}
-          boxShadow={" rgba(0, 0, 0, 0.24) 0px 3px 8px;"}
-        >
-          <FormControl width={"100%"} as={"fieldset"}>
+      <Box
+        maxW="lg"
+        borderWidth="1px"
+        borderRadius="lg"
+        p="6"
+        mx="auto"
+        boxShadow="md"
+      >
+        <form onSubmit={handleSubmit}>
+          <FormControl>
             <FormLabel>Image Link</FormLabel>
-            <Input name="images" />
-
-            <FormLabel>Title</FormLabel>
-            <Input name="name" />
-            <Box display={"flex"} mt={"5px"}>
-              <FormLabel>Select Category</FormLabel>
-              <Select
-                placeholder="Category"
-                // bg="#ffa711"
-                w={{ lg: "30%" }}
-              >
-                <option value="men-jeans">Mens-Jeans</option>
-                <option value="men-t-shirts">Mens T-Shirt</option>
-                <option value="women-kurtas-suits">Womens Kurta Suits</option>
-                <option value="women-tops">Womens Tops</option>
-              </Select>
-            </Box>
-            <FormLabel>Brand</FormLabel>
-            <Input name="brand_name" />
-
-            <FormLabel>Description</FormLabel>
-            <Input name="product_details" />
-
-            <FormLabel>Mrp</FormLabel>
-            <Input name="price.mrp" type={"number"} />
-            <FormLabel>Special Price</FormLabel>
-            <Input name="price.sp" type={"number"} />
-            <Box display={"flex"} gap={"5px"} mt={"10px"}>
-              <FormLabel>Rating</FormLabel>
-
-              <Input name="customer_rating" type={"number"} />
-              <FormLabel>Quantity</FormLabel>
-              <Input name="quantity" type={"number"} />
-            </Box>
-            <Box display={"flex"} justifyContent={"space-around"} mt="10px">
-              <Button colorScheme={"green"}>Add Product</Button>
-            </Box>
+            <Input
+              type="text"
+              name="images"
+              value={data.images}
+              onChange={handleChange}
+              size="lg"
+            />
           </FormControl>
-        </Box>
+          <FormControl mt="4">
+            <FormLabel>Title</FormLabel>
+            <Input
+              type="text"
+              name="title"
+              value={data.title}
+              onChange={handleChange}
+              size="lg"
+            />
+          </FormControl>
+          <FormControl mt="4">
+            <FormLabel>Category</FormLabel>
+            <Select name="category" onChange={handleChange} size="lg">
+              <option value="">Select a category</option>
+              <option value="mens">Mens</option>
+              <option value="womensEthnic">Womens Ethnic</option>
+              <option value="womensWestern">Womens Western</option>
+              <option value="kids">Kids</option>
+              <option value="makeup">Makeup</option>
+              <option value="kitchen">Home and Kitchen</option>
+            </Select>
+          </FormControl>
+          <FormControl mt="4">
+            <FormLabel>Price</FormLabel>
+            <Input
+              type="text"
+              name="price"
+              value={data.price}
+              onChange={handleChange}
+              size="lg"
+            />
+          </FormControl>
+          <FormControl mt="4">
+            <FormLabel>Rating</FormLabel>
+            <Input
+              type="text"
+              name="rating"
+              value={data.rating}
+              onChange={handleChange}
+              size="lg"
+            />
+          </FormControl>
+          <FormControl mt="4">
+            <FormLabel>Reviews</FormLabel>
+            <Input
+              type="text"
+              name="reviews"
+              value={data.reviews}
+              onChange={handleChange}
+              size="lg"
+              focusBorderColor="pink.500"
+            />
+          </FormControl>
+          <FormControl mt="4">
+            <FormLabel>Delivery Type</FormLabel>
+            <Select name="deliveryType" onChange={handleChange} size="lg">
+              <option value="">Select a delivery type</option>
+              <option value="Free Delivery">Free Delivery</option>
+              <option value="Paid Delivery">Paid Delivery</option>
+            </Select>
+          </FormControl>
+          <Button mt="4" colorScheme="blue" type="submit" size="lg" w="full">
+            {isSubmitting ? "Submitting..." : "Submit"}
+          </Button>
+          <ToastContainer />
+        </form>
       </Box>
     </>
   );

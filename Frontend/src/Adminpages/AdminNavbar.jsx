@@ -33,6 +33,7 @@ import {
 } from "react-icons/fi";
 import { Link, Route } from "react-router-dom";
 import AdminRoutes from "../Routes/AdminRoutes";
+import messhoImage from "../Components/Images/meesho.png";
 
 const LinkItems = [
   { name: "Dashboard", icon: FiHome, to: "/dashboard" },
@@ -77,9 +78,7 @@ export default function AdminNavbar({ children, heading }) {
               marginTop="8px"
               marginLeft={"30px"}
               marginRight={"70px"}
-              w="60px"
-              h="60px"
-              src="https://i.ibb.co/MRdygMB/meesho.png"
+              src={messhoImage}
             />
           </Box>
         </Link>
