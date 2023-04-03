@@ -139,7 +139,7 @@ const Dashboard = () => {
       {isLoading ? (
         <LoadingPage />
       ) : (
-        <Table variant="simple" marginTop="8">
+        <Table variant="simple" marginTop="8" w="80%" m="auto">
           <TableCaption
             placement="top"
             fontWeight="bold"
